@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #444444;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: #f5f5f5;
+  height: 3.2rem;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main {
+  position: fixed;
+  top: 3.2rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+main .side-nav {
+  height: 100%;
+  background-color: #f5f5f5;
+  width: 15rem;
+  min-width: 15rem;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+main .side-nav .toggle-wrapper {
+  text-align: end;
+  padding-right: 1rem;
+}
+main .side-nav .toggle-wrapper .toggle-btn {
+  padding: 0.9rem;
+  border-radius: 8px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+main .side-nav .toggle-wrapper .toggle-btn:hover {
+  background-color: #dcdcdc;
+  color: black;
+}
+main .side-nav .toggle-wrapper .toggle-btn:active {
+  background-color: #bfbfbf;
+}
+main .side-nav .menu-link {
+  text-decoration: none;
+  padding: 0.8rem;
+  display: block;
+  white-space: nowrap;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+main .side-nav .menu-link i {
+  margin-right: 1rem;
+}
+main .side-nav .menu-link:hover {
+  background-color: #dcdcdc;
+  color: black;
+}
+main .side-nav .menu-link:active {
+  background-color: #bfbfbf;
+}
+main .main-content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  row-gap: 20px;
+  padding: 2rem 0 2rem;
+}
+.card-container .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.2rem 1.5rem 1.5rem;
+  width: 200px;
+  height: 150px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+.card-container .card .card-icon {
+  font-size: 1.5rem;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+.card-container .card .card-number {
+  font-size: 2rem;
+}
+.card-container .card .card-label {
+  color: #808080;
+}/*# sourceMappingURL=dashboard.css.map */

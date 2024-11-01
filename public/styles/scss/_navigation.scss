@@ -1,0 +1,50 @@
+.side-nav {
+  height: 100%;
+  background-color: #f5f5f5;
+  width: 15rem;
+  min-width: 15rem;
+  overflow: hidden;
+  transition: 0.5s;
+
+  .toggle-wrapper {
+    text-align: end;
+    padding-right: 1rem;
+
+    .toggle-btn {
+      padding: 0.9rem;
+      border-radius: 8px;
+      transition: 0.25s;
+
+      &:hover {
+        background-color: #dcdcdc;
+        color: black;
+      }
+
+      &:active {
+        background-color: #bfbfbf;
+      }
+    }
+  }
+
+  .menu-link {
+    text-decoration: none;
+    padding: 0.8rem;
+    display: block;
+    white-space: nowrap;
+    transition: 0.25s;
+
+    i {
+      margin-right: 1rem;
+    }
+
+    &:hover {
+      background-color: #dcdcdc;
+      color: black;
+    }
+
+    &:active {
+      background-color: #bfbfbf;
+    }
+  }
+
+}
