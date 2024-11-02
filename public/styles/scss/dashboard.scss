@@ -33,7 +33,7 @@ main {
     padding: 1.2rem 1.5rem 1.5rem;
     width: 200px;
     height: 150px;
-    background-color: #f5f5f5;
+    background-color: $primary-color;
     border-radius: 8px;
 
     .card-icon {
@@ -46,7 +46,7 @@ main {
     }
 
     .card-label {
-      color: #808080;
+      color: $grey;
     }
   }
 }

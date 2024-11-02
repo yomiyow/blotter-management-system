@@ -16,12 +16,12 @@
       transition: 0.25s;
 
       &:hover {
-        background-color: #dcdcdc;
+        background-color: $btn-color-hovered;
         color: black;
       }
 
       &:active {
-        background-color: #bfbfbf;
+        background-color: $btn-color-clicked;
       }
     }
   }
@@ -38,12 +38,12 @@
     }
 
     &:hover {
-      background-color: #dcdcdc;
+      background-color: $btn-color-hovered;
       color: black;
     }
 
     &:active {
-      background-color: #bfbfbf;
+      background-color: $btn-color-clicked
     }
   }
 

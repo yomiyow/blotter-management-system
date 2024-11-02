@@ -1,0 +1,59 @@
+@import 'header';
+@import 'variables';
+@import 'reset';
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $primary-color;
+
+  .login-card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 450px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px $grey;
+    padding: 2rem;
+    position: relative;
+
+    .login-btn{
+      color: white;
+      background-color: $blue;
+      padding: 8px 0;
+      border: none;
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    .login-header{
+      position: absolute;
+      top: 15px;
+    }
+
+    .input-group{
+
+      input{
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: solid $grey 1px;
+        width: 100%;
+        background-color: $primary-color;
+        margin: 10px 0;
+      }
+    }
+
+    .register{
+      display: flex;
+      justify-content: space-evenly;
+      margin: 10px 0;
+
+      a{
+        color: $blue;
+      }
+    }
+  }
+}
