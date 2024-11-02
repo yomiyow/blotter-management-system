@@ -4,3 +4,12 @@ $btn-color-hovered: #dcdcdc;
 $btn-color-clicked: #bfbfbf;
 $grey: #808080;
 $blue: #007bff;
+
+@mixin input{
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: solid $grey 1px;
+    width: 100%;
+    background-color: $primary-color;
+    margin: 10px 0;
+  }

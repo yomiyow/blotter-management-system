@@ -37,12 +37,7 @@
     .input-group{
 
       input{
-        padding: 0.5rem;
-        border-radius: 5px;
-        border: solid $grey 1px;
-        width: 100%;
-        background-color: $primary-color;
-        margin: 10px 0;
+        @include input;
       }
     }
 

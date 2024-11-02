@@ -1,0 +1,150 @@
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: #f5f5f5;
+  height: 3.2rem;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #444444;
+  text-decoration: none;
+}
+
+.register-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+.register-container .register-card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 700px;
+  height: 450px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 4px 8px #808080;
+          box-shadow: 0 4px 8px #808080;
+  padding: 2rem;
+  position: relative;
+}
+.register-container .register-card-container .input-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.register-container .register-card-container .input-section .left-section,
+.register-container .register-card-container .input-section .right-section {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.register-container .register-card-container .input-section .left-section input,
+.register-container .register-card-container .input-section .left-section #dropdown,
+.register-container .register-card-container .input-section .right-section input,
+.register-container .register-card-container .input-section .right-section #dropdown {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: solid #808080 1px;
+  width: 100%;
+  background-color: #f5f5f5;
+  margin: 10px 0;
+}
+.register-container .register-card-container .bottom-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+  margin: 10px 0;
+}
+.register-container .register-card-container .bottom-section .reg-btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.register-container .register-card-container .bottom-section .reg-btn-container .register-btn {
+  color: white;
+  background-color: #007bff;
+  padding: 8px 0;
+  border: none;
+  width: 40%;
+  margin: 10px 0;
+}
+.register-container .register-card-container .bottom-section .register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+.register-container .register-card-container .bottom-section .register a {
+  color: #007bff;
+}
+.register-container .register-card-container .register-header {
+  position: absolute;
+  top: 15px;
+}/*# sourceMappingURL=register.css.map */
