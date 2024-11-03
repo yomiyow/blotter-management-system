@@ -4,11 +4,8 @@
 
 
 main {
-  position: fixed;
-  top: 3.2rem;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  padding-top: 3.2rem;
+  min-height: 100vh;
   display: flex;
 
   @import 'navigation';
