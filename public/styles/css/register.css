@@ -71,23 +71,18 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-.register-container .register-card-container .input-section .left-section,
-.register-container .register-card-container .input-section .right-section {
-  width: 100%;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.register-container .register-card-container .input-section .left-section,
+.register-container .register-card-container .input-section .right-section {
+  display: block;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 10px 10px;
 }
 .register-container .register-card-container .input-section .left-section input,
 .register-container .register-card-container .input-section .left-section #dropdown,
