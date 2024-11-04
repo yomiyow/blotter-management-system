@@ -28,6 +28,10 @@ header {
   text-decoration: none;
 }
 
+/* Used in new-entry & view-entry */
+/* Used in dashboard */
+/* Used in new-entry */
+/* Used in login & register */
 .register-container {
   display: -webkit-box;
   display: -ms-flexbox;

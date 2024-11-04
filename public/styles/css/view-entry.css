@@ -1,10 +1,10 @@
+/* Layout variables */
+/* Button variables */
+/* Border variables */
 /* Used in new-entry & view-entry */
 /* Used in dashboard */
 /* Used in new-entry */
 /* Used in login & register */
-/* Layout variables */
-/* Button variables */
-/* Border variables */
 * {
   margin: 0;
   padding: 0;
@@ -87,53 +87,77 @@ main .main-content {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  padding: 20px;
 }
-
-.card-container {
+main .main-content .search-bar-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 20px;
+}
+main .main-content .search-bar-wrapper input {
+  padding: 0.8rem 1.7rem;
+  font-size: 1rem;
+  width: 50%;
+  min-width: 400px;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+}
+main .main-content .search-bar-wrapper input:focus {
+  background-color: white;
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+main .main-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+main .main-content table tr {
+  border-bottom: 1px solid #C7C7C7;
+}
+main .main-content table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+main .main-content table td,
+main .main-content table th {
+  text-align: left;
+  height: 2.3rem;
+}
+main .main-content table td:first-child,
+main .main-content table th:first-child {
+  padding-left: 1rem;
+}
+main .main-content table td:last-child,
+main .main-content table th:last-child {
+  padding-right: 1rem;
+}
+main .main-content table .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  row-gap: 20px;
-  padding: 2rem 0 2rem;
-}
-.card-container .card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
-  padding: 1.2rem 1.5rem 1.5rem;
-  width: 200px;
-  height: 150px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
+  border-radius: 50%;
+  width: 1.7rem;
+  height: 1.7rem;
+  font-size: 0.7rem;
+  margin-left: auto;
+  cursor: pointer;
 }
-.card-container .card .card-icon {
-  font-size: 1.5rem;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-}
-.card-container .card .card-number {
-  font-size: 2rem;
-}
-.card-container .card .card-label {
-  color: #808080;
-}/*# sourceMappingURL=dashboard.css.map */
+main .main-content table .menu:hover {
+  background-color: #dcdcdc;
+}/*# sourceMappingURL=view-entry.css.map */
