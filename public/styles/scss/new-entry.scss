@@ -3,7 +3,35 @@
 @import 'reset';
 @import 'header';
 
+// form base class 
+
+form {
+  flex-flow: column nowrap;
+  row-gap: 1rem;
+  border: 1px solid $border-color;
+  padding: 1rem;
+  width: 100%;
+  height: 85%;
+  min-width: 800px;
+
+  .hr-with-title {
+    @include flex-center;
+
+    .title {
+      margin: 0 5px 0;
+    }
+
+    hr {
+      color: $border-color;
+      flex: 1;
+      border: none;
+      border-top: 1px solid $border-color;
+    }
+  }
+}
+
 // row base class
+
 .row {
   display: flex;
   flex-flow: row nowrap;
@@ -63,14 +91,8 @@ main {
       }
     }
 
-    .entry-form {
-      flex-flow: column nowrap;
-      row-gap: 1rem;
-      border: 1px solid $border-color;
-      padding: 1rem;
-      width: 100%;
-      height: 85%;
-      min-width: 800px;
+    #complainant-form {
+      @extend form;
 
       .row-1,
       .row-2,
@@ -93,22 +115,25 @@ main {
       .row-4 {
         width: 60%;
       }
+    }
 
-      .hr-with-title {
-        @include flex-center;
+    #suspect-form {
+      @extend #complainant-form;
+    }
 
-        .title {
-          margin: 0 5px 0;
-        }
+    #case-detail-form {
 
-        hr {
-          color: $border-color;
-          flex: 1;
-          border: none;
-          border-top: 1px solid $border-color;
-        }
+      .row-1,
+      .row-2,
+      .row-3,
+      .row-4 {
+        @extend .row;
       }
 
+      .row-1,
+      .row-2 {
+        width: 40%;
+      }
     }
 
     .form-button-container {
