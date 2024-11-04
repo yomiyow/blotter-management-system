@@ -4,3 +4,8 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin focus-styles {
+  border-color: #007BFF;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
