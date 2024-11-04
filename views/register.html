@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../public/styles/css/register.css">
+</head>
+
+<body>
+    <header>
+        <h3>Blotter Management System</h3>
+    </header>
+
+    <main>
+        <div class="register-container">
+            <form action="" method="POST">
+                <div class="register-card-container">
+                    <div class="register-header">
+                        <h1>Register</h1>
+                    </div>
+                    <div class="input-section">
+                        <div class="left-section">
+                            <input placeholder="First Name" type="text" name="firstname" id="firstname" required>
+                            <input placeholder="Middle Name" type="text" name="middlename" id="middlename" required>
+                            <input placeholder="Last Name" type="text" name="lastname" id="lastname" required>
+                        </div>
+                        <div class="right-section">
+                            <select id="dropdown" name="dropdown">
+                                <option value="" disabled selected>Rank...</option>
+                            </select>
+                            <input placeholder="Email" type="text" name="email" id="email" required>
+                            <input placeholder="Password" type="password" name="password" id="password" required>
+                        </div>
+                    </div>
+                    <div class="bottom-section">
+                        <div class="reg-btn-container">
+                            <button class="register-btn" type="submit">Register</button>
+                        </div>
+                        <div class="register">
+                            <p>Already have an account? </p>
+                            <a class="register-btn" href="login.html">Login here</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

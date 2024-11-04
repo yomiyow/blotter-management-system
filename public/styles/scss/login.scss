@@ -9,7 +9,7 @@
   height: 100vh;
   background-color: $primary-color;
 
-  .login-card-container{
+  .login-card-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@
     padding: 2rem;
     position: relative;
 
-    .login-btn{
+    .login-btn {
       color: white;
       background-color: $blue;
       padding: 8px 0;
@@ -29,29 +29,24 @@
       margin: 10px 0;
     }
 
-    .login-header{
+    .login-header {
       position: absolute;
       top: 15px;
     }
 
-    .input-group{
+    .input-group {
 
-      input{
-        padding: 0.5rem;
-        border-radius: 5px;
-        border: solid $grey 1px;
-        width: 100%;
-        background-color: $primary-color;
-        margin: 10px 0;
+      input {
+        @include input;
       }
     }
 
-    .register{
+    .register {
       display: flex;
       justify-content: space-evenly;
       margin: 10px 0;
 
-      a{
+      a {
         color: $blue;
       }
     }
