@@ -11,12 +11,3 @@ $btn-color-active: #bfbfbf;
 /* Border variables */
 $border-color: #d9d9d9;
 $input-field-border-radius: 5px;
-
-@mixin input {
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: solid $grey 1px;
-  width: 100%;
-  background-color: $primary-color;
-  margin: 10px 0;
-}
