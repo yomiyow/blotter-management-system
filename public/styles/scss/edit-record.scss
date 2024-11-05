@@ -1,0 +1,172 @@
+@import 'mixins';
+@import 'variables';
+@import 'reset';
+@import 'header';
+
+// row base class
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  column-gap: 20px;
+
+  .col {
+    flex: 1;
+  }
+
+  label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 3px;
+  }
+
+  input {
+    padding: 0.3rem;
+    font-size: 1rem;
+    border: 1px solid $border-color;
+    border-radius: $input-field-border-radius;
+    outline: none;
+    width: 100%;
+
+    &:focus {
+      @include focus-styles;
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-top: 3.2rem;
+
+  @import 'navigation';
+
+  .main-content {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 1.5rem;
+    flex: 1;
+    padding: 1.5rem;
+
+    form {
+      display: flex;
+      flex-flow: column nowrap;
+      row-gap: 2rem;
+    }
+
+    fieldset {
+      display: flex;
+      flex-flow: column nowrap;
+      border: 1px solid $border-color;
+      padding: 1rem;
+      width: 100%;
+      min-width: 800px;
+      row-gap: 1rem;
+
+      .hr-with-title {
+        @include flex-center;
+
+        .title {
+          margin: 0 5px 0;
+        }
+
+        hr {
+          color: $border-color;
+          flex: 1;
+          border: none;
+          border-top: 1px solid $border-color;
+        }
+      }
+    }
+
+    #complainant-form {
+
+      .row-1,
+      .row-2,
+      .row-3,
+      .row-4 {
+        @extend .row;
+      }
+
+      .row-1 {
+        .col-5 {
+          @extend .row;
+        }
+      }
+
+      .row-3 {
+        width: 80%;
+
+      }
+
+      .row-4 {
+        width: 60%;
+      }
+    }
+
+    #suspect-form {
+      @extend #complainant-form;
+    }
+
+    #case-detail-form {
+
+      .row-1,
+      .row-2,
+      .row-3 {
+        @extend .row;
+      }
+
+      .row-1,
+      .row-2 {
+        width: 40%;
+      }
+
+      .row-3 {
+        #narrative {
+          padding: 0.3rem;
+          font-size: 1rem;
+          border: 1px solid $border-color;
+          border-radius: $input-field-border-radius;
+          height: 200px;
+          width: 500px;
+          resize: none;
+          outline: none;
+
+          &:focus {
+            @include focus-styles;
+          }
+        }
+      }
+    }
+
+    .form-button-container {
+      display: flex;
+      column-gap: 15px;
+      justify-content: flex-end;
+      margin-top: 1rem;
+      margin-top: auto;
+
+      button {
+        width: 3.5rem;
+        padding: 4px 5px 4px;
+        background-color: $primary-color;
+        border: 1px solid $border-color;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.25s;
+
+        &:hover {
+          background-color: $btn-color-hover;
+          color: black;
+        }
+
+        &:active {
+          background-color: $btn-color-active
+        }
+      }
+
+    }
+
+  }
+}

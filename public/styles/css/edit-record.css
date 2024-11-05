@@ -1,0 +1,286 @@
+/* Used in new-entry & view-entry */
+/* Used in dashboard */
+/* Used in new-entry */
+/* Used in login & register */
+/* Layout variables */
+/* Button variables */
+/* Border variables */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #444444;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: #f5f5f5;
+  height: 3.2rem;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row, main .main-content #case-detail-form .row-1,
+main .main-content #case-detail-form .row-2,
+main .main-content #case-detail-form .row-3, main .main-content #complainant-form .row-1 .col-5, main .main-content #suspect-form .row-1 .col-5, main .main-content #complainant-form .row-1, main .main-content #suspect-form .row-1,
+main .main-content #complainant-form .row-2,
+main .main-content #suspect-form .row-2,
+main .main-content #complainant-form .row-3,
+main .main-content #suspect-form .row-3,
+main .main-content #complainant-form .row-4,
+main .main-content #suspect-form .row-4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
+}
+.row .col, main .main-content #case-detail-form .row-1 .col,
+main .main-content #case-detail-form .row-2 .col,
+main .main-content #case-detail-form .row-3 .col, main .main-content #complainant-form .row-1 .col, main .main-content #suspect-form .row-1 .col,
+main .main-content #complainant-form .row-2 .col,
+main .main-content #suspect-form .row-2 .col,
+main .main-content #complainant-form .row-3 .col,
+main .main-content #suspect-form .row-3 .col,
+main .main-content #complainant-form .row-4 .col,
+main .main-content #suspect-form .row-4 .col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.row label, main .main-content #case-detail-form .row-1 label,
+main .main-content #case-detail-form .row-2 label,
+main .main-content #case-detail-form .row-3 label, main .main-content #complainant-form .row-1 .col-5 label, main .main-content #suspect-form .row-1 .col-5 label, main .main-content #complainant-form .row-1 label, main .main-content #suspect-form .row-1 label,
+main .main-content #complainant-form .row-2 label,
+main .main-content #suspect-form .row-2 label,
+main .main-content #complainant-form .row-3 label,
+main .main-content #suspect-form .row-3 label,
+main .main-content #complainant-form .row-4 label,
+main .main-content #suspect-form .row-4 label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+.row input, main .main-content #case-detail-form .row-1 input,
+main .main-content #case-detail-form .row-2 input,
+main .main-content #case-detail-form .row-3 input, main .main-content #complainant-form .row-1 .col-5 input, main .main-content #suspect-form .row-1 .col-5 input, main .main-content #complainant-form .row-1 input, main .main-content #suspect-form .row-1 input,
+main .main-content #complainant-form .row-2 input,
+main .main-content #suspect-form .row-2 input,
+main .main-content #complainant-form .row-3 input,
+main .main-content #suspect-form .row-3 input,
+main .main-content #complainant-form .row-4 input,
+main .main-content #suspect-form .row-4 input {
+  padding: 0.3rem;
+  font-size: 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+}
+.row input:focus, main .main-content #case-detail-form .row-1 input:focus,
+main .main-content #case-detail-form .row-2 input:focus,
+main .main-content #case-detail-form .row-3 input:focus, main .main-content #complainant-form .row-1 input:focus, main .main-content #suspect-form .row-1 input:focus,
+main .main-content #complainant-form .row-2 input:focus,
+main .main-content #suspect-form .row-2 input:focus,
+main .main-content #complainant-form .row-3 input:focus,
+main .main-content #suspect-form .row-3 input:focus,
+main .main-content #complainant-form .row-4 input:focus,
+main .main-content #suspect-form .row-4 input:focus {
+  border-color: #007BFF;
+  -webkit-box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+          box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  padding-top: 3.2rem;
+}
+main .side-nav {
+  min-height: 100%;
+  background-color: #f5f5f5;
+  width: 15rem;
+  min-width: 15rem;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+main .side-nav .toggle-wrapper {
+  text-align: end;
+  padding-right: 1rem;
+}
+main .side-nav .toggle-wrapper .toggle-btn {
+  padding: 0.9rem;
+  border-radius: 8px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+main .side-nav .toggle-wrapper .toggle-btn:hover {
+  background-color: #dcdcdc;
+  color: black;
+}
+main .side-nav .toggle-wrapper .toggle-btn:active {
+  background-color: #bfbfbf;
+}
+main .side-nav .menu-link {
+  text-decoration: none;
+  padding: 0.8rem;
+  display: block;
+  white-space: nowrap;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+main .side-nav .menu-link i {
+  margin-right: 1rem;
+}
+main .side-nav .menu-link:hover {
+  background-color: #dcdcdc;
+  color: black;
+}
+main .side-nav .menu-link:active {
+  background-color: #bfbfbf;
+}
+main .main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  row-gap: 1.5rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 1.5rem;
+}
+main .main-content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  row-gap: 2rem;
+}
+main .main-content fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  border: 1px solid #d9d9d9;
+  padding: 1rem;
+  width: 100%;
+  min-width: 800px;
+  row-gap: 1rem;
+}
+main .main-content fieldset .hr-with-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+main .main-content fieldset .hr-with-title .title {
+  margin: 0 5px 0;
+}
+main .main-content fieldset .hr-with-title hr {
+  color: #d9d9d9;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: none;
+  border-top: 1px solid #d9d9d9;
+}
+main .main-content #complainant-form .row-3, main .main-content #suspect-form .row-3 {
+  width: 80%;
+}
+main .main-content #complainant-form .row-4, main .main-content #suspect-form .row-4 {
+  width: 60%;
+}
+main .main-content #case-detail-form .row-1,
+main .main-content #case-detail-form .row-2 {
+  width: 40%;
+}
+main .main-content #case-detail-form .row-3 #narrative {
+  padding: 0.3rem;
+  font-size: 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  height: 200px;
+  width: 500px;
+  resize: none;
+  outline: none;
+}
+main .main-content #case-detail-form .row-3 #narrative:focus {
+  border-color: #007BFF;
+  -webkit-box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+          box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+main .main-content .form-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 15px;
+     -moz-column-gap: 15px;
+          column-gap: 15px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-top: 1rem;
+  margin-top: auto;
+}
+main .main-content .form-button-container button {
+  width: 3.5rem;
+  padding: 4px 5px 4px;
+  background-color: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+main .main-content .form-button-container button:hover {
+  background-color: #dcdcdc;
+  color: black;
+}
+main .main-content .form-button-container button:active {
+  background-color: #bfbfbf;
+}/*# sourceMappingURL=edit-record.css.map */
