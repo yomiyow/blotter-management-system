@@ -47,4 +47,18 @@
     }
   }
 
+  .isActive {
+    background-color: $blue;
+    color: white;
+
+    i {
+      color: white;
+    }
+
+    &:hover {
+      background-color: $blue;
+      color: white;
+    }
+  }
+
 }

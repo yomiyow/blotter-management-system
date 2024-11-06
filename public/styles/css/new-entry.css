@@ -205,6 +205,17 @@ main .side-nav .menu-link:hover {
 main .side-nav .menu-link:active {
   background-color: #bfbfbf;
 }
+main .side-nav .isActive {
+  background-color: #007bff;
+  color: white;
+}
+main .side-nav .isActive i {
+  color: white;
+}
+main .side-nav .isActive:hover {
+  background-color: #007bff;
+  color: white;
+}
 main .main-content {
   -webkit-box-flex: 1;
       -ms-flex: 1;

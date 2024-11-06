@@ -11,3 +11,15 @@ toggle.addEventListener('click', () => {
   sideNav.style.width = isOpen ? '15rem' : '44px';
   sideNav.classList.toggle('isClose', !isOpen);
 });
+
+const menus = document.querySelectorAll('.menu-link');
+
+menus.forEach((menu) => {
+  menu.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    menus.forEach((menu) => menu.classList.remove('isActive'));
+    menu.classList.add('isActive');
+  });
+});
+
