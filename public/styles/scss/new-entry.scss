@@ -5,14 +5,13 @@
 
 // form base class 
 
-form {
+.base-fieldset {
   flex-flow: column nowrap;
   row-gap: 1rem;
   border: 1px solid $border-color;
   padding: 1rem;
   width: 100%;
-  height: 92%;
-  min-width: 800px;
+  flex: 1;
 
   .hr-with-title {
     @include flex-center;
@@ -32,13 +31,14 @@ form {
 
 // row base class
 
-.row {
+.base-row {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   column-gap: 20px;
 
-  .col {
+  .col,
+  .input-wrapper {
     flex: 1;
   }
 
@@ -48,7 +48,8 @@ form {
     margin-bottom: 3px;
   }
 
-  input {
+  input,
+  select {
     padding: 0.3rem;
     font-size: 1rem;
     border: 1px solid $border-color;
@@ -90,19 +91,27 @@ main {
       }
     }
 
+    form {
+      display: flex;
+      flex-flow: column nowrap;
+      row-gap: 1rem;
+      min-width: 800px;
+      height: 92%;
+    }
+
     #complainant-form {
-      @extend form;
+      @extend .base-fieldset;
 
       .row-1,
       .row-2,
       .row-3,
       .row-4 {
-        @extend .row;
+        @extend .base-row;
       }
 
       .row-1 {
         .col-5 {
-          @extend .row;
+          @extend .base-row;
         }
       }
 
@@ -121,11 +130,12 @@ main {
     }
 
     #case-detail-form {
+      @extend .base-fieldset;
 
       .row-1,
       .row-2,
       .row-3 {
-        @extend .row;
+        @extend .base-row;
       }
 
       .row-1,
@@ -141,7 +151,7 @@ main {
           border-radius: $input-field-border-radius;
           height: 200px;
           width: 500px;
-          resize: none;
+          resize: horizontal;
           outline: none;
 
           &:focus {
@@ -155,8 +165,6 @@ main {
       display: flex;
       column-gap: 15px;
       justify-content: flex-end;
-      margin-top: 1rem;
-      margin-top: auto;
 
       button {
         width: 3.5rem;
