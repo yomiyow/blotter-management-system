@@ -267,11 +267,12 @@ main .main-content .tab-container {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-width: 920px;
 }
 main .main-content .tab-container .tab {
   width: 10rem;
@@ -280,8 +281,15 @@ main .main-content .tab-container .tab {
   border-radius: 0.8rem 0.8rem 0 0;
   border: 1px solid #d9d9d9;
   border-bottom: none;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
+}
+main .main-content .tab-container .alert-warning {
+  display: none;
+  margin-left: 1rem;
+  background-color: #fff3cd;
+  padding: 0.6rem 1rem 0.6rem;
+  border: 1px solid #ffeeba;
+  border-radius: 5px;
+  color: #856404;
 }
 main .main-content form {
   display: -webkit-box;
@@ -331,6 +339,17 @@ main .main-content .form-button-container {
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
+main .main-content .form-button-container .disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+main .main-content .form-button-container .disabled:hover {
+  background-color: #f5f5f5;
+  color: inherit;
+}
+main .main-content .form-button-container .disabled:active {
+  background-color: #f5f5f5;
+}
 main .main-content .form-button-container button {
   width: 3.5rem;
   padding: 4px 5px 4px;
@@ -347,4 +366,7 @@ main .main-content .form-button-container button:hover {
 }
 main .main-content .form-button-container button:active {
   background-color: #bfbfbf;
+}
+main .main-content .form-button-container .submit-btn {
+  display: none;
 }/*# sourceMappingURL=new-entry.css.map */

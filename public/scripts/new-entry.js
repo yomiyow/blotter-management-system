@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitButton = document.querySelector('.js-submit-btn');
   const forms = document.querySelectorAll('.js-form-step');
   const tabs = document.querySelectorAll('.js-tab');
+  const alert = document.querySelector('.alert-warning');
 
   let currentFormIndex = parseInt(localStorage.getItem('currentForm')) || 0;
   const COMPLAINANT_FORM_INDEX = 0;
@@ -38,6 +39,40 @@ document.addEventListener('DOMContentLoaded', () => {
     return formData;
   }
 
+  function validateCurrentForm() {
+    const currentForm = forms[currentFormIndex];
+    const inputs = currentForm.querySelectorAll('input[required], select[required], textarea[required]');
+    let isValid = true;
+
+    inputs.forEach((input) => {
+      if (!input.value.trim()) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  }
+
+  function setButtonEnableState(button, enable = true) {
+    if (enable) {
+      button.classList.remove('disabled');
+    } else {
+      button.classList.add('disabled');
+    }
+  }
+
+  let alertTimeout;
+
+  function showAlert() {
+    alert.style.display = 'block';
+    if (alertTimeout) {
+      clearTimeout(alertTimeout);
+    }
+    alertTimeout = setTimeout(() => {
+      alert.style.display = 'none';
+    }, 4000);
+  }
+
   // Event Listeners
 
   prevButton.addEventListener('click', (event) => {
@@ -47,21 +82,45 @@ document.addEventListener('DOMContentLoaded', () => {
       currentFormIndex--;
       updateFormVisibility();
       localStorage.setItem('currentForm', currentFormIndex);
+
+      setButtonEnableState(nextButton);
+      submitButton.style.display = 'none';
+    }
+
+    if (currentFormIndex === COMPLAINANT_FORM_INDEX) {
+      setButtonEnableState(prevButton, false);
     }
   });
 
   nextButton.addEventListener('click', (event) => {
     event.preventDefault();
 
+    if (!validateCurrentForm()) {
+      showAlert();
+      return;
+    }
+
     if (currentFormIndex < LAST_FORM_INDEX) {
       currentFormIndex++;
       updateFormVisibility();
       localStorage.setItem('currentForm', currentFormIndex);
+
+      setButtonEnableState(prevButton);
+    }
+
+    if (currentFormIndex === LAST_FORM_INDEX) {
+      setButtonEnableState(nextButton, false);
+      submitButton.style.display = 'block';
     }
   });
 
   submitButton.addEventListener('click', (event) => {
     event.preventDefault();
+
+    if (!validateCurrentForm()) {
+      showAlert();
+      return;
+    }
 
     fetch('/new-entry', {
       method: 'POST',
@@ -78,4 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Display complainant form by default
   updateFormVisibility();
+  // Disable previous button by default
+  setButtonEnableState(prevButton, false);
 });

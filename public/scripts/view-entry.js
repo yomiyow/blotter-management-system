@@ -24,11 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
       dropDownMenu.forEach((dropDown) => hideDropDown(dropDown));
   });
 
+  // Event listener
+
   menus.forEach((menu) => {
     menu.addEventListener('click', (event) => {
       dropDownMenu.forEach((dropDown) => {
-        (dropDown === menu.nextElementSibling) ?
-          showDropDown(dropDown) : hideDropDown(dropDown);
+        if (dropDown === menu.nextElementSibling) {
+          showDropDown(dropDown)
+        } else {
+          hideDropDown(dropDown);
+        }
       });
     });
   });

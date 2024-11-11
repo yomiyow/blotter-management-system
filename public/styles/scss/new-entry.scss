@@ -77,8 +77,9 @@ main {
 
     .tab-container {
       display: flex;
-      flex-direction: row;
+      flex-flow: row nowrap;
       align-items: center;
+      min-width: 920px;
 
       .tab {
         width: 10rem;
@@ -87,7 +88,16 @@ main {
         border-radius: 0.8rem 0.8rem 0 0;
         border: 1px solid $border-color;
         border-bottom: none;
-        transition: 0.25s;
+      }
+
+      .alert-warning {
+        display: none;
+        margin-left: 1rem;
+        background-color: #fff3cd;
+        padding: 0.6rem 1rem 0.6rem;
+        border: 1px solid #ffeeba;
+        border-radius: $input-field-border-radius;
+        color: #856404;
       }
     }
 
@@ -166,6 +176,20 @@ main {
       column-gap: 15px;
       justify-content: flex-end;
 
+      .disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+
+        &:hover {
+          background-color: $primary-color;
+          color: inherit;
+        }
+
+        &:active {
+          background-color: $primary-color;
+        }
+      }
+
       button {
         width: 3.5rem;
         padding: 4px 5px 4px;
@@ -185,6 +209,9 @@ main {
         }
       }
 
+      .submit-btn {
+        display: none;
+      }
     }
   }
 }
