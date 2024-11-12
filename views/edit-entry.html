@@ -11,7 +11,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer" 
     />
-    <link rel="stylesheet" href="/styles/css/edit-record.css">
+    <link rel="stylesheet" href="/styles/css/edit-entry.css">
   </head>
 
   <body>
@@ -27,86 +27,100 @@
         <a href="/nav/view-entry" class="menu-link"><i class="fa-solid fa-eye"></i>View Entry</a>
         <a href="/nav/report" class="menu-link"><i class="fa-solid fa-chart-bar"></i>Report</a>
       </nav>
-      
+       
       <div class="main-content">
         <form id="all-in-one-form" class="js-entry-form">
           <!-- Complainant fieldset -->
-          <fieldset id="complainant-form">
+          <fieldset id="complainant-form" class="js-form-step">
             <legend>Complainant</legend>
             <div class="row-1">
               <div class="col col-1">
-                <label for="first-name">First name</label>
-                <input type="text" name="first-name" id="first-name">
+                <label for="complainant-firstname">First name *</label>
+                <input type="text" name="comFirstname" id="complainant-firstname" required>
               </div>
               <div class="col col-2">
-                <label for="middle-name">Middle name</label>
-                <input type="text" name="middle-name" id="middle-name">
+                <label for="complainant-middlename">Middle name</label>
+                <input type="text" name="comMiddlename" id="complainant-middlename">
               </div>
               <div class="col col-3">
-                <label for="last-name">Last name</label>
-                <input type="text" name="last-name" id="last-name">
+                <label for="complainant-lastname">Last name *</label>
+                <input type="text" name="comLastname" id="complainant-lastname" required>
               </div>
               <div class="col col-4">
-                <label for="nick-name">Nickname</label>
-                <input type="text" name="nick-name" id="nick-name">
+                <label for="complainant-nickname">Nickname</label>
+                <input type="text" name="comNickname" id="complainant-nickname">
               </div>
               <div class="col col-5">
-                <div>
-                  <label for="age">Age</label>
-                  <input type="text" name="age" id="age">
+                <div class="input-wrapper">
+                  <label for="complainant-age">Age *</label>
+                  <input type="text" name="comAge" id="complainant-age" required>
                 </div>
-                <div>
-                  <label for="gender">Gender</label>
-                  <input type="text" name="gender" id="gender">
+                <div class="input-wrapper">
+                  <label for="complainant-gender">Gender *</label>
+                  <select name="comGender" id="complainant-gender" required>
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
                 </div>
               </div>
             </div>
             
             <div class="row-2">
               <div class="col col-1">
-                <label for="civil-status">Civil status</label>
-                <input type="text" name="civil-status" id="civil-status">
+                <label for="complainant-civil-status">Civil status *</label>
+                <select name="comCivilStatus" id="complainant-civil-status" required>
+                  <option value="">Select</option>
+                  <option value="Single">Single</option>
+                  <option value="Married">Married</option>
+                  <option value="Divorced">Divorced</option>
+                  <option value="Widowed">Widowed</option>
+                </select>
               </div>
               <div class="col col-2">
-                <label for="citizenship">Citizenship</label>
-                <input type="text" name="citizenship" id="citizenship">
+                <label for="complainant-citizenship">Citizenship *</label>
+                <input type="text" name="comCitizenship" id="complainant-citizenship" required>
               </div>
               <div class="col col-3">
-                <label for="birthplace">Birthplace</label>
-                <input type="text" name="birthplace" id="birthplace">
+                <label for="complainant-birthplace">Birthplace *</label>
+                <input type="text" name="comBirthplace" id="complainant-birthplace" required>
               </div>
               <div class="col col-4">
-                <label for="birthdate">Birthdate</label>
-                <input type="text" name="birthdate" id="birthdate">
+                <label for="complainant-birthdate">Birthdate *</label>
+                <input type="date" name="comBirthdate" id="complainant-birthdate" required>
               </div>
               <div class="col col-5">
-                <label for="occupation">Occupation</label>
-                <input type="text" name="occupation" id="occupation">
+                <label for="complainant-occupation">Occupation</label>
+                <input type="text" name="comOccupation" id="complainant-occupation">
               </div>
             </div>
+
             <div class="hr-with-title">
               <hr>
               <span class="title">Address</span>
               <hr>
             </div>
+
             <div class="row-3">
               <div class="col col-1">
-                <label for="province">Province</label>
-                <input type="text" name="province" id="province">
+                <label for="complainant-province">Province *</label>
+                <input type="text" name="comProvince" id="complainant-province" required>
               </div>
               <div class="col col-2">
-                <label for="city">City</label>
-                <input type="text" name="city" id="city">
+                <label for="complainant-city">City *</label>
+                <input type="text" name="comCity" id="complainant-city" required>
               </div>
               <div class="col col-3">
-                <label for="barangay">Barangay</label>
-                <input type="text" name="barangay" id="barangay">
+                <label for="complainant-barangay">Barangay *</label>
+                <input type="text" name="comBarangay" id="complainant-barangay" required>
               </div>
               <div class="col col-4">
-                <label for="house-no-st-name">House No./St. Name</label>
-                <input type="text" name="house-no-st-name" id="house-no-st-name">
+                <label for="complainant-houseno-street">House No./St. Name</label>
+                <input type="text" name="comHouseNoStreet" id="complainant-houseno-street">
               </div>
             </div>
+
             <div class="hr-with-title">
               <hr>
               <span class="title">Contact</span>
@@ -115,97 +129,110 @@
             
             <div class="row-4">
               <div class="col col-1">
-                <label for="mobile-no">Mobile #</label>
-                <input type="text" name="mobile-no" id="mobile-no">
+                <label for="complainant-mobile-no">Mobile # *</label>
+                <input type="tel" name="comMobileNo" id="complainant-mobile-no" required>
               </div>
               <div class="col col-2">
-                <label for="tel-no">Tel #</label>
-                <input type="text" name="tel-no" id="tel-no">
+                <label for="complainant-tel-no">Tel #</label>
+                <input type="tel" name="comTelNo" id="complainant-tel-no">
               </div>
               <div class="col col-3">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email">
+                <label for="complainant-email">Email</label>
+                <input type="email" name="comEmail" id="complainant-email">
               </div>
             </div>
           </fieldset>
 
           <!-- Suspect fieldset -->
-          <fieldset id="suspect-form">
+          <fieldset id="suspect-form" class="js-form-step">
             <legend>Suspect</legend>
             <div class="row-1">
               <div class="col col-1">
-                <label for="first-name">First name</label>
-                <input type="text" name="first-name" id="first-name">
+                <label for="suspect-firstname">First name *</label>
+                <input type="text" name="susFirstname" id="suspect-firstname" required>
               </div>
               <div class="col col-2">
-                <label for="middle-name">Middle name</label>
-                <input type="text" name="middle-name" id="middle-name">
+                <label for="suspect-middle-name">Middle name</label>
+                <input type="text" name="susMiddlename" id="suspect-middlename">
               </div>
               <div class="col col-3">
-                <label for="last-name">Last name</label>
-                <input type="text" name="last-name" id="last-name">
+                <label for="suspect-lastname">Last name *</label>
+                <input type="text" name="susLastname" id="suspect-lastname" required>
               </div>
               <div class="col col-4">
-                <label for="nick-name">Nickname</label>
-                <input type="text" name="nick-name" id="nick-name">
+                <label for="suspect-nickname">Nickname</label>
+                <input type="text" name="susNickname" id="suspect-nickname">
               </div>
               <div class="col col-5">
-                <div>
-                  <label for="age">Age</label>
-                  <input type="text" name="age" id="age">
+                <div class="input-wrapper">
+                  <label for="suspect-age">Age *</label>
+                  <input type="text" name="susAge" id="suspect-age" required>
                 </div>
-                <div>
-                  <label for="gender">Gender</label>
-                  <input type="text" name="gender" id="gender">
+                <div class="input-wrapper">
+                  <label for="suspect-gender">Gender *</label>
+                  <select name="susGender" id="suspect-gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
                 </div>
               </div>
             </div>
             
             <div class="row-2">
               <div class="col col-1">
-                <label for="civil-status">Civil status</label>
-                <input type="text" name="civil-status" id="civil-status">
+                <label for="suspect-civil-status">Civil status *</label>
+                <select name="comCivilStatus" id="complainant-civil-status" required>
+                  <option value="">Select</option>
+                  <option value="single">Single</option>
+                  <option value="married">Married</option>
+                  <option value="divorced">Divorced</option>
+                  <option value="widowed">Widowed</option>
+                </select>
               </div>
               <div class="col col-2">
-                <label for="citizenship">Citizenship</label>
-                <input type="text" name="citizenship" id="citizenship">
+                <label for="suspect-citizenship">Citizenship *</label>
+                <input type="text" name="susCitizenship" id="suspect-citizenship" required>
               </div>
               <div class="col col-3">
-                <label for="birthplace">Birthplace</label>
-                <input type="text" name="birthplace" id="birthplace">
+                <label for="suspect-birthplace">Birthplace *</label>
+                <input type="text" name="susBirthplace" id="suspect-birthplace" required>
               </div>
               <div class="col col-4">
-                <label for="birthdate">Birthdate</label>
-                <input type="text" name="birthdate" id="birthdate">
+                <label for="suspect-birthdate">Birthdate *</label>
+                <input type="date" name="susBirthplace" id="suspect-birthdate" required>
               </div>
               <div class="col col-5">
-                <label for="occupation">Occupation</label>
-                <input type="text" name="occupation" id="occupation">
+                <label for="suspect-occupation">Occupation</label>
+                <input type="text" name="susOccupation" id="suspect-occupation">
               </div>
             </div>
+
             <div class="hr-with-title">
               <hr>
               <span class="title">Address</span>
               <hr>
             </div>
+
             <div class="row-3">
               <div class="col col-1">
-                <label for="province">Province</label>
-                <input type="text" name="province" id="province">
+                <label for="suspect-province">Province *</label>
+                <input type="text" name="susProvince" id="suspect-province" required>
               </div>
               <div class="col col-2">
-                <label for="city">City</label>
-                <input type="text" name="city" id="city">
+                <label for="suspect-city">City *</label>
+                <input type="text" name="susCity" id="suspect-city" required>
               </div>
               <div class="col col-3">
-                <label for="barangay">Barangay</label>
-                <input type="text" name="barangay" id="barangay">
+                <label for="suspect-barangay">Barangay *</label>
+                <input type="text" name="susBarangay" id="suspect-barangay" required>
               </div>
               <div class="col col-4">
-                <label for="house-no-st-name">House No./St. Name</label>
-                <input type="text" name="house-no-st-name" id="house-no-st-name">
+                <label for="suspect-houseno-street">House No./St. Name</label>
+                <input type="text" name="susHouseNoStreet" id="suspect-houseno-street">
               </div>
             </div>
+
             <div class="hr-with-title">
               <hr>
               <span class="title">Contact</span>
@@ -214,22 +241,22 @@
             
             <div class="row-4">
               <div class="col col-1">
-                <label for="mobile-no">Mobile #</label>
-                <input type="text" name="mobile-no" id="mobile-no">
+                <label for="suspect-mobile-no">Mobile # *</label>
+                <input type="tel" name="susMobileNo" id="suspect-mobile-no" required>
               </div>
               <div class="col col-2">
-                <label for="tel-no">Tel #</label>
-                <input type="text" name="tel-no" id="tel-no">
+                <label for="suspect-tel-no">Tel #</label>
+                <input type="tel" name="susTelNo" id="suspect-tel-no">
               </div>
               <div class="col col-3">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email">
+                <label for="suspect-email">Email</label>
+                <input type="email" name="susEmail" id="suspect-email">
               </div>
             </div>
           </fieldset>
 
           <!-- Case detail fieldset -->
-          <fieldset id="case-detail-form">
+          <fieldset id="case-detail-form" class="js-form-step">
             <legend>Case Details</legend>
             <div class="hr-with-title">
               <hr>
@@ -239,14 +266,16 @@
             
             <div class="row-1">
               <div class="col col-1">
-                <label for="first-name">First name</label>
-                <input type="text" name="first-name" id="first-name">
+                <label for="street">St. Name</label>
+                <input type="text" name="street" id="street">
               </div>
+
               <div class="col col-2">
-                <label for="middle-name">Middle name</label>
-                <input type="text" name="middle-name" id="middle-name">
+                <label for="barangay">Barangay *</label>
+                <input type="text" name="barangay" id="barangay" required>
               </div>
             </div>
+
             <div class="hr-with-title">
               <hr>
               <span class="title">Date and Time</span>
@@ -255,12 +284,12 @@
             
             <div class="row-2">
               <div class="col col-1">
-                <label for="civil-status">Civil status</label>
-                <input type="text" name="civil-status" id="civil-status">
+                <label for="date-time-reported">Date/Time Reported *</label>
+                <input type="datetime-local" name="dateTimeReported" id="date-time-reported" required>
               </div>
               <div class="col col-2">
-                <label for="citizenship">Citizenship</label>
-                <input type="text" name="citizenship" id="citizenship">
+                <label for="date-time-incident">Date/Time of Incident *</label>
+                <input type="datetime-local" name="dateTimeIncident" id="date-time-incident" required>
               </div>
             </div>
             <div class="hr-with-title">
@@ -270,8 +299,8 @@
             </div>
             <div class="row-3">
               <div class="col col-1">
-                <label for="narrative">Narrative</label>
-                <textarea name="narrative" id="narrative"></textarea>
+                <label for="narrative">Narrative *</label>
+                <textarea name="narrative" id="narrative" required></textarea>
               </div>
             </div>
           </fieldset>

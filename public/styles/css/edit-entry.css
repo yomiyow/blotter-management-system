@@ -32,6 +32,46 @@ header {
           align-items: center;
 }
 
+.base-fieldset, main .main-content #case-detail-form, main .main-content #complainant-form, main .main-content #suspect-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  border: 1px solid #d9d9d9;
+  padding: 1rem;
+  width: 100%;
+  row-gap: 1rem;
+}
+.base-fieldset .hr-with-title, main .main-content #case-detail-form .hr-with-title, main .main-content #complainant-form .hr-with-title, main .main-content #suspect-form .hr-with-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.base-fieldset .hr-with-title .title, main .main-content #case-detail-form .hr-with-title .title, main .main-content #complainant-form .hr-with-title .title, main .main-content #suspect-form .hr-with-title .title {
+  margin: 0 5px 0;
+}
+.base-fieldset .hr-with-title hr, main .main-content #case-detail-form .hr-with-title hr, main .main-content #complainant-form .hr-with-title hr, main .main-content #suspect-form .hr-with-title hr {
+  color: #d9d9d9;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: none;
+  border-top: 1px solid #d9d9d9;
+}
+
 .row, main .main-content #case-detail-form .row-1,
 main .main-content #case-detail-form .row-2,
 main .main-content #case-detail-form .row-3, main .main-content #complainant-form .row-1 .col-5, main .main-content #suspect-form .row-1 .col-5, main .main-content #complainant-form .row-1, main .main-content #suspect-form .row-1,
@@ -63,7 +103,19 @@ main .main-content #suspect-form .row-2 .col,
 main .main-content #complainant-form .row-3 .col,
 main .main-content #suspect-form .row-3 .col,
 main .main-content #complainant-form .row-4 .col,
-main .main-content #suspect-form .row-4 .col {
+main .main-content #suspect-form .row-4 .col,
+.row .input-wrapper,
+main .main-content #case-detail-form .row-1 .input-wrapper,
+main .main-content #case-detail-form .row-2 .input-wrapper,
+main .main-content #case-detail-form .row-3 .input-wrapper,
+main .main-content #complainant-form .row-1 .input-wrapper,
+main .main-content #suspect-form .row-1 .input-wrapper,
+main .main-content #complainant-form .row-2 .input-wrapper,
+main .main-content #suspect-form .row-2 .input-wrapper,
+main .main-content #complainant-form .row-3 .input-wrapper,
+main .main-content #suspect-form .row-3 .input-wrapper,
+main .main-content #complainant-form .row-4 .input-wrapper,
+main .main-content #suspect-form .row-4 .input-wrapper {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -89,7 +141,21 @@ main .main-content #suspect-form .row-2 input,
 main .main-content #complainant-form .row-3 input,
 main .main-content #suspect-form .row-3 input,
 main .main-content #complainant-form .row-4 input,
-main .main-content #suspect-form .row-4 input {
+main .main-content #suspect-form .row-4 input,
+.row select,
+main .main-content #case-detail-form .row-1 select,
+main .main-content #case-detail-form .row-2 select,
+main .main-content #case-detail-form .row-3 select,
+main .main-content #complainant-form .row-1 .col-5 select,
+main .main-content #suspect-form .row-1 .col-5 select,
+main .main-content #complainant-form .row-1 select,
+main .main-content #suspect-form .row-1 select,
+main .main-content #complainant-form .row-2 select,
+main .main-content #suspect-form .row-2 select,
+main .main-content #complainant-form .row-3 select,
+main .main-content #suspect-form .row-3 select,
+main .main-content #complainant-form .row-4 select,
+main .main-content #suspect-form .row-4 select {
   padding: 0.3rem;
   font-size: 1rem;
   border: 1px solid #d9d9d9;
@@ -105,7 +171,19 @@ main .main-content #suspect-form .row-2 input:focus,
 main .main-content #complainant-form .row-3 input:focus,
 main .main-content #suspect-form .row-3 input:focus,
 main .main-content #complainant-form .row-4 input:focus,
-main .main-content #suspect-form .row-4 input:focus {
+main .main-content #suspect-form .row-4 input:focus,
+.row select:focus,
+main .main-content #case-detail-form .row-1 select:focus,
+main .main-content #case-detail-form .row-2 select:focus,
+main .main-content #case-detail-form .row-3 select:focus,
+main .main-content #complainant-form .row-1 select:focus,
+main .main-content #suspect-form .row-1 select:focus,
+main .main-content #complainant-form .row-2 select:focus,
+main .main-content #suspect-form .row-2 select:focus,
+main .main-content #complainant-form .row-3 select:focus,
+main .main-content #suspect-form .row-3 select:focus,
+main .main-content #complainant-form .row-4 select:focus,
+main .main-content #suspect-form .row-4 select:focus {
   border-color: #007BFF;
   -webkit-box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
           box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
@@ -199,46 +277,7 @@ main .main-content form {
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
   row-gap: 2rem;
-}
-main .main-content fieldset {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
-  border: 1px solid #d9d9d9;
-  padding: 1rem;
-  width: 100%;
-  min-width: 800px;
-  row-gap: 1rem;
-}
-main .main-content fieldset .hr-with-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-main .main-content fieldset .hr-with-title .title {
-  margin: 0 5px 0;
-}
-main .main-content fieldset .hr-with-title hr {
-  color: #d9d9d9;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  border: none;
-  border-top: 1px solid #d9d9d9;
+  min-width: 900px;
 }
 main .main-content #complainant-form .row-3, main .main-content #suspect-form .row-3 {
   width: 80%;
@@ -294,4 +333,4 @@ main .main-content .form-button-container button:hover {
 }
 main .main-content .form-button-container button:active {
   background-color: #bfbfbf;
-}/*# sourceMappingURL=edit-record.css.map */
+}/*# sourceMappingURL=edit-entry.css.map */

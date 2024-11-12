@@ -3,6 +3,30 @@
 @import 'reset';
 @import 'header';
 
+.base-fieldset {
+  display: flex;
+  flex-flow: column nowrap;
+  border: 1px solid $border-color;
+  padding: 1rem;
+  width: 100%;
+  row-gap: 1rem;
+
+  .hr-with-title {
+    @include flex-center;
+
+    .title {
+      margin: 0 5px 0;
+    }
+
+    hr {
+      color: $border-color;
+      flex: 1;
+      border: none;
+      border-top: 1px solid $border-color;
+    }
+  }
+}
+
 // row base class
 
 .row {
@@ -11,7 +35,8 @@
   justify-content: space-between;
   column-gap: 20px;
 
-  .col {
+  .col,
+  .input-wrapper {
     flex: 1;
   }
 
@@ -21,7 +46,8 @@
     margin-bottom: 3px;
   }
 
-  input {
+  input,
+  select {
     padding: 0.3rem;
     font-size: 1rem;
     border: 1px solid $border-color;
@@ -53,34 +79,11 @@ main {
       display: flex;
       flex-flow: column nowrap;
       row-gap: 2rem;
-    }
-
-    fieldset {
-      display: flex;
-      flex-flow: column nowrap;
-      border: 1px solid $border-color;
-      padding: 1rem;
-      width: 100%;
-      min-width: 800px;
-      row-gap: 1rem;
-
-      .hr-with-title {
-        @include flex-center;
-
-        .title {
-          margin: 0 5px 0;
-        }
-
-        hr {
-          color: $border-color;
-          flex: 1;
-          border: none;
-          border-top: 1px solid $border-color;
-        }
-      }
+      min-width: 900px;
     }
 
     #complainant-form {
+      @extend .base-fieldset;
 
       .row-1,
       .row-2,
@@ -110,6 +113,7 @@ main {
     }
 
     #case-detail-form {
+      @extend .base-fieldset;
 
       .row-1,
       .row-2,
