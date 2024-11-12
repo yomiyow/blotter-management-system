@@ -13,9 +13,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', navRouter);
-app.use('/', newEntryRouter);
-app.use('/', viewEntryRouter);
+app.use(navRouter);
+app.use(newEntryRouter);
+app.use(viewEntryRouter);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/dashboard.html'));
