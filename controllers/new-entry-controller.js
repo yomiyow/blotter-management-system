@@ -14,7 +14,7 @@ async function insertBlotter(req, res) {
     const complainantQuery = `
       INSERT INTO complainant (
         firstname, middlename, lastname, nickname, age, gender, civil_status,
-        citizenship, birthdate, birthplace, occupation, province, city, barangay,
+        citizenship, birthplace, birthdate, occupation, province, city, barangay,
         house_no_street, mobile_no, tel_no, email
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
@@ -27,7 +27,7 @@ async function insertBlotter(req, res) {
     const suspectQuery = `
       INSERT INTO suspect (
         firstname, middlename, lastname, nickname, age, gender, civil_status,
-        citizenship, birthdate, birthplace, occupation, province, city, barangay,
+        citizenship, birthplace, birthdate, occupation, province, city, barangay,
         house_no_street, mobile_no, tel_no, email
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;

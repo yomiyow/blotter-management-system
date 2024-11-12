@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    fetch('/new-entry', {
+    fetch('/api/new-entry', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
