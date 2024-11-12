@@ -2,10 +2,10 @@ import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 
 async function renderBlotterRecords() {
 
-  async function fetchBlotterData() {
+  async function fetchBlotterRecords() {
     try {
-      const response = await fetch('/view-entry');
-      const blottersData = response.json();
+      const response = await fetch('/api/view-entry');
+      const blottersData = await response.json();
 
       return blottersData;
     } catch (err) {
@@ -13,7 +13,7 @@ async function renderBlotterRecords() {
     }
   }
 
-  let blotters = await fetchBlotterData();
+  const blotters = await fetchBlotterRecords();
 
   let blotterHTML = '';
 
@@ -28,7 +28,9 @@ async function renderBlotterRecords() {
         <td class="menu-wrapper">
           <i class="fa-solid fa-ellipsis-vertical menu js-menu"></i>
           <div class="dropdown-menu js-dropdown-menu">
-            <a href="/nav/view-entry/edit/:blotterId" class="dropdown-item">Edit</a>
+            <a href="/nav/view-entry/edit?blotterId=${blotter.blotter_id}" 
+              class="dropdown-item"
+            >Edit</a>
             <a href="#" class="dropdown-item">View PDF</a>
             <a href="#" class="dropdown-item">View Record</a>
           </div>

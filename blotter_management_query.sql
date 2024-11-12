@@ -1,0 +1,219 @@
+USE blotter_db;
+
+CREATE DATABASE blotter_db;
+
+DROP DATABASE blotter_db;
+
+CREATE TABLE complainant ( 
+	complainant_id INT AUTO_INCREMENT,
+    firstname VARCHAR(255),
+    middlename VARCHAR(255),
+    lastname VARCHAR(255),	
+    nickname VARCHAR(255),
+    age VARCHAR(255),
+    gender VARCHAR(255),
+    civil_status VARCHAR(255),
+    citizenship VARCHAR(255),
+    birthdate VARCHAR(255),
+    birthplace VARCHAR(255),
+    occupation VARCHAR(255),
+    province VARCHAR(255),
+    city VARCHAR(255),
+    barangay VARCHAR(255), 
+    house_no_street VARCHAR(255), 
+    mobile_no VARCHAR(15),
+    tel_no VARCHAR(15),
+    email VARCHAR(100),
+    
+    PRIMARY KEY (complainant_id)
+);
+CREATE TABLE suspect (
+	suspect_id INT AUTO_INCREMENT,
+    firstname VARCHAR(255),
+    middlename VARCHAR(255),
+    lastname VARCHAR(255),	
+    nickname VARCHAR(255),
+    age VARCHAR(255),
+    gender VARCHAR(255),
+    civil_status VARCHAR(255),
+    citizenship VARCHAR(255),
+    birthdate VARCHAR(255),
+    birthplace VARCHAR(255),
+    occupation VARCHAR(255),
+    province VARCHAR(255),
+    city VARCHAR(255),
+    barangay VARCHAR(255), 
+    house_no_street VARCHAR(255), 
+    mobile_no VARCHAR(15),
+    tel_no VARCHAR(15),
+    email VARCHAR(100),
+    
+    PRIMARY KEY (suspect_id)
+);
+CREATE TABLE blotter (
+	blotter_id VARCHAR(255),
+    street VARCHAR(255),
+    barangay VARCHAR(255),
+	narrative TEXT,
+    
+    PRIMARY KEY (blotter_id)
+);
+CREATE TABLE blotter_complainant ( 
+	blotter_id VARCHAR(255),
+    complainant_id INT,
+    date_time_reported VARCHAR(255),
+    date_time_incident VARCHAR(255),
+    
+    PRIMARY KEY (blotter_id, complainant_id),
+    FOREIGN KEY (blotter_id) REFERENCES blotter(blotter_id),
+    FOREIGN KEY (complainant_id) REFERENCES complainant(complainant_id)
+);
+CREATE TABLE blotter_suspect (
+	blotter_id VARCHAR(255),
+    suspect_id INT,
+    
+    PRIMARY KEY (blotter_id, suspect_id),
+    FOREIGN KEY (blotter_id) REFERENCES blotter(blotter_id),
+    FOREIGN KEY (suspect_id) REFERENCES suspect(suspect_id)
+);
+
+INSERT INTO complainant (
+	firstname, 
+    middlename, 
+    lastname, 
+    nickname, 
+    age, 
+    gender, 
+    civil_status,
+    citizenship, 
+    birthdate, 
+    birthplace, 
+    occupation,
+    province, 
+    city,
+    barangay,
+    house_no_street,
+    mobile_no,
+    tel_no, 
+    email
+) VALUES ('Romeo', 'Mercado', 'Quinones', 'Meo', 21, 'Male', 'Single', 'Filipino', '', '', '','', '', '', '', '09064316098', '', '');
+INSERT INTO suspect (
+	first_name, 
+    middle_name, 
+    last_name, 
+    nickname, 
+    age, 
+    gender, 
+    civil_status,
+    citizenship, 
+    birthdate, 
+    birthplace, 
+    occupation,
+    province, 
+    city,
+    house_no_street,
+    barangay,
+    mobile_no,
+    tel_no, 
+    email
+) VALUES ('Mico', '', 'Cerbito', 'Mics', 21, '', '', '', '', '', '', '', '', '', '', '09926588311', '', '');
+INSERT INTO blotter (
+	blotter_id,
+    street,
+    barangay,
+    narrative
+) VALUES (123456789, 'Purok 5 street', 'Rueda', 'When the complainant is walking, the suspect grab his bag.');
+INSERT INTO blotter_complainant (
+	blotter_id,
+    complainant_id,
+    date_time_reported,
+    date_time_incident
+) VALUES (123456789, 1, '11/09/24 11:52 AM', '11/09/24 7:52 AM');
+INSERT INTO blotter_suspect (
+	blotter_id,
+    suspect_id
+) VALUES (123456789, 1);
+
+SELECT * FROM complainant;
+SELECT * FROM suspect;
+SELECT * FROM blotter;
+SELECT * FROM blotter_complainant;
+SELECT * FROM blotter_suspect;
+
+DELETE FROM blotter_suspect;
+DELETE FROM blotter_complainant;
+DELETE FROM blotter;
+DELETE FROM suspect;
+DELETE FROM complainant;
+
+# off sql safe mode
+SET SQL_SAFE_UPDATES = 0;
+
+# reset primary key count
+ALTER TABLE complainant AUTO_INCREMENT = 1;
+ALTER TABLE suspect AUTO_INCREMENT = 1;
+
+# Project Queries
+SELECT 
+	b.blotter_id , 
+    bc.date_time_reported, 
+    CONCAT(c.firstname, ' ', c.middlename, ' ', c.lastname) AS complainant_fullname,
+    CONCAT(s.firstname, ' ',s.middlename, ' ', s.lastname) AS suspect_fullname
+FROM blotter b
+INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
+INNER JOIN blotter_suspect bs ON b.blotter_id = bs.blotter_id
+INNER JOIN complainant c ON bc.complainant_id = c.complainant_id
+INNER JOIN suspect s ON bs.suspect_id = s.suspect_id;
+
+# Get Complete blotter record base on blotter_id
+SELECT
+	b.blotter_id,
+	b.street,
+	b.barangay AS blotter_barangay,
+	b.narrative,
+	bc.date_time_reported,
+	bc.date_time_incident,
+	c.firstname AS complainant_firstname,
+	c.middlename AS complainant_middlename,
+	c.lastname AS complainant_lastname,
+	c.nickname AS complainant_nickname,
+	c.age AS complainant_age,
+	c.gender AS complainant_gender,
+	c.civil_status AS complainant_civil_status,
+	c.citizenship AS complainant_citizenship,
+    c.birthdate AS complainant_birthdate,
+	c.birthplace AS complainant_birthplace,
+	c.occupation AS complainant_occupation,
+	c.province AS complainant_province,
+	c.city AS complainant_city,
+	c.barangay AS complainant_barangay,
+	c.house_no_street AS complainant_house_no_street,
+	c.mobile_no AS complainant_mobile_no,
+	c.tel_no AS complainant_tel_no,
+	c.email AS complainant_email,
+	s.firstname AS suspect_firstname,
+	s.middlename AS suspect_middlename,
+	s.lastname AS suspect_lastname,
+	s.nickname AS suspect_nickname,
+	s.age AS suspect_age,
+	s.gender AS suspect_gender,
+	s.civil_status AS suspect_civil_status,
+	s.citizenship AS suspect_citizenship,
+	s.birthdate AS suspect_birthdate,
+	s.birthplace AS suspect_birthplace,
+	s.occupation AS suspect_occupation,
+	s.province AS suspect_province,
+	s.city AS suspect_city,
+	s.barangay AS suspect_barangay,
+	s.house_no_street AS suspect_house_no_street,
+	s.mobile_no AS suspect_mobile_no,
+	s.tel_no AS suspect_tel_no,
+	s.email AS suspect_email
+FROM blotter b
+INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
+INNER JOIN complainant c ON bc.complainant_id = c.complainant_id
+INNER JOIN blotter_suspect bs ON b.blotter_id = bs.blotter_id
+INNER JOIN suspect s ON bs.suspect_id = s.suspect_id
+WHERE b.blotter_id = '111124-65cacc1243a';
+
+
