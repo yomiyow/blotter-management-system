@@ -25,12 +25,12 @@ async function renderBlotterRecords() {
         <td>${formattedDate}</td>
         <td>${blotter.complainant_fullname}</td>
         <td>${blotter.suspect_fullname}</td>
-        <td class="menu-wrapper">
-          <i class="fa-solid fa-ellipsis-vertical menu js-menu"></i>
+        <td class="dropdown">
+          <i class="fa-solid fa-ellipsis-vertical ellipsis-menu js-menu"></i>
           <div class="dropdown-menu js-dropdown-menu">
             <a href="/nav/view-entry/edit?blotterId=${blotter.blotter_id}" 
               class="dropdown-item"
-            >Edit</a>
+            >Edit</a> 
             <a href="#" class="dropdown-item">View PDF</a>
             <a href="#" class="dropdown-item">View Record</a>
           </div>
