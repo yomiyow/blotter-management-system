@@ -4,50 +4,32 @@ class Blotter {
   constructor(data) {
     this.blotterId = generateCustomBlotterId();
     this.complainantId;
-    this.comFirstname = data.comFirstname;
-    this.comMiddlename = data.comMiddlename;
-    this.comLastname = data.comLastname;
-    this.comNickname = data.comNickname;
-    this.comAge = data.comAge;
-    this.comGender = data.comGender;
-    this.comCivilStatus = data.comCivilStatus;
-    this.comCitizenship = data.comCitizenship;
-    this.comBirthplace = data.comBirthplace
-    this.comBirthdate = data.comBirthdate;
-    this.comOccupation = data.comOccupation;
-    this.comProvince = data.comProvince;
-    this.comCity = data.comCity;
-    this.comBarangay = data.comBarangay;
-    this.comHouseNoStreet = data.comHouseNoStreet;
-    this.comMobileNo = data.comMobileNo;
-    this.comTelNo = data.comTelNo;
-    this.comEmail = data.comEmail;
-
     this.suspectId;
-    this.susFirstname = data.susFirstname;
-    this.susMiddlename = data.susMiddlename;
-    this.susLastname = data.susLastname;
-    this.susNickname = data.susNickname;
-    this.susAge = data.susAge;
-    this.susGender = data.susGender;
-    this.susCivilStatus = data.susCivilStatus;
-    this.susCitizenship = data.susCitizenship;
-    this.susBirthplace = data.susBirthplace;
-    this.susBirthdate = data.susBirthdate;
-    this.susOccupation = data.susOccupation;
-    this.susProvince = data.susProvince;
-    this.susCity = data.susCity;
-    this.susBarangay = data.susBarangay;
-    this.susHouseNoStreet = data.susHouseNoStreet;
-    this.susMobileNo = data.susMobileNo;
-    this.susTelNo = data.susTelNo;
-    this.susEmail = data.susEmail;
 
-    this.street = data.street;
-    this.barangay = data.barangay;
-    this.dateTimeReported = data.dateTimeReported;
-    this.dateTimeIncident = data.dateTimeIncident;
-    this.narrative = data.narrative;
+    const complainantFields = [
+      'comFirstname', 'comMiddlename', 'comLastname', 'comNickname',
+      'comAge', 'comGender', 'comCivilStatus', 'comCitizenship',
+      'comBirthplace', 'comBirthdate', 'comOccupation', 'comProvince',
+      'comCity', 'comBarangay', 'comHouseNoStreet', 'comMobileNo',
+      'comTelNo', 'comEmail'
+    ];
+
+    const suspectFields = [
+      'susFirstname', 'susMiddlename', 'susLastname', 'susNickname',
+      'susAge', 'susGender', 'susCivilStatus', 'susCitizenship',
+      'susBirthplace', 'susBirthdate', 'susOccupation', 'susProvince',
+      'susCity', 'susBarangay', 'susHouseNoStreet', 'susMobileNo',
+      'susTelNo', 'susEmail'
+    ];
+
+    const caseDetailsFields = [
+      'street', 'barangay', 'dateTimeReported', 'dateTimeIncident',
+      'narrative'
+    ];
+
+    complainantFields.forEach((field) => this[field] = data[field]);
+    suspectFields.forEach((field) => this[field] = data[field]);
+    caseDetailsFields.forEach((field) => this[field] = data[field]);
   }
 
   getComplainantData() {
