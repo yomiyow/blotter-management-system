@@ -291,6 +291,21 @@ main .main-content .tab-container .alert-warning {
   border-radius: 5px;
   color: #856404;
 }
+main .main-content .tab-container .alert-warning i {
+  color: inherit;
+}
+main .main-content .tab-container .alert-success {
+  display: none;
+  margin-left: 1rem;
+  background-color: #cfe2ff;
+  padding: 0.6rem 1rem 0.6rem;
+  border: 1px solid #9ec5fe;
+  border-radius: 5px;
+  color: #052c65;
+}
+main .main-content .tab-container .alert-success i {
+  color: inherit;
+}
 main .main-content form {
   display: -webkit-box;
   display: -ms-flexbox;

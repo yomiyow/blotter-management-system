@@ -98,6 +98,24 @@ main {
         border: 1px solid #ffeeba;
         border-radius: $input-field-border-radius;
         color: #856404;
+
+        i {
+          color: inherit;
+        }
+      }
+
+      .alert-success {
+        display: none;
+        margin-left: 1rem;
+        background-color: #cfe2ff;
+        padding: 0.6rem 1rem 0.6rem;
+        border: 1px solid #9ec5fe;
+        border-radius: $input-field-border-radius;
+        color: #052c65;
+
+        i {
+          color: inherit;
+        }
       }
     }
 

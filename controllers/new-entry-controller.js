@@ -65,7 +65,7 @@ async function createBlotterEntry(req, res) {
 
     await connection.commit();
 
-    res.status(200).json({ message: 'Blotter inserted successfully' });
+    res.status(200).json({ success: true });
 
   } catch (err) {
     await connection.rollback();

@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitButton = document.querySelector('.js-submit-btn');
   const forms = document.querySelectorAll('.js-form-step');
   const tabs = document.querySelectorAll('.js-tab');
-  const alert = document.querySelector('.alert-warning');
 
   let currentFormIndex = parseInt(localStorage.getItem('currentForm')) || 0;
   const COMPLAINANT_FORM_INDEX = 0;
@@ -61,17 +60,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function resetForm() {
+    formFields = document.querySelector('input, select, textarea');
+    formFields.forEach(field => {
+      elemet.value = '';
+    });
+  }
+
+
   let alertTimeout;
 
-  function showAlert() {
-    alert.style.display = 'block';
+  function showAlert(alertElement) {
+    alertElement.style.display = 'block';
     if (alertTimeout) {
       clearTimeout(alertTimeout);
     }
     alertTimeout = setTimeout(() => {
-      alert.style.display = 'none';
+      alertElement.style.display = 'none';
     }, 4000);
   }
+
+  // Display complainant form by default
+  updateFormVisibility();
+
+  // Disable previous button by default
+  setButtonEnableState(prevButton, false);
 
   // Event Listeners
 
@@ -96,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
 
     if (!validateCurrentForm()) {
-      showAlert();
+      showAlert(document.querySelector('.alert-warning'));
       return;
     }
 
@@ -114,29 +127,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  submitButton.addEventListener('click', (event) => {
+  submitButton.addEventListener('click', async (event) => {
     event.preventDefault();
 
     if (!validateCurrentForm()) {
-      showAlert();
+      showAlert(document.querySelector('.alert-warning'));
       return;
     }
 
-    fetch('/api/new-entry', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(collectFormData())
+    try {
+      const response = await fetch('/api/new-entry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(collectFormData())
+      });
+      const success = await response.json();
 
-    }).then((response => response.json()))
-      .then((result) => console.log('Result: ', result))
-      .catch((err) => console.log('Fetch error: ', err));
+      if (success) {
+        showAlert(document.querySelector('.alert-success'));
+        resetForm();
+      }
 
+    } catch (err) {
+      console.log('Fetch error: ', err);
+    }
   });
-
-  // Display complainant form by default
-  updateFormVisibility();
-  // Disable previous button by default
-  setButtonEnableState(prevButton, false);
 });
