@@ -29,10 +29,18 @@ async function renderBlotterRecords() {
           <i class="fa-solid fa-ellipsis-vertical ellipsis-menu js-menu"></i>
           <div class="dropdown-menu js-dropdown-menu">
             <a href="/nav/view-entry/edit?blotterId=${blotter.blotter_id}" 
-              class="dropdown-item"
-            >Edit</a> 
-            <a href="#" class="dropdown-item">View PDF</a>
-            <a href="#" class="dropdown-item">View Record</a>
+              class="dropdown-item">
+              <i class="fa-regular fa-pen-to-square"></i>
+              Edit
+            </a> 
+            <a href="#" class="dropdown-item">
+              <i class="fa-regular fa-file-pdf"></i>
+              View PDF
+            </a>
+            <a href="#" class="dropdown-item">
+              <i class="fa-regular fa-folder"></i>
+              View Record
+            </a>
           </div>
         </td>
       </tr>

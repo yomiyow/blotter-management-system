@@ -71,6 +71,9 @@ header {
   border: none;
   border-top: 1px solid #d9d9d9;
 }
+.base-fieldset legend, main .main-content #case-detail-form legend, main .main-content #complainant-form legend, main .main-content #suspect-form legend {
+  padding: 0 5px 0;
+}
 
 .row, main .main-content #case-detail-form .row-1,
 main .main-content #case-detail-form .row-2,

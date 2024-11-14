@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const forms = document.querySelectorAll('.js-form-step');
   const tabs = document.querySelectorAll('.js-tab');
 
-  let currentFormIndex = parseInt(localStorage.getItem('currentForm')) || 0;
+  let currentFormIndex = 0;
   const COMPLAINANT_FORM_INDEX = 0;
   const LAST_FORM_INDEX = forms.length - 1;
   const ACTIVE_TAB_COLOR = '#007bff';
@@ -61,12 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function resetForm() {
-    formFields = document.querySelector('input, select, textarea');
-    formFields.forEach(field => {
-      elemet.value = '';
+    currentFormIndex = 0;
+    const formFields = document.querySelectorAll('input, select, textarea');
+    formFields.forEach((formField) => {
+      formField.value = '';
     });
+    updateFormVisibility();
+    setButtonEnableState(prevButton, false)
+    setButtonEnableState(nextButton);
+    submitButton.style.display = 'none';
   }
-
 
   let alertTimeout;
 
@@ -94,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentFormIndex > COMPLAINANT_FORM_INDEX) {
       currentFormIndex--;
       updateFormVisibility();
-      localStorage.setItem('currentForm', currentFormIndex);
 
       setButtonEnableState(nextButton);
       submitButton.style.display = 'none';
@@ -116,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentFormIndex < LAST_FORM_INDEX) {
       currentFormIndex++;
       updateFormVisibility();
-      localStorage.setItem('currentForm', currentFormIndex);
 
       setButtonEnableState(prevButton);
     }

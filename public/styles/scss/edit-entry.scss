@@ -25,6 +25,10 @@
       border-top: 1px solid $border-color;
     }
   }
+
+  legend {
+    padding: 0 5px 0;
+  }
 }
 
 // row base class
