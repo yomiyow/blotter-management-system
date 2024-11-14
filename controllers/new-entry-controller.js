@@ -1,8 +1,8 @@
 const { connectToDatabase } = require('../models/db-connection.js');
 const Blotter = require('../models/blotter.js');
+const blotterJson = require('../models/blotter.json');
 
-
-async function insertBlotter(req, res) {
+async function createBlotterEntry(req, res) {
   const connection = await connectToDatabase();
 
   try {
@@ -77,4 +77,4 @@ async function insertBlotter(req, res) {
   }
 }
 
-module.exports = insertBlotter;
+module.exports = { createBlotterEntry };
