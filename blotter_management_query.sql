@@ -77,63 +77,6 @@ CREATE TABLE blotter_suspect (
     FOREIGN KEY (suspect_id) REFERENCES suspect(suspect_id)
 );
 
-INSERT INTO complainant (
-	firstname, 
-    middlename, 
-    lastname, 
-    nickname, 
-    age, 
-    gender, 
-    civil_status,
-    citizenship, 
-    birthdate, 
-    birthplace, 
-    occupation,
-    province, 
-    city,
-    barangay,
-    house_no_street,
-    mobile_no,
-    tel_no, 
-    email
-) VALUES ('Romeo', 'Mercado', 'Quinones', 'Meo', 21, 'Male', 'Single', 'Filipino', '', '', '','', '', '', '', '09064316098', '', '');
-INSERT INTO suspect (
-	first_name, 
-    middle_name, 
-    last_name, 
-    nickname, 
-    age, 
-    gender, 
-    civil_status,
-    citizenship, 
-    birthdate, 
-    birthplace, 
-    occupation,
-    province, 
-    city,
-    house_no_street,
-    barangay,
-    mobile_no,
-    tel_no, 
-    email
-) VALUES ('Mico', '', 'Cerbito', 'Mics', 21, '', '', '', '', '', '', '', '', '', '', '09926588311', '', '');
-INSERT INTO blotter (
-	blotter_id,
-    street,
-    barangay,
-    narrative
-) VALUES (123456789, 'Purok 5 street', 'Rueda', 'When the complainant is walking, the suspect grab his bag.');
-INSERT INTO blotter_complainant (
-	blotter_id,
-    complainant_id,
-    date_time_reported,
-    date_time_incident
-) VALUES (123456789, 1, '11/09/24 11:52 AM', '11/09/24 7:52 AM');
-INSERT INTO blotter_suspect (
-	blotter_id,
-    suspect_id
-) VALUES (123456789, 1);
-
 SELECT * FROM complainant;
 SELECT * FROM suspect;
 SELECT * FROM blotter;
@@ -154,6 +97,7 @@ ALTER TABLE complainant AUTO_INCREMENT = 1;
 ALTER TABLE suspect AUTO_INCREMENT = 1;
 
 # Project Queries
+
 SELECT 
 	b.blotter_id , 
     bc.date_time_reported, 
@@ -166,6 +110,7 @@ INNER JOIN complainant c ON bc.complainant_id = c.complainant_id
 INNER JOIN suspect s ON bs.suspect_id = s.suspect_id;
 
 # Get Complete blotter record base on blotter_id
+
 SELECT
 	b.blotter_id,
 	b.street,
