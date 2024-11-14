@@ -2,7 +2,7 @@ const { connectToDatabase } = require('../models/db-connection.js');
 
 async function getBlotterById(req, res) {
   try {
-    const blotterId = req.params.blotterId;
+    const blotterId = req.query.blotterId;
     const connection = await connectToDatabase();
 
     const selectQuery = `

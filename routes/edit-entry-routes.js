@@ -6,6 +6,6 @@ const { getBlotterById } = require('../controllers/edit-entry-controller.js');
 editEntryRouter.get('/nav/view-entry/edit', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/edit-entry.html'));
 });
-editEntryRouter.get('/api/view-entry/edit/:blotterId', getBlotterById)
+editEntryRouter.get('/api/view-entry/edit', getBlotterById)
 
 module.exports = editEntryRouter;

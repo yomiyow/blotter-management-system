@@ -4,7 +4,7 @@ async function loadBlotterForm() {
     const urlParams = new URLSearchParams(window.location.search);
     const blotterId = urlParams.get('blotterId');
 
-    const response = await fetch(`/api/view-entry/edit/${blotterId}`);
+    const response = await fetch(`/api/view-entry/edit?blotterId=${blotterId}`);
     const blotterData = await response.json();
 
     return blotterData;
