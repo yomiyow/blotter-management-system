@@ -145,11 +145,13 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify(collectFormData())
       });
-      const success = await response.json();
+      const result = await response.json();
 
-      if (success) {
+      if (result.success) {
         showAlert(document.querySelector('.alert-success'));
         resetForm();
+      } else {
+        alert(result.error);
       }
 
     } catch (err) {

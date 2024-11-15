@@ -1,16 +1,19 @@
 const { connectToDatabase } = require('../models/db-connection.js');
 const Blotter = require('../models/blotter.js');
+const generateCustomBlotterId = require('../models/api.js');
 const blotterJson = require('../models/blotter.json');
 
 async function createBlotterEntry(req, res) {
   const connection = await connectToDatabase();
 
   try {
+    const blotterId = generateCustomBlotterId();
+    const blotter = new Blotter(req.body, blotterId);
+    // const blotter = new Blotter(blotterJson);
+
     await connection.beginTransaction();
 
-    const blotter = new Blotter(req.body);
-
-    // Complainant Query
+    // complainant Table
     const complainantQuery = `
       INSERT INTO complainant (
         firstname, middlename, lastname, nickname, age, gender, civil_status,
@@ -18,12 +21,12 @@ async function createBlotterEntry(req, res) {
         house_no_street, mobile_no, tel_no, email
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
-    const complainantValues = blotter.getComplainantData();
+    const complainantValues = blotter.getComplainantValues();
     const [complainantResult] = await connection.query(complainantQuery, complainantValues);
     const complainantId = complainantResult.insertId;
     blotter.setComplainantId(complainantId);
 
-    // Suspect Query
+    // suspect Table
     const suspectQuery = `
       INSERT INTO suspect (
         firstname, middlename, lastname, nickname, age, gender, civil_status,
@@ -31,36 +34,36 @@ async function createBlotterEntry(req, res) {
         house_no_street, mobile_no, tel_no, email
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
-    const suspectValues = blotter.getSuspectData();
+    const suspectValues = blotter.getSuspectValues();
     const [suspectResult] = await connection.query(suspectQuery, suspectValues);
     const suspectId = suspectResult.insertId;
     blotter.setSuspectId(suspectId);
 
-    // Blotter
+    // blotter Table
     const blotterQuery = `
       INSERT INTO blotter (
-        blotter_id, street, barangay, narrative
+        street, barangay, narrative, blotter_id
       ) VALUES (?, ?, ?, ?)
     `;
-    const blotterValues = blotter.getBlotterData();
+    const blotterValues = blotter.getBlotterValues();
     await connection.query(blotterQuery, blotterValues);
 
-    // Blotter complainant
+    // blotter_complainant Table
     const blotterComplainantQuery = `
       INSERT INTO blotter_complainant (
         blotter_id, complainant_id, date_time_reported, date_time_incident
       ) VALUES (?, ?, ?, ?)
     `;
-    const blotterComplainantValues = blotter.getBlotterComplainantData();
+    const blotterComplainantValues = blotter.getBlotterComplainantValues();
     await connection.query(blotterComplainantQuery, blotterComplainantValues);
 
-    // Blotter suspect
+    // blotter_suspect Table
     const blotterSuspectQuery = `
       INSERT INTO blotter_suspect (
         blotter_id, suspect_id
       ) VALUES (?, ?)
     `;
-    const blotterSuspectValues = blotter.getBlotterSuspectData();
+    const blotterSuspectValues = blotter.getBlotterSuspectValues();
     await connection.query(blotterSuspectQuery, blotterSuspectValues);
 
     await connection.commit();
@@ -70,11 +73,13 @@ async function createBlotterEntry(req, res) {
   } catch (err) {
     await connection.rollback();
     console.error('Error inserting data: ', err);
-    res.status(500).json({ error: 'Failed to insert data' });
+    res.status(500).json({ error: 'Failed to create blotter!' });
 
   } finally {
     connection.end();
   }
 }
+
+// createBlotterEntry();
 
 module.exports = { createBlotterEntry };
