@@ -161,4 +161,16 @@ INNER JOIN blotter_suspect bs ON b.blotter_id = bs.blotter_id
 INNER JOIN suspect s ON bs.suspect_id = s.suspect_id
 WHERE b.blotter_id = '111124-65cacc1243a';
 
+UPDATE complainant
+SET 
+	firstname = ?, middlename = ?, lastname = ?, nickname = ?, age = ?,
+	gender = ?, civil_status = ?, citizenship = ?, birthplace = ?, birthdate = ?, 
+	occupation = ?, province = ?, city = ?, barangay = ?, house_no_street = ?, 
+	mobile_no = ?, tel_no = ?, email = ?
+WHERE complainant_id = (
+	SELECT complainant_id
+    FROM blotter_complainant
+    WHERE blotter_id = '111524-477b77d298c'
+);
+
 
