@@ -12,6 +12,8 @@ main {
 
   .main-content {
     flex: 1;
+    display: flex;
+    flex-flow: column wrap;
   }
 }
 
@@ -19,6 +21,7 @@ main {
   @include flex-card(space-evenly);
   row-gap: 20px;
   padding: 2rem 0 2rem;
+  flex: 1;
 
   .card {
     @include flex-card(space-between, column);
@@ -41,4 +44,13 @@ main {
       color: $grey;
     }
   }
+}
+
+.chart-container {
+  flex: 3;
+  display: flex;
+  flex-flow: row wrap;
+  width: 65%;
+  min-width: 450px;
+  margin: auto;
 }
