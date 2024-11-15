@@ -1,8 +1,6 @@
-const generateCustomBlotterId = require('./api.js');
-
 class Blotter {
-  constructor(data) {
-    this.blotterId = generateCustomBlotterId();
+  constructor(data, blotterId) {
+    this.blotterId = blotterId;
     this.complainantId;
     this.suspectId;
 
@@ -32,71 +30,62 @@ class Blotter {
     caseDetailsFields.forEach((field) => this[field] = data[field]);
   }
 
-  getComplainantData() {
-    return [
-      this.comFirstname,
-      this.comMiddlename,
-      this.comLastname,
-      this.comNickname,
-      this.comAge,
-      this.comGender,
-      this.comCivilStatus,
-      this.comCitizenship,
-      this.comBirthplace,
-      this.comBirthdate,
-      this.comOccupation,
-      this.comProvince,
-      this.comCity,
-      this.comBarangay,
-      this.comHouseNoStreet,
-      this.comMobileNo,
-      this.comTelNo,
-      this.comEmail
-    ];
+  #getValues(fields) {
+    return fields.map((field) => this[field])
   }
 
-  getSuspectData() {
-    return [
-      this.susFirstname,
-      this.susMiddlename,
-      this.susLastname,
-      this.susNickname,
-      this.susAge,
-      this.susGender,
-      this.susCivilStatus,
-      this.susCitizenship,
-      this.susBirthplace,
-      this.susBirthdate,
-      this.susOccupation,
-      this.susProvince,
-      this.susCity,
-      this.susBarangay,
-      this.susHouseNoStreet,
-      this.susMobileNo,
-      this.susTelNo,
-      this.susEmail
+  getComplainantValues(includeBotterId = false) {
+    const complainantFields = [
+      'comFirstname', 'comMiddlename', 'comLastname', 'comNickname',
+      'comAge', 'comGender', 'comCivilStatus', 'comCitizenship',
+      'comBirthplace', 'comBirthdate', 'comOccupation', 'comProvince',
+      'comCity', 'comBarangay', 'comHouseNoStreet', 'comMobileNo',
+      'comTelNo', 'comEmail'
     ];
+
+    return (includeBotterId)
+      ? [...this.#getValues(complainantFields), this.blotterId]
+      : this.#getValues(complainantFields);
   }
 
-  getBlotterData() {
-    return [
-      this.blotterId,
-      this.street,
-      this.barangay,
-      this.narrative
+  getSuspectValues(includeBlotterId = false) {
+    const suspectFields = [
+      'susFirstname', 'susMiddlename', 'susLastname', 'susNickname',
+      'susAge', 'susGender', 'susCivilStatus', 'susCitizenship',
+      'susBirthplace', 'susBirthdate', 'susOccupation', 'susProvince',
+      'susCity', 'susBarangay', 'susHouseNoStreet', 'susMobileNo',
+      'susTelNo', 'susEmail'
     ];
+
+    return (includeBlotterId)
+      ? [...this.#getValues(suspectFields), this.blotterId]
+      : this.#getValues(suspectFields);
   }
 
-  getBlotterComplainantData() {
-    return [
-      this.blotterId,
-      this.complainantId,
-      this.dateTimeReported,
-      this.dateTimeIncident
+  getBlotterValues() {
+    const blotterFields = [
+      'street', 'barangay', 'narrative', 'blotterId'
     ];
+
+    return this.#getValues(blotterFields);
   }
 
-  getBlotterSuspectData() {
+  getBlotterComplainantValues(includeIds = true) {
+    const blotterComplainantFields = [
+      'blotterId', 'complainantId',
+      'dateTimeReported', 'dateTimeIncident'
+    ];
+
+    if (!includeIds) {
+      blotterComplainantFields.splice(0, 2);
+    }
+
+    return (includeIds)
+      ? this.#getValues(blotterComplainantFields)
+      : [...this.#getValues(blotterComplainantFields), this.blotterId];
+  }
+
+  getBlotterSuspectValues() {
     return [
       this.blotterId,
       this.suspectId
