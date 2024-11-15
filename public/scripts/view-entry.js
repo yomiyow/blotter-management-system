@@ -1,19 +1,15 @@
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 
 async function renderBlotterRecords() {
+  let blotters = [];
 
-  async function fetchBlotterRecords() {
-    try {
-      const response = await fetch('/api/view-entry');
-      const blottersData = await response.json();
+  try {
+    const response = await fetch('/api/view-entry');
+    blotters = await response.json();
 
-      return blottersData;
-    } catch (err) {
-      console.error('Error fetching data:', err);
-    }
+  } catch (err) {
+    console.error('Error fetching blotters:', err);
   }
-
-  const blotters = await fetchBlotterRecords();
 
   let blotterHTML = '';
 
@@ -59,6 +55,17 @@ async function renderBlotterRecords() {
     dropDown.style.display = 'none';
   }
 
+  function highlightRow(event) {
+    const rows = document.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+      row.classList.remove('highlighted');
+    });
+    const row = event.target.closest('tbody tr');
+    if (row) {
+      row.classList.add('highlighted');
+    }
+  }
+
   // Initially hide all dropdown menus
   dropDownMenu.forEach(dropDown => hideDropDown(dropDown));
 
@@ -79,6 +86,7 @@ async function renderBlotterRecords() {
       dropDownMenu.forEach((dropDown) => {
         if (dropDown === currentDropDown) {
           showDropDown(dropDown);
+          highlightRow(event)
         } else {
           hideDropDown(dropDown);
         }

@@ -55,6 +55,14 @@ main {
             background-color: $primary-color;
           }
         }
+
+        .highlighted {
+          background-color: #c2e7ff;
+
+          &:hover {
+            background-color: #c2e7ff;
+          }
+        }
       }
 
       td,
