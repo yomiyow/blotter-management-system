@@ -1,7 +1,7 @@
-async function populateBlotterForm() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const blotterId = urlParams.get('blotterId');
+const urlParams = new URLSearchParams(window.location.search);
+const blotterId = urlParams.get('blotterId');
 
+(async function populateBlotterForm() {
   const response = await fetch(`/api/view-entry/edit?blotterId=${blotterId}`);
   const [blotter] = await response.json();
 
@@ -51,77 +51,79 @@ async function populateBlotterForm() {
   document.getElementById('date-time-reported').value = blotter.date_time_reported;
   document.getElementById('date-time-incident').value = blotter.date_time_incident;
   document.getElementById('narrative').value = blotter.narrative;
+})();
 
-  // Event listener
-  document.querySelector('.js-update-btn')
-    .addEventListener('click', async () => {
-      const updatedBlotter = {
-        comFirstname: document.getElementById('complainant-firstname').value,
-        comMiddlename: document.getElementById('complainant-middlename').value,
-        comLastname: document.getElementById('complainant-lastname').value,
-        comNickname: document.getElementById('complainant-nickname').value,
-        comAge: document.getElementById('complainant-age').value,
-        comGender: document.getElementById('complainant-gender').value,
-        comCivilStatus: document.getElementById('complainant-civil-status').value,
-        comCitizenship: document.getElementById('complainant-citizenship').value,
-        comBirthdate: document.getElementById('complainant-birthdate').value,
-        comBirthplace: document.getElementById('complainant-birthplace').value,
-        comOccupation: document.getElementById('complainant-occupation').value,
-        comProvince: document.getElementById('complainant-province').value,
-        comCity: document.getElementById('complainant-city').value,
-        comBarangay: document.getElementById('complainant-barangay').value,
-        comHouseNoStreet: document.getElementById('complainant-houseno-street').value,
-        comMobileNo: document.getElementById('complainant-mobile-no').value,
-        comTelNo: document.getElementById('complainant-tel-no').value,
-        comEmail: document.getElementById('complainant-email').value,
+function getFormValues() {
+  return {
+    comFirstname: document.getElementById('complainant-firstname').value,
+    comMiddlename: document.getElementById('complainant-middlename').value,
+    comLastname: document.getElementById('complainant-lastname').value,
+    comNickname: document.getElementById('complainant-nickname').value,
+    comAge: document.getElementById('complainant-age').value,
+    comGender: document.getElementById('complainant-gender').value,
+    comCivilStatus: document.getElementById('complainant-civil-status').value,
+    comCitizenship: document.getElementById('complainant-citizenship').value,
+    comBirthdate: document.getElementById('complainant-birthdate').value,
+    comBirthplace: document.getElementById('complainant-birthplace').value,
+    comOccupation: document.getElementById('complainant-occupation').value,
+    comProvince: document.getElementById('complainant-province').value,
+    comCity: document.getElementById('complainant-city').value,
+    comBarangay: document.getElementById('complainant-barangay').value,
+    comHouseNoStreet: document.getElementById('complainant-houseno-street').value,
+    comMobileNo: document.getElementById('complainant-mobile-no').value,
+    comTelNo: document.getElementById('complainant-tel-no').value,
+    comEmail: document.getElementById('complainant-email').value,
 
-        // // Populate suspect fields
-        susFirstname: document.getElementById('suspect-firstname').value,
-        susMiddlename: document.getElementById('suspect-middlename').value,
-        susLastname: document.getElementById('suspect-lastname').value,
-        susNickname: document.getElementById('suspect-nickname').value,
-        susAge: document.getElementById('suspect-age').value,
-        susGender: document.getElementById('suspect-gender').value,
-        susCivilStatus: document.getElementById('suspect-civil-status').value,
-        susCitizenship: document.getElementById('suspect-citizenship').value,
-        susBirthplace: document.getElementById('suspect-birthplace').value,
-        susBirthdate: document.getElementById('suspect-birthdate').value,
-        susOccupation: document.getElementById('suspect-occupation').value,
-        susProvince: document.getElementById('suspect-province').value,
-        susCity: document.getElementById('suspect-city').value,
-        susBarangay: document.getElementById('suspect-barangay').value,
-        susHouseNoStreet: document.getElementById('suspect-houseno-street').value,
-        susMobileNo: document.getElementById('suspect-mobile-no').value,
-        susTelNo: document.getElementById('suspect-tel-no').value,
-        susEmail: document.getElementById('suspect-email').value,
+    // // Populate suspect fields
+    susFirstname: document.getElementById('suspect-firstname').value,
+    susMiddlename: document.getElementById('suspect-middlename').value,
+    susLastname: document.getElementById('suspect-lastname').value,
+    susNickname: document.getElementById('suspect-nickname').value,
+    susAge: document.getElementById('suspect-age').value,
+    susGender: document.getElementById('suspect-gender').value,
+    susCivilStatus: document.getElementById('suspect-civil-status').value,
+    susCitizenship: document.getElementById('suspect-citizenship').value,
+    susBirthplace: document.getElementById('suspect-birthplace').value,
+    susBirthdate: document.getElementById('suspect-birthdate').value,
+    susOccupation: document.getElementById('suspect-occupation').value,
+    susProvince: document.getElementById('suspect-province').value,
+    susCity: document.getElementById('suspect-city').value,
+    susBarangay: document.getElementById('suspect-barangay').value,
+    susHouseNoStreet: document.getElementById('suspect-houseno-street').value,
+    susMobileNo: document.getElementById('suspect-mobile-no').value,
+    susTelNo: document.getElementById('suspect-tel-no').value,
+    susEmail: document.getElementById('suspect-email').value,
 
-        // Populate case detail fields
-        street: document.getElementById('street').value,
-        barangay: document.getElementById('barangay').value,
-        dateTimeReported: document.getElementById('date-time-reported').value,
-        dateTimeIncident: document.getElementById('date-time-incident').value,
-        narrative: document.getElementById('narrative').value
-      }
-
-      console.log(updatedBlotter);
-
-      try {
-        const response = await fetch(`/api/view-entry/edit/${blotterId}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(updatedBlotter)
-        });
-
-        const result = await response.json();
-        alert(result.message);
-
-      } catch (err) {
-        console.error('Error updating blotter: ', err);
-      }
-    });
+    // Populate case detail fields
+    street: document.getElementById('street').value,
+    barangay: document.getElementById('barangay').value,
+    dateTimeReported: document.getElementById('date-time-reported').value,
+    dateTimeIncident: document.getElementById('date-time-incident').value,
+    narrative: document.getElementById('narrative').value
+  }
 }
 
-populateBlotterForm();
+// Event listener
+document.querySelector('.js-update-btn')
+  .addEventListener('click', async () => {
+    const updatedBlotter = getFormValues();
+
+    console.log(updatedBlotter);
+
+    try {
+      const response = await fetch(`/api/view-entry/edit/${blotterId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedBlotter)
+      });
+
+      const result = await response.json();
+      alert(result.message);
+
+    } catch (err) {
+      console.error('Error updating blotter: ', err);
+    }
+  });
 

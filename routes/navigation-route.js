@@ -12,6 +12,9 @@ navRouter.get('/nav/new-entry', (req, res) => {
 navRouter.get('/nav/view-entry', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/view-entry.html'));
 });
+navRouter.get('/nav/view-entry/edit', (req, res) => {
+  res.sendFile(path.join(__dirname, '../views/edit-entry.html'));
+});
 navRouter.get('/nav/report', (req, res) => {
   // res.sendFile(path.join(__dirname, '../views/dashboard.html'));
   res.send('Report Page');

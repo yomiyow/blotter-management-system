@@ -58,7 +58,7 @@ async function getBlotterById(req, res) {
       WHERE b.blotter_id = ?;  
     `;
     const [blotterRecord] = await connection.query(selectQuery, blotterId);
-    res.json(blotterRecord);
+    res.status(200).json(blotterRecord);
 
   } catch (error) {
     console.error('Error fetching data:', error);
