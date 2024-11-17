@@ -1,7 +1,7 @@
 const { connectToDatabase } = require('../models/db-connection.js');
 const Blotter = require('../models/blotter.js');
-const generateCustomBlotterId = require('../models/api.js');
-const blotterJson = require('../models/blotter.json');
+const { generateCustomBlotterId } = require('../public/utils/utils.js');
+// const blotterJson = require('../models/blotter.json');
 
 async function createBlotterEntry(req, res) {
   const connection = await connectToDatabase();

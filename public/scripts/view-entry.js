@@ -29,7 +29,10 @@ async function renderBlotterRecords() {
               <i class="fa-regular fa-pen-to-square"></i>
               Edit
             </a> 
-            <a href="/nav/view-entry/pdf?blotterId=${blotter.blotter_id}" class="dropdown-item">
+            <a 
+              href="/nav/view-entry/pdf?blotterId=${blotter.blotter_id}" 
+              class="dropdown-item" target="_blank"
+            >
               <i class="fa-regular fa-file-pdf"></i>
               View PDF
             </a>

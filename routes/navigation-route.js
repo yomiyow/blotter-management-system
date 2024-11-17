@@ -15,6 +15,10 @@ navRouter.get('/nav/view-entry', (req, res) => {
 navRouter.get('/nav/view-entry/edit', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/edit-entry.html'));
 });
+// navRouter.get('/nav/view-entry/pdf', (req, res) => {
+//   // res.sendFile(path.join(__dirname, '../views/edit-entry.html'));
+//   res.send('PDF view...');
+// });
 navRouter.get('/nav/report', (req, res) => {
   // res.sendFile(path.join(__dirname, '../views/dashboard.html'));
   res.send('Report Page');

@@ -9,4 +9,10 @@ function generateCustomBlotterId() {
   return blotterId;
 }
 
-module.exports = generateCustomBlotterId;
+function dateAndTimeToday() {
+  const date = dayjs().format('YYYY-MM-DD HH:mm A');
+
+  return date;
+}
+
+module.exports = { generateCustomBlotterId, dateAndTimeToday };

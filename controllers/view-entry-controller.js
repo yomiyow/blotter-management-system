@@ -18,7 +18,7 @@ async function getBlotterRecords(req, res) {
     `;
 
     const [blotterRecord] = await connection.query(selectQuery);
-    res.json(blotterRecord);
+    res.status(200).json(blotterRecord);
 
   } catch (error) {
     console.error('Error fetching data:', error);

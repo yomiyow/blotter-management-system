@@ -113,14 +113,7 @@ INNER JOIN suspect s ON bs.suspect_id = s.suspect_id;
 
 SELECT
 	b.blotter_id,
-	b.street,
-	b.barangay AS blotter_barangay,
-	b.narrative,
-	bc.date_time_reported,
-	bc.date_time_incident,
-	c.firstname AS complainant_firstname,
-	c.middlename AS complainant_middlename,
-	c.lastname AS complainant_lastname,
+    CONCAT(c.firstname, ' ', c.middlename, ' ', c.lastname) AS complainant_fullname,
 	c.nickname AS complainant_nickname,
 	c.age AS complainant_age,
 	c.gender AS complainant_gender,
@@ -129,16 +122,11 @@ SELECT
     c.birthdate AS complainant_birthdate,
 	c.birthplace AS complainant_birthplace,
 	c.occupation AS complainant_occupation,
-	c.province AS complainant_province,
-	c.city AS complainant_city,
-	c.barangay AS complainant_barangay,
-	c.house_no_street AS complainant_house_no_street,
+    CONCAT(c.house_no_street, ' ', c.barangay, ' ', c.city, ' ', c.province) AS complainant_address,
 	c.mobile_no AS complainant_mobile_no,
 	c.tel_no AS complainant_tel_no,
 	c.email AS complainant_email,
-	s.firstname AS suspect_firstname,
-	s.middlename AS suspect_middlename,
-	s.lastname AS suspect_lastname,
+	CONCAT(s.firstname, ' ', s.middlename, ' ', s.lastname) AS suspect_fullname,
 	s.nickname AS suspect_nickname,
 	s.age AS suspect_age,
 	s.gender AS suspect_gender,
@@ -147,19 +135,21 @@ SELECT
 	s.birthdate AS suspect_birthdate,
 	s.birthplace AS suspect_birthplace,
 	s.occupation AS suspect_occupation,
-	s.province AS suspect_province,
-	s.city AS suspect_city,
-	s.barangay AS suspect_barangay,
-	s.house_no_street AS suspect_house_no_street,
+	CONCAT(s.house_no_street, ' ', s.barangay, ' ', s.city, ' ', s.province) AS suspect_address,
 	s.mobile_no AS suspect_mobile_no,
 	s.tel_no AS suspect_tel_no,
-	s.email AS suspect_email
+	s.email AS suspect_email,
+    b.street,
+	b.barangay,
+	bc.date_time_reported,
+	bc.date_time_incident,
+    b.narrative
 FROM blotter b
 INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
 INNER JOIN complainant c ON bc.complainant_id = c.complainant_id
 INNER JOIN blotter_suspect bs ON b.blotter_id = bs.blotter_id
 INNER JOIN suspect s ON bs.suspect_id = s.suspect_id
-WHERE b.blotter_id = '111124-65cacc1243a';
+WHERE b.blotter_id = '111524-477b77d298c';
 
 UPDATE complainant
 SET 
@@ -170,7 +160,7 @@ SET
 WHERE complainant_id = (
 	SELECT complainant_id
     FROM blotter_complainant
-    WHERE blotter_id = '111524-477b77d298c'
+    WHERE blotter_id = ?
 );
 
 
