@@ -1,7 +1,13 @@
+/* Used in new-entry & view-entry */
+/* Used in dashboard */
+/* Used in new-entry */
+/* Used in login & register */
+/* Used main-content */
 header {
   position: fixed;
   left: 0;
   right: 0;
+  top: 0;
   z-index: 1;
   background-color: #f5f5f5;
   height: 3.2rem;
@@ -28,66 +34,120 @@ header {
   text-decoration: none;
 }
 
-.login-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+main {
   height: 100vh;
-  background-color: #f5f5f5;
-}
-.login-container .login-card-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 400px;
-  height: 450px;
-  border-radius: 8px;
-  -webkit-box-shadow: 0 4px 8px #808080;
-          box-shadow: 0 4px 8px #808080;
-  padding: 2rem;
-  position: relative;
 }
-.login-container .login-card-container .login-btn {
-  color: white;
-  background-color: #007bff;
-  padding: 8px 0;
-  border: none;
-  width: 100%;
-  margin: 10px 0;
-}
-.login-container .login-card-container .login-header {
-  position: absolute;
-  top: 15px;
-}
-.login-container .login-card-container .input-group input {
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: solid #808080 1px;
-  width: 100%;
-  background-color: #f5f5f5;
-  margin: 10px 0;
-}
-.login-container .login-card-container .register {
+
+form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  margin: 10px 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem 2rem 0;
+  width: 300px;
+  height: 400px;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 }
-.login-container .login-card-container .register a {
+form .login-header {
+  margin-bottom: 5rem;
+}
+form .input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  row-gap: 0.7rem;
+}
+form .input-group input, form .input-group button {
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  width: 100%;
+}
+form .input-group input:focus, form .input-group button:focus {
+  border-color: #007BFF;
+  -webkit-box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+          box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+form .input-group .password-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+form .input-group .password-wrapper input, form .input-group .password-wrapper button {
+  padding-right: 2.8rem;
+}
+form .input-group .password-wrapper .show-password {
+  position: absolute;
+  font-size: 0.8rem;
+  right: 8px;
   color: #007bff;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+form .input-group .password-wrapper .show-password:hover {
+  color: #0062cc;
+  cursor: pointer;
+}
+form .input-group .password-wrapper .show-password:active {
+  color: #3395ff;
+}
+form .input-group button {
+  margin: 0.8rem 0 0.5rem;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+form .input-group button:hover {
+  background-color: #0062cc;
+  cursor: pointer;
+}
+form .input-group button:active {
+  background-color: #3395ff;
+}
+form .register-wrapper {
+  text-align: center;
+}
+form .register-wrapper p {
+  font-size: 0.8rem;
+}
+form .register-wrapper a {
+  color: #007bff;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+form .register-wrapper a:hover {
+  color: #0062cc;
+}
+form .register-wrapper a:active {
+  color: #3395ff;
 }/*# sourceMappingURL=login.css.map */

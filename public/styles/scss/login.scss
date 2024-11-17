@@ -1,53 +1,107 @@
+@import 'mixins';
 @import 'header';
 @import 'variables';
 @import 'reset';
 
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+main {
   height: 100vh;
-  background-color: $primary-color;
+  @include flex-center;
+}
 
-  .login-card-container {
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem 0;
+  width: 300px;
+  height: 400px;
+  box-shadow: 0 0 6px rgba(black, 0.25);
+  border-radius: $input-field-border-radius;
+
+  .login-header {
+    margin-bottom: 5rem;
+  }
+
+  .input-group {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    height: 450px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px $grey;
-    padding: 2rem;
-    position: relative;
+    flex-direction: column;
+    width: 100%;
+    row-gap: 0.7rem;
 
-    .login-btn {
-      color: white;
-      background-color: $blue;
-      padding: 8px 0;
-      border: none;
+    input {
+      padding: 0.5rem;
+      outline: none;
+      border: 1px solid $border-color;
+      border-radius: $input-field-border-radius;
       width: 100%;
-      margin: 10px 0;
-    }
 
-    .login-header {
-      position: absolute;
-      top: 15px;
-    }
-
-    .input-group {
-
-      input {
-        @include input;
+      &:focus {
+        @include focus-styles;
       }
     }
 
-    .register {
+    .password-wrapper {
+      position: relative;
       display: flex;
-      justify-content: space-evenly;
-      margin: 10px 0;
+      align-items: center;
 
-      a {
+      input {
+        padding-right: 2.8rem;
+      }
+
+      .show-password {
+        position: absolute;
+        font-size: 0.8rem;
+        right: 8px;
         color: $blue;
+        transition: 0.25s;
+
+        &:hover {
+          color: darken($blue, 10%);
+          cursor: pointer;
+        }
+
+        &:active {
+          color: lighten($blue, 10%);
+        }
+      }
+    }
+
+    button {
+      @extend input;
+      margin: 0.8rem 0 0.5rem;
+      background-color: $blue;
+      color: white;
+      font-weight: bold;
+      transition: 0.25s;
+
+      &:hover {
+        background-color: darken($blue, 10%);
+        cursor: pointer;
+      }
+
+      &:active {
+        background-color: lighten($blue, 10%);
+      }
+    }
+  }
+
+  .register-wrapper {
+    text-align: center;
+
+    p {
+      font-size: 0.8rem;
+    }
+
+    a {
+      color: $blue;
+      transition: 0.25s;
+
+      &:hover {
+        color: darken($blue, 10%);
+      }
+
+      &:active {
+        color: lighten($blue, 10%);
       }
     }
   }

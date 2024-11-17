@@ -10,9 +10,7 @@ function generateCustomBlotterId() {
 }
 
 function dateAndTimeToday() {
-  const date = dayjs().format('YYYY-MM-DD HH:mm A');
-
-  return date;
+  return dayjs().format('YYYY-MM-DD | h:mm A');
 }
 
 function dateToday() {
