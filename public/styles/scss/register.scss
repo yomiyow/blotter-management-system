@@ -1,82 +1,115 @@
+@import 'mixins';
 @import 'header';
 @import 'variables';
 @import 'reset';
-@import 'mixins';
 
-.register-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+main {
 	height: 100vh;
-	background-color: $primary-color;
+	@include flex-center;
+}
 
-	.register-card-container {
+form {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 2rem 0;
+	width: 300px;
+	height: 400px;
+	box-shadow: 0 0 6px rgba(black, 0.25);
+	border-radius: $input-field-border-radius;
+
+	.register-header {
+		margin-bottom: 5rem;
+	}
+
+	.input-group {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		width: 700px;
-		height: 450px;
-		border-radius: 8px;
-		box-shadow: 0 4px 8px $grey;
-		padding: 2rem;
-		position: relative;
+		width: 100%;
+		row-gap: 0.7rem;
 
-		.input-section {
+		input {
+			padding: 0.5rem;
+			outline: none;
+			border: 1px solid $border-color;
+			border-radius: $input-field-border-radius;
+			width: 100%;
+
+			&:focus {
+				@include focus-styles;
+			}
+		}
+
+		.row-1 {
 			display: flex;
 			flex-direction: row;
-			justify-content: center;
+			column-gap: 0.6rem;
+		}
+
+		.password-wrapper {
+			position: relative;
+			display: flex;
 			align-items: center;
 
-			.left-section,
-			.right-section {
-				display: block;
-				align-items: center;
-				width: 100%;
-				margin: 10px 10px;
+			input {
+				padding-right: 2.8rem;
+			}
 
-				input,
-				#dropdown {
-						@include input;
+			.show-password {
+				position: absolute;
+				font-size: 0.8rem;
+				right: 8px;
+				color: $blue;
+				transition: 0.25s;
+				user-select: none;
+
+				&:hover {
+					color: darken($blue, 10%);
+					cursor: pointer;
+				}
+
+				&:active {
+					color: lighten($blue, 10%);
 				}
 			}
 		}
 
-		.bottom-section {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-evenly;
-			width: 100%;
-			margin: 10px 0;
+		button {
+			@extend input;
+			margin: 0.8rem 0 0.5rem;
+			background-color: $blue;
+			color: white;
+			font-weight: bold;
+			transition: 0.25s;
 
-			.reg-btn-container {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-
-				.register-btn {
-					color: white;
-					background-color: $blue;
-					padding: 8px 0;
-					border: none;
-					width: 40%;
-					margin: 10px 0;
-				}
+			&:hover {
+				background-color: darken($blue, 10%);
+				cursor: pointer;
 			}
 
-			.register {
-				display: flex;
-				justify-content: space-evenly;
-
-				a {
-					color: $blue;
-				}
+			&:active {
+				background-color: lighten($blue, 10%);
 			}
 		}
+	}
 
-		.register-header {
-			position: absolute;
-			top: 15px;
+	.register-wrapper {
+		text-align: center;
+
+		p {
+			font-size: 0.8rem;
+		}
+
+		a {
+			color: $blue;
+			transition: 0.25s;
+
+			&:hover {
+				color: darken($blue, 10%);
+			}
+
+			&:active {
+				color: lighten($blue, 10%);
+			}
 		}
 	}
 }

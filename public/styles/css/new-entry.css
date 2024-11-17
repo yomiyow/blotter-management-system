@@ -292,6 +292,9 @@ main .main-content .tab-container .alert-warning {
   border: 1px solid #ffeeba;
   border-radius: 5px;
   color: #856404;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 main .main-content .tab-container .alert-warning i {
   color: inherit;
@@ -304,6 +307,9 @@ main .main-content .tab-container .alert-success {
   border: 1px solid #9ec5fe;
   border-radius: 5px;
   color: #052c65;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 main .main-content .tab-container .alert-success i {
   color: inherit;

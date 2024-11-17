@@ -54,6 +54,7 @@ form {
         right: 8px;
         color: $blue;
         transition: 0.25s;
+        user-select: none;
 
         &:hover {
           color: darken($blue, 10%);

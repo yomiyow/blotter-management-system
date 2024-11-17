@@ -111,6 +111,10 @@ form .input-group .password-wrapper .show-password {
   color: #007bff;
   -webkit-transition: 0.25s;
   transition: 0.25s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 form .input-group .password-wrapper .show-password:hover {
   color: #0062cc;

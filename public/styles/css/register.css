@@ -1,3 +1,8 @@
+/* Used in new-entry & view-entry */
+/* Used in dashboard */
+/* Used in new-entry */
+/* Used in login & register */
+/* Used main-content */
 header {
   position: fixed;
   left: 0;
@@ -29,25 +34,24 @@ header {
   text-decoration: none;
 }
 
-/* Used in new-entry & view-entry */
-/* Used in dashboard */
-/* Used in new-entry */
-/* Used in login & register */
-/* Used main-content */
-.register-container {
+main {
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
-  background-color: #f5f5f5;
 }
-.register-container .register-card-container {
+
+form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,21 +59,40 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 700px;
-  height: 450px;
-  border-radius: 8px;
-  -webkit-box-shadow: 0 4px 8px #808080;
-          box-shadow: 0 4px 8px #808080;
-  padding: 2rem;
-  position: relative;
+  padding: 1rem 2rem 0;
+  width: 300px;
+  height: 400px;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 }
-.register-container .register-card-container .input-section {
+form .register-header {
+  margin-bottom: 5rem;
+}
+form .input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  row-gap: 0.7rem;
+}
+form .input-group input, form .input-group button {
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  width: 100%;
+}
+form .input-group input:focus, form .input-group button:focus {
+  border-color: #007BFF;
+  -webkit-box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+          box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+form .input-group .row-1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -77,78 +100,70 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-column-gap: 0.6rem;
+     -moz-column-gap: 0.6rem;
+          column-gap: 0.6rem;
+}
+form .input-group .password-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
-.register-container .register-card-container .input-section .left-section,
-.register-container .register-card-container .input-section .right-section {
-  display: block;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  margin: 10px 10px;
+form .input-group .password-wrapper input, form .input-group .password-wrapper button {
+  padding-right: 2.8rem;
 }
-.register-container .register-card-container .input-section .left-section input,
-.register-container .register-card-container .input-section .left-section #dropdown,
-.register-container .register-card-container .input-section .right-section input,
-.register-container .register-card-container .input-section .right-section #dropdown {
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: solid #808080 1px;
-  width: 100%;
-  background-color: #f5f5f5;
-  margin: 10px 0;
-}
-.register-container .register-card-container .bottom-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  width: 100%;
-  margin: 10px 0;
-}
-.register-container .register-card-container .bottom-section .reg-btn-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.register-container .register-card-container .bottom-section .reg-btn-container .register-btn {
-  color: white;
-  background-color: #007bff;
-  padding: 8px 0;
-  border: none;
-  width: 40%;
-  margin: 10px 0;
-}
-.register-container .register-card-container .bottom-section .register {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-}
-.register-container .register-card-container .bottom-section .register a {
-  color: #007bff;
-}
-.register-container .register-card-container .register-header {
+form .input-group .password-wrapper .show-password {
   position: absolute;
-  top: 15px;
+  font-size: 0.8rem;
+  right: 8px;
+  color: #007bff;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+form .input-group .password-wrapper .show-password:hover {
+  color: #0062cc;
+  cursor: pointer;
+}
+form .input-group .password-wrapper .show-password:active {
+  color: #3395ff;
+}
+form .input-group button {
+  margin: 0.8rem 0 0.5rem;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+form .input-group button:hover {
+  background-color: #0062cc;
+  cursor: pointer;
+}
+form .input-group button:active {
+  background-color: #3395ff;
+}
+form .register-wrapper {
+  text-align: center;
+}
+form .register-wrapper p {
+  font-size: 0.8rem;
+}
+form .register-wrapper a {
+  color: #007bff;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+form .register-wrapper a:hover {
+  color: #0062cc;
+}
+form .register-wrapper a:active {
+  color: #3395ff;
 }/*# sourceMappingURL=register.css.map */
