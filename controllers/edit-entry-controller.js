@@ -2,10 +2,9 @@ const Blotter = require('../models/blotter.js');
 const { connectToDatabase } = require('../models/db-connection.js');
 
 async function getBlotterById(req, res) {
+  const blotterId = req.query.blotterId;
+  const connection = await connectToDatabase();
   try {
-    const blotterId = req.query.blotterId;
-    const connection = await connectToDatabase();
-
     const selectQuery = `
       SELECT
         c.firstname AS comFirstname,
@@ -58,11 +57,14 @@ async function getBlotterById(req, res) {
       WHERE b.blotter_id = ?;  
     `;
     const [blotterRecord] = await connection.query(selectQuery, blotterId);
-    res.status(200).json(blotterRecord);
+    res.status(200).json(blotterRecord[0]);
 
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    res.status(500).json({ error: 'Failed to fetch data' });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch blotter' });
+    throw err;
+
+  } finally {
+    connection.end();
   }
 }
 
@@ -137,9 +139,11 @@ async function updateBlotterById(req, res) {
 
   } catch (err) {
     await connection.rollback();
-    console.error('Error updating blotter: ', err);
-    res.status(500).json({ message: 'Failed to update blotter record' });
-    return;
+    res.status(500).json({ error: 'Failed to update blotter record' });
+    throw err;
+
+  } finally {
+    connection.end();
   }
 }
 

@@ -145,8 +145,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify(collectFormData())
       });
-      const result = await response.json();
 
+      const result = await response.json();
       if (result.success) {
         showAlert(document.querySelector('.alert-success'));
         resetForm();
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
     } catch (err) {
-      console.log('Fetch error: ', err);
+      console.error('Error creating blotter: ', err);
     }
   });
 });

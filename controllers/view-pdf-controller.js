@@ -3,9 +3,9 @@ const { connectToDatabase } = require('../models/db-connection.js');
 const { dateAndTimeToday } = require('../public/utils/utils.js');
 
 async function getBlotterById(req, res) {
+  const connection = await connectToDatabase();
+  const blotterId = req.query.blotterId;
   try {
-    const blotterId = req.query.blotterId;
-    const connection = await connectToDatabase();
     const query = `
       SELECT
         b.blotter_id,
@@ -54,6 +54,9 @@ async function getBlotterById(req, res) {
   } catch (err) {
     res.status(500).send('An error occurred while generating the PDF.');
     throw err;
+
+  } finally {
+    connection.end();
   }
 }
 

@@ -20,9 +20,9 @@ async function getBlotterRecords(req, res) {
     const [blotterRecord] = await connection.query(selectQuery);
     res.status(200).json(blotterRecord);
 
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    res.status(500).json({ error: 'Failed to fetch data' });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to render blotter records' });
+    throw err;
   }
 
 }

@@ -5,6 +5,13 @@ async function renderBlotterRecords() {
 
   try {
     const response = await fetch('/api/view-entry');
+
+    if (!response.ok) {
+      const result = await response.json();
+      alert(result.error);
+      return;
+    }
+
     blotters = await response.json();
 
   } catch (err) {
@@ -14,11 +21,11 @@ async function renderBlotterRecords() {
   let blotterHTML = '';
 
   blotters.forEach((blotter) => {
-    const formattedDate = dayjs(blotter.date_time_reported).format('MMM D, YYYY h:mm A');
+    const dateReported = dayjs(blotter.date_time_reported).format('MMM D, YYYY h:mm A');
     blotterHTML += `
       <tr>
         <td>${blotter.blotter_id}</td>
-        <td>${formattedDate}</td>
+        <td>${dateReported}</td>
         <td>${blotter.complainant_fullname}</td>
         <td>${blotter.suspect_fullname}</td>
         <td class="dropdown">

@@ -2,8 +2,18 @@ const urlParams = new URLSearchParams(window.location.search);
 const blotterId = urlParams.get('blotterId');
 
 (async function populateBlotterForm() {
-  const response = await fetch(`/api/view-entry/edit?blotterId=${blotterId}`);
-  const [blotter] = await response.json();
+  let blotter;
+  try {
+    const response = await fetch(`/api/view-entry/edit?blotterId=${blotterId}`);
+    if (!response.ok) {
+      const error = await response.json();
+      alert(error.message);
+      return;
+    }
+    blotter = await response.json();
+  } catch (err) {
+    console.error('Error populating blotter form: ', err);
+  }
 
   // Populate complainant fields
   document.getElementById('complainant-firstname').value = blotter.comFirstname;
@@ -25,7 +35,7 @@ const blotterId = urlParams.get('blotterId');
   document.getElementById('complainant-tel-no').value = blotter.comTelNo;
   document.getElementById('complainant-email').value = blotter.comEmail;
 
-  // // Populate suspect fields
+  // Populate suspect fields
   document.getElementById('suspect-firstname').value = blotter.susFirstname;
   document.getElementById('suspect-middlename').value = blotter.susMiddlename;
   document.getElementById('suspect-lastname').value = blotter.susLastname;
@@ -108,8 +118,6 @@ document.querySelector('.js-update-btn')
   .addEventListener('click', async () => {
     const updatedBlotter = getFormValues();
 
-    console.log(updatedBlotter);
-
     try {
       const response = await fetch(`/api/view-entry/edit/${blotterId}`, {
         method: 'PUT',
@@ -120,6 +128,10 @@ document.querySelector('.js-update-btn')
       });
 
       const result = await response.json();
+      if (!response.ok) {
+        alert(result.error);
+        return;
+      }
       alert(result.message);
 
     } catch (err) {
