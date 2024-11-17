@@ -18,6 +18,7 @@
 
     .title {
       margin: 0 5px 0;
+      font-style: italic;
     }
 
     hr {
@@ -74,6 +75,7 @@ main {
   .main-content {
     flex: 1;
     padding: 2rem;
+    @include transition-margin;
 
     .tab-container {
       display: flex;

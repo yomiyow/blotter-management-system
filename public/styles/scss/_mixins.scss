@@ -33,3 +33,10 @@
   background-color: $primary-color;
   margin: 10px 0;
 }
+
+/* Used main-content */
+
+@mixin transition-margin() {
+  margin-left: 15rem;
+  transition: margin-left 0.25s ease-in-out;
+}

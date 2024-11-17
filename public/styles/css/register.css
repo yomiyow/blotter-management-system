@@ -32,6 +32,7 @@ header {
 /* Used in dashboard */
 /* Used in new-entry */
 /* Used in login & register */
+/* Used main-content */
 .register-container {
   display: -webkit-box;
   display: -ms-flexbox;

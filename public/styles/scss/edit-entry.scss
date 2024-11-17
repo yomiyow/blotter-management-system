@@ -78,6 +78,7 @@ main {
     row-gap: 1.5rem;
     flex: 1;
     padding: 1.5rem;
+    @include transition-margin;
 
     form {
       display: flex;

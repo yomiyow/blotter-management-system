@@ -2,6 +2,7 @@
 /* Used in dashboard */
 /* Used in new-entry */
 /* Used in login & register */
+/* Used main-content */
 /* Layout variables */
 /* Button variables */
 /* Border variables */
@@ -40,13 +41,14 @@ main {
   display: flex;
 }
 main .side-nav {
+  position: fixed;
   min-height: 100%;
   background-color: #f5f5f5;
   width: 15rem;
   min-width: 15rem;
   overflow: hidden;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 main .side-nav .toggle-wrapper {
   text-align: end;
@@ -84,15 +86,10 @@ main .side-nav .menu-link:active {
   background-color: #bfbfbf;
 }
 main .side-nav .isActive {
-  background-color: #007bff;
-  color: white;
-}
-main .side-nav .isActive i {
-  color: white;
+  background-color: white;
 }
 main .side-nav .isActive:hover {
-  background-color: #007bff;
-  color: white;
+  background-color: white;
 }
 main .main-content {
   -webkit-box-flex: 1;
@@ -105,6 +102,9 @@ main .main-content {
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
+  margin-left: 15rem;
+  -webkit-transition: margin-left 0.25s ease-in-out;
+  transition: margin-left 0.25s ease-in-out;
 }
 
 .card-container {
@@ -168,8 +168,8 @@ main .main-content {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   width: 65%;
   min-width: 450px;
   margin: auto;

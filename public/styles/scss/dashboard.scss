@@ -14,6 +14,7 @@ main {
     flex: 1;
     display: flex;
     flex-flow: column wrap;
+    @include transition-margin;
   }
 }
 
@@ -49,7 +50,7 @@ main {
 .chart-container {
   flex: 3;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   width: 65%;
   min-width: 450px;
   margin: auto;
