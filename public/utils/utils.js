@@ -15,4 +15,8 @@ function dateAndTimeToday() {
   return date;
 }
 
-module.exports = { generateCustomBlotterId, dateAndTimeToday };
+function dateToday() {
+  return dayjs().format('YYYY-MM-DD');
+}
+
+module.exports = { generateCustomBlotterId, dateAndTimeToday, dateToday };

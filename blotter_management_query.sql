@@ -163,4 +163,16 @@ WHERE complainant_id = (
     WHERE blotter_id = ?
 );
 
+# Get today total blotter entries
+SELECT COUNT(*) AS today_total_entries
+FROM blotter_complainant
+WHERE DATE(date_time_reported) = '2024-11-23';
+
+SELECT COUNT(*) AS total_blotter_record
+FROM blotter;
+
+
+
+
+
 

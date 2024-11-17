@@ -1,3 +1,12 @@
+(async () => {
+  const response = await fetch('/api/dashboard');
+  const result = await response.json();
+  const { todayTotalEntries, totalBlotterRecords } = result;
+
+  document.querySelector('.js-today-total-entry').textContent = todayTotalEntries;
+  document.querySelector('.js-total-blotter-records').textContent = totalBlotterRecords;
+})()
+
 const ctx = document.getElementById('line-chart').getContext('2d');
 const xValues = [
   'Jan', 'Feb', 'Mar', 'Apr',
