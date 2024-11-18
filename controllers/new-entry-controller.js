@@ -73,7 +73,8 @@ async function createBlotterEntry(req, res) {
   } catch (err) {
     await connection.rollback();
     res.status(500).json({ error: 'Failed to create blotter!' });
-    throw err;
+    console.error(err.stack);
+    return;
 
   } finally {
     connection.end();

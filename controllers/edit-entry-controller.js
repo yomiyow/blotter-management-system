@@ -61,7 +61,8 @@ async function getBlotterById(req, res) {
 
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch blotter' });
-    throw err;
+    console.error(err.stack);
+    return;
 
   } finally {
     connection.end();
@@ -140,7 +141,8 @@ async function updateBlotterById(req, res) {
   } catch (err) {
     await connection.rollback();
     res.status(500).json({ error: 'Failed to update blotter record' });
-    throw err;
+    console.error(err.stack);
+    return;
 
   } finally {
     connection.end();

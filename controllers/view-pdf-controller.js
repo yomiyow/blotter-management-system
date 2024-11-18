@@ -53,7 +53,8 @@ async function getBlotterById(req, res) {
 
   } catch (err) {
     res.status(500).send('An error occurred while generating the PDF.');
-    throw err;
+    console.error(err.stack);
+    return;
 
   } finally {
     connection.end();

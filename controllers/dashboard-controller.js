@@ -27,7 +27,8 @@ async function getTodayTotalEntries(req, res) {
 
   } catch (err) {
     connection.rollback();
-    throw err;
+    console.error(err.stack);
+    return;
 
   } finally {
     connection.end();
@@ -48,8 +49,11 @@ async function getMonthlyBlotterEntries(req, res) {
     `;
     const [result] = await connection.query(selectQuery);
     res.status(200).json(result);
+
   } catch (err) {
-    throw err;
+    console.error(err.stack);
+    return;
+
   } finally {
     connection.end();
   }
