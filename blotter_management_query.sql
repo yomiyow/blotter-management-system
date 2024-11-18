@@ -171,7 +171,6 @@ WHERE DATE(date_time_reported) = CURRENT_DATE();
 SELECT COUNT(*) AS total_blotter_record
 FROM blotter;
 
-
 SELECT 
 	YEAR(bc.date_time_reported) AS year,
 	MONTH(bc.date_time_reported) AS month,
@@ -181,7 +180,18 @@ INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
 GROUP BY YEAR(bc.date_time_reported), MONTH(bc.date_time_reported);
 -- ORDER BY YEAR(bc.date_time_reported), MONTH(bc.date_time_reported);
 
-SELECT current_date()
-
-
-
+SELECT
+	b.blotter_id ,
+	bc.date_time_reported,
+	CONCAT(c.firstname, ' ', c.middlename, ' ', c.lastname) AS complainant_fullname,
+	CONCAT(s.firstname, ' ',s.middlename, ' ', s.lastname) AS suspect_fullname
+FROM blotter b
+INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
+INNER JOIN blotter_suspect bs ON b.blotter_id = bs.blotter_id
+INNER JOIN complainant c ON bc.complainant_id = c.complainant_id
+INNER JOIN suspect s ON bs.suspect_id = s.suspect_id
+WHERE 
+	b.blotter_id LIKE ? OR
+	bc.date_time_reported LIKE ? OR 
+	complainant_fullname LIKE ? OR
+	suspect_fullname LIKE ?;

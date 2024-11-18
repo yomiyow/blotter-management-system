@@ -1,31 +1,13 @@
-import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-
-async function renderBlotterRecords() {
-  let blotters = [];
-
-  try {
-    const response = await fetch('/api/view-entry');
-
-    if (!response.ok) {
-      const result = await response.json();
-      alert(result.error);
-      return;
-    }
-
-    blotters = await response.json();
-
-  } catch (err) {
-    console.error('Error fetching blotters:', err);
-  }
+function generateBlotterHTML(blotters) {
+  document.querySelector('tbody').innerHTML = '';
 
   let blotterHTML = '';
 
   blotters.forEach((blotter) => {
-    const dateReported = dayjs(blotter.date_time_reported).format('MMM D, YYYY h:mm A');
     blotterHTML += `
       <tr>
         <td>${blotter.blotter_id}</td>
-        <td>${dateReported}</td>
+        <td>${blotter.date_time_reported}</td>
         <td>${blotter.complainant_fullname}</td>
         <td>${blotter.suspect_fullname}</td>
         <td class="dropdown">
@@ -52,9 +34,10 @@ async function renderBlotterRecords() {
       </tr>
     `;
   });
-
   document.querySelector('tbody').innerHTML = blotterHTML;
+}
 
+function makeDrowDownInteractive() {
   const dropDownMenu = document.querySelectorAll('.js-dropdown-menu');
 
   function showDropDown(dropDown) {
@@ -78,8 +61,6 @@ async function renderBlotterRecords() {
 
   // Initially hide all dropdown menus
   dropDownMenu.forEach(dropDown => hideDropDown(dropDown));
-
-  // Event listener
 
   /*
     Hides all dropdown menus when the
@@ -105,4 +86,33 @@ async function renderBlotterRecords() {
   });
 }
 
-renderBlotterRecords();
+async function fetchBlotters(url) {
+  const response = await fetch(url);
+  if (!response.ok)
+    throw new Error('Error fetching blotter records');
+
+  return await response.json();
+}
+
+(async function renderBlotter() {
+  try {
+    const blotters = await fetchBlotters('/api/view-entry');
+    generateBlotterHTML(blotters);
+    makeDrowDownInteractive();
+  } catch (err) {
+    console.error(err);
+  }
+})();
+
+document.querySelector('input[type="search"]')
+  .addEventListener('input', async (event) => {
+    const searchTerm = event.target.value;
+    const url = `/api/search?term=${encodeURIComponent(searchTerm)}`;
+    try {
+      const blotters = await fetchBlotters(url);
+      generateBlotterHTML(blotters);
+      makeDrowDownInteractive();
+    } catch (err) {
+      console.error(err,);
+    }
+  });
