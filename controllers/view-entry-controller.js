@@ -15,6 +15,7 @@ async function getBlotterRecords(req, res) {
       INNER JOIN blotter_suspect bs ON b.blotter_id = bs.blotter_id
       INNER JOIN complainant c ON bc.complainant_id = c.complainant_id
       INNER JOIN suspect s ON bs.suspect_id = s.suspect_id
+      ORDER BY b.blotter_id DESC;
     `;
 
     const [blotterRecord] = await connection.query(selectQuery);

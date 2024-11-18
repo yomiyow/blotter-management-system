@@ -164,15 +164,24 @@ WHERE complainant_id = (
 );
 
 # Get today total blotter entries
-SELECT COUNT(*) AS today_total_entries
+SELECT COUNT(blotter_id) AS today_total_entries
 FROM blotter_complainant
-WHERE DATE(date_time_reported) = '2024-11-23';
+WHERE DATE(date_time_reported) = CURRENT_DATE();
 
 SELECT COUNT(*) AS total_blotter_record
 FROM blotter;
 
 
+SELECT 
+	YEAR(bc.date_time_reported) AS year,
+	MONTH(bc.date_time_reported) AS month,
+	COUNT(b.blotter_id) AS monthly_total_entries
+FROM blotter b
+INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
+GROUP BY YEAR(bc.date_time_reported), MONTH(bc.date_time_reported);
+-- ORDER BY YEAR(bc.date_time_reported), MONTH(bc.date_time_reported);
 
+SELECT current_date()
 
 
 
