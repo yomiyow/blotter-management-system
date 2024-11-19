@@ -5,10 +5,10 @@ async function getBlotterRecords(req, res) {
   try {
     const selectQuery = `
       SELECT
-        b.blotter_id ,
-        DATE_FORMAT(bc.date_time_reported, '%b %e, %Y %l:%i %p') AS date_time_reported,
-        CONCAT(c.firstname, ' ', c.middlename, ' ', c.lastname) AS complainant_fullname,
-        CONCAT(s.firstname, ' ',s.middlename, ' ', s.lastname) AS suspect_fullname
+      b.blotter_id ,
+      DATE_FORMAT(b.date_time_reported, '%b %e, %Y at %l:%i %p') AS date_time_reported,
+      CONCAT(c.firstname, ' ', c.middlename, ' ', c.lastname) AS complainant_fullname,
+      CONCAT(s.firstname, ' ',s.middlename, ' ', s.lastname) AS suspect_fullname
       FROM blotter b
       INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
       INNER JOIN blotter_suspect bs ON b.blotter_id = bs.blotter_id
@@ -23,6 +23,7 @@ async function getBlotterRecords(req, res) {
   } catch (err) {
     console.error(err.stack);
     return;
+
   } finally {
     connection.end();
   }
@@ -35,7 +36,7 @@ async function searchBlotterRecord(req, res) {
     const searchQuery = `
       SELECT
         b.blotter_id ,
-        DATE_FORMAT(bc.date_time_reported, '%b %e, %Y %l:%i %p') AS date_time_reported,
+        DATE_FORMAT(b.date_time_reported, '%b %e, %Y at %l:%i %p') AS date_time_reported,
         CONCAT(c.firstname, ' ', c.middlename, ' ', c.lastname) AS complainant_fullname,
         CONCAT(s.firstname, ' ',s.middlename, ' ', s.lastname) AS suspect_fullname
       FROM blotter b
@@ -45,7 +46,7 @@ async function searchBlotterRecord(req, res) {
       INNER JOIN suspect s ON bs.suspect_id = s.suspect_id
       WHERE
         b.blotter_id LIKE ? OR
-        DATE_FORMAT(bc.date_time_reported, '%b %e, %Y %l:%i %p') LIKE ? OR
+        DATE_FORMAT(b.date_time_reported, '%b %e, %Y at %l:%i %p') LIKE ? OR
         CONCAT(c.firstname, ' ', c.middlename, ' ', c.lastname) LIKE ? OR
         CONCAT(s.firstname, ' ', s.middlename, ' ', s.lastname) LIKE ?;
     `;

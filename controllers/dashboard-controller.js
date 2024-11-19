@@ -7,7 +7,7 @@ async function getTodayTotalEntries(req, res) {
 
     const todayEntriesQuery = `
       SELECT COUNT(blotter_id) AS today_total_entry
-      FROM blotter_complainant
+      FROM blotter
       WHERE DATE(date_time_reported) = CURRENT_DATE();
     `;
     const [todayTotalEntries] = await connection.query(todayEntriesQuery);
@@ -40,12 +40,11 @@ async function getMonthlyBlotterEntries(req, res) {
   try {
     const selectQuery = `
       SELECT
-        YEAR(bc.date_time_reported) AS year,
-        MONTH(bc.date_time_reported) AS month,
-        COUNT(b.blotter_id) AS month_total_entries
-      FROM blotter b
-      INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
-      GROUP BY YEAR(bc.date_time_reported), MONTH(bc.date_time_reported);
+        YEAR(date_time_reported) AS year,
+        MONTH(date_time_reported) AS month,
+        COUNT(blotter_id) AS month_total_entries
+      FROM blotter 
+      GROUP BY YEAR(date_time_reported), MONTH(date_time_reported);
     `;
     const [result] = await connection.query(selectQuery);
     res.status(200).json(result);

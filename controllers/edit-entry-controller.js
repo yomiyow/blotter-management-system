@@ -47,8 +47,8 @@ async function getBlotterById(req, res) {
         b.street,
         b.barangay,
         b.narrative,
-        bc.date_time_reported,
-        bc.date_time_incident
+        b.date_time_reported,
+        b.date_time_incident
       FROM blotter b
       INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
       INNER JOIN complainant c ON bc.complainant_id = c.complainant_id
@@ -116,21 +116,13 @@ async function updateBlotterById(req, res) {
     // blotter Table
     const updateBlotterQuery = `
       UPDATE blotter
-      SET street = ?, barangay = ?, narrative = ?
+      SET 
+        street = ?, barangay = ?, date_time_reported = ?,
+        date_time_incident = ?, narrative = ?
       WHERE blotter_id = ?;
     `;
     const blotterValues = blotter.getBlotterValues();
     await connection.query(updateBlotterQuery, blotterValues);
-
-    // blotter_complainant Table
-    const updateBlotterComplainantQuery = `
-      UPDATE blotter_complainant 
-      SET date_time_reported = ?, date_time_incident = ?
-      WHERE blotter_id = ?;
-    `;
-    const includeIds = false;
-    const blotterComplainant = blotter.getBlotterComplainantValues(includeIds);
-    await connection.query(updateBlotterComplainantQuery, blotterComplainant);
 
     await connection.commit();
 

@@ -1,5 +1,3 @@
-USE blotter_db;
-
 CREATE DATABASE blotter_db;
 
 DROP DATABASE blotter_db;
@@ -54,6 +52,8 @@ CREATE TABLE blotter (
 	blotter_id VARCHAR(255),
     street VARCHAR(255),
     barangay VARCHAR(255),
+    date_time_reported VARCHAR(255),
+    date_time_incident VARCHAR(255),
 	narrative TEXT,
     
     PRIMARY KEY (blotter_id)
@@ -61,11 +61,9 @@ CREATE TABLE blotter (
 CREATE TABLE blotter_complainant ( 
 	blotter_id VARCHAR(255),
     complainant_id INT,
-    date_time_reported VARCHAR(255),
-    date_time_incident VARCHAR(255),
     
     PRIMARY KEY (blotter_id, complainant_id),
-    FOREIGN KEY (blotter_id) REFERENCES blotter(blotter_id),
+    FOREIGN KEY (blotter_id) REFERENCES blotter(blotter_id) ON DELETE CASCADE,
     FOREIGN KEY (complainant_id) REFERENCES complainant(complainant_id)
 );
 CREATE TABLE blotter_suspect (
@@ -73,9 +71,11 @@ CREATE TABLE blotter_suspect (
     suspect_id INT,
     
     PRIMARY KEY (blotter_id, suspect_id),
-    FOREIGN KEY (blotter_id) REFERENCES blotter(blotter_id),
+    FOREIGN KEY (blotter_id) REFERENCES blotter(blotter_id) ON DELETE CASCADE,
     FOREIGN KEY (suspect_id) REFERENCES suspect(suspect_id)
 );
+
+USE blotter_db;
 
 SELECT * FROM complainant;
 SELECT * FROM suspect;
@@ -195,3 +195,6 @@ WHERE
 	bc.date_time_reported LIKE ? OR 
 	complainant_fullname LIKE ? OR
 	suspect_fullname LIKE ?;
+    
+SELECT DATE_FORMAT(date_time_reported, '%b %e, %Y %l:%i %p') AS date_time_reported
+FROM blotter_complainant;

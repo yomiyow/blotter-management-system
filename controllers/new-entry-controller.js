@@ -1,7 +1,7 @@
 const { connectToDatabase } = require('../models/db-connection.js');
 const Blotter = require('../models/blotter.js');
 const { generateCustomBlotterId } = require('../public/utils/utils.js');
-// const blotterJson = require('../models/blotter.json');
+const blotterJson = require('../models/blotter.json');
 
 async function createBlotterEntry(req, res) {
   const connection = await connectToDatabase();
@@ -9,7 +9,6 @@ async function createBlotterEntry(req, res) {
   try {
     const blotterId = generateCustomBlotterId();
     const blotter = new Blotter(req.body, blotterId);
-    // const blotter = new Blotter(blotterJson);
 
     await connection.beginTransaction();
 
@@ -42,8 +41,9 @@ async function createBlotterEntry(req, res) {
     // blotter Table
     const blotterQuery = `
       INSERT INTO blotter (
-        street, barangay, narrative, blotter_id
-      ) VALUES (?, ?, ?, ?)
+        street, barangay, date_time_reported, 
+        date_time_incident, narrative, blotter_id
+      ) VALUES (?, ?, ?, ?, ?, ?)
     `;
     const blotterValues = blotter.getBlotterValues();
     await connection.query(blotterQuery, blotterValues);
@@ -51,8 +51,8 @@ async function createBlotterEntry(req, res) {
     // blotter_complainant Table
     const blotterComplainantQuery = `
       INSERT INTO blotter_complainant (
-        blotter_id, complainant_id, date_time_reported, date_time_incident
-      ) VALUES (?, ?, ?, ?)
+        blotter_id, complainant_id
+      ) VALUES (?, ?)
     `;
     const blotterComplainantValues = blotter.getBlotterComplainantValues();
     await connection.query(blotterComplainantQuery, blotterComplainantValues);
@@ -81,6 +81,81 @@ async function createBlotterEntry(req, res) {
   }
 }
 
-// createBlotterEntry();
+async function createBlotterEntryFromJSON() {
+  const connection = await connectToDatabase();
+
+  try {
+    blotterJson.forEach(async (blotterObj) => {
+      const blotterId = generateCustomBlotterId();
+      const blotter = new Blotter(blotterObj, blotterId);
+
+      await connection.beginTransaction();
+
+      // complainant Table
+      const complainantQuery = `
+        INSERT INTO complainant (
+          firstname, middlename, lastname, nickname, age, gender, civil_status,
+          citizenship, birthplace, birthdate, occupation, province, city, barangay,
+          house_no_street, mobile_no, tel_no, email
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `;
+      const complainantValues = blotter.getComplainantValues();
+      const [complainantResult] = await connection.query(complainantQuery, complainantValues);
+      const complainantId = complainantResult.insertId;
+      blotter.setComplainantId(complainantId);
+
+      // suspect Table
+      const suspectQuery = `
+        INSERT INTO suspect (
+          firstname, middlename, lastname, nickname, age, gender, civil_status,
+          citizenship, birthplace, birthdate, occupation, province, city, barangay,
+          house_no_street, mobile_no, tel_no, email
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `;
+      const suspectValues = blotter.getSuspectValues();
+      const [suspectResult] = await connection.query(suspectQuery, suspectValues);
+      const suspectId = suspectResult.insertId;
+      blotter.setSuspectId(suspectId);
+
+      // blotter Table
+      const blotterQuery = `
+        INSERT INTO blotter (
+          street, barangay, date_time_reported, 
+          date_time_incident, narrative, blotter_id
+        ) VALUES (?, ?, ?, ?, ?, ?)
+      `;
+      const blotterValues = blotter.getBlotterValues();
+      await connection.query(blotterQuery, blotterValues);
+
+      // blotter_complainant Table
+      const blotterComplainantQuery = `
+        INSERT INTO blotter_complainant (
+          blotter_id, complainant_id
+        ) VALUES (?, ?)
+      `;
+      const blotterComplainantValues = blotter.getBlotterComplainantValues();
+      await connection.query(blotterComplainantQuery, blotterComplainantValues);
+
+      // blotter_suspect Table
+      const blotterSuspectQuery = `
+        INSERT INTO blotter_suspect (
+          blotter_id, suspect_id
+        ) VALUES (?, ?)
+      `;
+      const blotterSuspectValues = blotter.getBlotterSuspectValues();
+      await connection.query(blotterSuspectQuery, blotterSuspectValues);
+
+      await connection.commit();
+    });
+
+  } catch (err) {
+    await connection.rollback();
+    console.error(err.stack);
+    return;
+
+  }
+}
+
+// createBlotterEntryFromJSON();
 
 module.exports = { createBlotterEntry };

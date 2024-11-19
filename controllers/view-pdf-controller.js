@@ -37,8 +37,8 @@ async function getBlotterById(req, res) {
         s.email AS suspect_email,
         b.street,
         b.barangay,
-        bc.date_time_reported,
-        bc.date_time_incident,
+        DATE_FORMAT(b.date_time_reported, '%b %e, %Y %l:%i %p') AS date_time_reported,
+        DATE_FORMAT(b.date_time_incident, '%b %e, %Y %l:%i %p') AS date_time_incident,
         b.narrative
       FROM blotter b
       INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
@@ -67,7 +67,7 @@ async function buildPdf(req, res) {
   const doc = new PDFDocument({
     size: 'A4',
     margins: {
-      top: 20, bottom: 50,
+      top: 40, bottom: 40,
       left: 50, right: 50
     }
   });
@@ -82,64 +82,75 @@ async function buildPdf(req, res) {
 
   // Header
   doc
-    .fontSize(16)
+    .fontSize(20)
+    .font('Helvetica-Bold')
     .text('Blotter Record', { align: 'center' })
-    .moveDown(0.2)
-    .fontSize(10)
+    .moveDown(0.5)
+    .fontSize(12)
+    .font('Helvetica')
     .text(`Generated on: ${dateAndTimeToday()}`, { align: 'center' })
-    .moveDown();
+    .moveDown(1);
 
-  // complainant info
+  // Complainant info
   doc
+    .fontSize(16)
+    .font('Helvetica-Bold')
+    .text('Complainant Information', { underline: true })
+    .moveDown(0.5)
     .fontSize(12)
-    .text('Complainant Information')
-    .fontSize(10)
-    .text(`Name: ${blotter.complainant_fullname}`)
-    .text(`Nickname: ${blotter.complainant_nickname}`)
-    .text(`Age: ${blotter.complainant_age}`)
-    .text(`Gender: ${blotter.complainant_gender}`)
-    .text(`Civil Status: ${blotter.complainant_civil_status}`)
-    .text(`Citizenship: ${blotter.complainant_citizenship}`)
-    .text(`Birthdate: ${blotter.complainant_birthdate}`)
-    .text(`Birthplace: ${blotter.complainant_birthplace}`)
-    .text(`Occupation: ${blotter.complainant_occupation}`)
-    .text(`Address: ${blotter.complainant_address}`)
-    .text(`Mobile No: ${blotter.complainant_mobile_no}`)
-    .text(`Tel No: ${blotter.complainant_tel_no}`)
-    .text(`Email: ${blotter.complainant_email}`)
-    .moveDown();
-
-  // Suspect info
-  doc
-    .fontSize(12)
-    .text('Suspect Information')
-    .fontSize(10)
-    .text(`Name: ${blotter.suspect_fullname}`)
-    .text(`Nickname: ${blotter.suspect_nickname}`)
-    .text(`Age: ${blotter.suspect_age}`)
-    .text(`Gender: ${blotter.suspect_gender}`)
-    .text(`Civil Status: ${blotter.suspect_civil_status}`)
-    .text(`Citizenship: ${blotter.suspect_citizenship}`)
-    .text(`Birthdate: ${blotter.suspect_birthdate}`)
-    .text(`Birthplace: ${blotter.suspect_birthplace}`)
-    .text(`Occupation: ${blotter.suspect_occupation}`)
-    .text(`Address: ${blotter.suspect_address}`)
-    .text(`Mobile No: ${blotter.suspect_mobile_no}`)
-    .text(`Tel No: ${blotter.suspect_tel_no}`)
-    .text(`Email: ${blotter.suspect_email}`)
-    .moveDown();
+    .font('Helvetica')
+    .text(`Name: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_fullname}`).moveDown(0.2)
+    .font('Helvetica').text(`Nickname: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_nickname}`).moveDown(0.2)
+    .font('Helvetica').text(`Age: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_age}`).moveDown(0.2)
+    .font('Helvetica').text(`Gender: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_gender}`).moveDown(0.2)
+    .font('Helvetica').text(`Civil Status: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_civil_status}`).moveDown(0.2)
+    .font('Helvetica').text(`Citizenship: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_citizenship}`).moveDown(0.2)
+    .font('Helvetica').text(`Birthdate: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_birthdate}`).moveDown(0.2)
+    .font('Helvetica').text(`Birthplace: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_birthplace}`).moveDown(0.2)
+    .font('Helvetica').text(`Occupation: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_occupation}`).moveDown(0.2)
+    .font('Helvetica').text(`Address: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_address}`).moveDown(0.2)
+    .font('Helvetica').text(`Mobile No: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_mobile_no}`).moveDown(0.2)
+    .font('Helvetica').text(`Tel No: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_tel_no}`).moveDown(0.2)
+    .font('Helvetica').text(`Email: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_email}`)
+    .moveDown(1);
 
   // Suspect info
   doc
+    .fontSize(16)
+    .font('Helvetica-Bold')
+    .text('Suspect Information', { underline: true })
+    .moveDown(0.5)
     .fontSize(12)
-    .text('Blotter Information')
-    .fontSize(10)
-    .text(`Street: ${blotter.street}`)
-    .text(`Barangay: ${blotter.barangay}`)
-    .text(`Date & Time Reported: ${blotter.date_time_reported}`)
-    .text(`Date & Time Incident: ${blotter.date_time_incident}`)
-    .text(`Narrative: ${blotter.narrative}`)
-    .moveDown();
+    .font('Helvetica')
+    .text(`Name: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_fullname}`).moveDown(0.2)
+    .font('Helvetica').text(`Nickname: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_nickname}`).moveDown(0.2)
+    .font('Helvetica').text(`Age: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_age}`).moveDown(0.2)
+    .font('Helvetica').text(`Gender: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_gender}`).moveDown(0.2)
+    .font('Helvetica').text(`Civil Status: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_civil_status}`).moveDown(0.2)
+    .font('Helvetica').text(`Citizenship: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_citizenship}`).moveDown(0.2)
+    .font('Helvetica').text(`Birthdate: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_birthdate}`).moveDown(0.2)
+    .font('Helvetica').text(`Birthplace: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_birthplace}`).moveDown(0.2)
+    .font('Helvetica').text(`Occupation: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_occupation}`).moveDown(0.2)
+    .font('Helvetica').text(`Address: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_address}`).moveDown(0.2)
+    .font('Helvetica').text(`Mobile No: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_mobile_no}`).moveDown(0.2)
+    .font('Helvetica').text(`Tel No: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_tel_no}`).moveDown(0.2)
+    .font('Helvetica').text(`Email: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_email}`)
+    .moveDown(1);
+
+  // Blotter info
+  doc
+    .fontSize(16)
+    .font('Helvetica-Bold')
+    .text('Blotter Information', { underline: true })
+    .moveDown(0.5)
+    .fontSize(12)
+    .font('Helvetica')
+    .text(`Street: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.street}`).moveDown(0.2)
+    .font('Helvetica').text(`Barangay: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.barangay}`).moveDown(0.2)
+    .font('Helvetica').text(`Date & Time Reported: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.date_time_reported}`).moveDown(0.2)
+    .font('Helvetica').text(`Date & Time Incident: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.date_time_incident}`).moveDown(0.2)
+    .font('Helvetica').text(`Narrative: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.narrative}`)
+    .moveDown(1);
 
   // Finalize the pdf
   doc.end();

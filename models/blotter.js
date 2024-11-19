@@ -64,25 +64,18 @@ class Blotter {
 
   getBlotterValues() {
     const blotterFields = [
-      'street', 'barangay', 'narrative', 'blotterId'
+      'street', 'barangay', 'dateTimeReported',
+      'dateTimeIncident', 'narrative', 'blotterId',
     ];
 
     return this.#getValues(blotterFields);
   }
 
-  getBlotterComplainantValues(includeIds = true) {
-    const blotterComplainantFields = [
-      'blotterId', 'complainantId',
-      'dateTimeReported', 'dateTimeIncident'
-    ];
-
-    if (!includeIds) {
-      blotterComplainantFields.splice(0, 2);
-    }
-
-    return (includeIds)
-      ? this.#getValues(blotterComplainantFields)
-      : [...this.#getValues(blotterComplainantFields), this.blotterId];
+  getBlotterComplainantValues() {
+    return [
+      this.blotterId,
+      this.complainantId
+    ]
   }
 
   getBlotterSuspectValues() {

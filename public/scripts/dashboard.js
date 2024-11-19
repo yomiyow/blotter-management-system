@@ -8,22 +8,27 @@
     document.querySelector('.js-today-total-entry').textContent = todayTotalEntries;
     document.querySelector('.js-total-blotter-records').textContent = totalBlotterRecords;
   } catch (err) {
-    throw err;
+    console.error(err);
+    return;
   }
 })();
 
 (async function renderBarGraphDataset() {
-  let monthlyTotalEntries = Array(12).fill(0);
+  let monthlyTotalEntries = [];
   try {
     const response = await fetch('/api/monthly-blotter-entries');
     if (!response.ok) throw new Error('Failed to fetch chart data.');
+
     const result = await response.json();
     result.forEach(entry => {
       const monthIndex = entry.month - 1;
+      if (entry.year !== 2024) return;
       monthlyTotalEntries[monthIndex] = entry.month_total_entries;
     });
+
   } catch (err) {
-    throw err;
+    console.error(err);
+    return;
   }
 
   const ctx = document.getElementById('chart').getContext('2d');
