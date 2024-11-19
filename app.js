@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const loginRouter = require('./routes/login-route.js');
 const navRouter = require('./routes/navigation-route.js');
 const dashboardRouter = require('./routes/dashboard-route.js')
 const newEntryRouter = require('./routes/new-entry-route.js');
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(loginRouter);
 app.use(navRouter);
 app.use(dashboardRouter);
 app.use(newEntryRouter);

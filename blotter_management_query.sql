@@ -25,6 +25,7 @@ CREATE TABLE complainant (
     
     PRIMARY KEY (complainant_id)
 );
+
 CREATE TABLE suspect (
 	suspect_id INT AUTO_INCREMENT,
     firstname VARCHAR(255),
@@ -75,6 +76,17 @@ CREATE TABLE blotter_suspect (
     FOREIGN KEY (suspect_id) REFERENCES suspect(suspect_id)
 );
 
+CREATE TABLE user (
+	user_id INT AUTO_INCREMENT,
+    firstname VARCHAR(255),
+    middlename VARCHAR(255),
+    lastname VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255),
+    
+    PRIMARY KEY (user_id)
+);
+
 USE blotter_db;
 
 SELECT * FROM complainant;
@@ -82,12 +94,17 @@ SELECT * FROM suspect;
 SELECT * FROM blotter;
 SELECT * FROM blotter_complainant;
 SELECT * FROM blotter_suspect;
+SELECT * FROM user;
+
+INSERT INTO user (firstname, middlename, lastname, email, password)
+VALUES ('Romeo', 'Mercado', 'Quinones', 'romeoquinones4@gmail.com', '2022100960Romeo');
 
 DELETE FROM blotter_suspect;
 DELETE FROM blotter_complainant;
 DELETE FROM blotter;
 DELETE FROM suspect;
 DELETE FROM complainant;
+DELETE FROM user;
 
 # off sql safe mode
 SET SQL_SAFE_UPDATES = 0;
@@ -95,6 +112,7 @@ SET SQL_SAFE_UPDATES = 0;
 # reset primary key count
 ALTER TABLE complainant AUTO_INCREMENT = 1;
 ALTER TABLE suspect AUTO_INCREMENT = 1;
+ALTER TABLE user AUTO_INCREMENT = 1;
 
 # Project Queries
 
