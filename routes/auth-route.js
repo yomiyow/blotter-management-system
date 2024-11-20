@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const authRouter = express.Router();
-const loginUser = require('../controllers/login-controller.js');
+const { loginUser, registerUser } = require('../controllers/auth-controller.js');
 
 // Login routes
 
@@ -15,5 +15,6 @@ authRouter.post('/login', loginUser);
 authRouter.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/register.html'));
 });
+authRouter.post('/register', registerUser);
 
 module.exports = authRouter;
