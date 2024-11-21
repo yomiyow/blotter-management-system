@@ -15,6 +15,7 @@
 
 (async function renderBarGraphDataset() {
   let monthlyTotalEntries = [];
+
   try {
     const response = await fetch('/api/monthly-blotter-entries');
     if (!response.ok) throw new Error('Failed to fetch chart data.');
@@ -32,42 +33,30 @@
   }
 
   const ctx = document.getElementById('chart').getContext('2d');
-  const xValues = [
+  const months = [
     'Jan', 'Feb', 'Mar', 'Apr',
     'May', 'Jun', 'Jul', 'Aug', 'Sep',
     'Oct', 'Nov', 'Dec'
   ];
-  const yValues = monthlyTotalEntries;
 
   new Chart(ctx, {
-    type: 'bar',
-
+    type: 'line',
     data: {
-      labels: xValues,
+      labels: months,
       datasets: [{
-        data: yValues,
-        fill: true,
-        backgroundColor: 'rgba(68, 68, 68, 1)',
-        color: '#444',
-        label: '2024'
+        label: '2024',
+        data: monthlyTotalEntries,
+        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: 'rgba(255, 99, 132, 0.5)'
       }]
     },
-
     options: {
-      legend: { display: true },
-      scales: {
-        yAxes: [{
-          ticks: { beginAtZero: true }
-        }],
-      },
+      responsive: true,
       plugins: {
+        legend: { display: true },
         title: {
           display: true,
           text: 'Monthly Blotter Entries'
-        },
-        subtitle: {
-          display: false,
-          text: 'Custom Chart Subtitle'
         }
       }
     }

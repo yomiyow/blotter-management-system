@@ -7,6 +7,7 @@ const newEntryRouter = require('./routes/new-entry-route.js');
 const viewEntryRouter = require('./routes/view-entry-route.js');
 const editEntryRouter = require('./routes/edit-entry-routes.js');
 const viewPdfRouter = require('./routes/view-pdf-route.js');
+const reportRouter = require('./routes/report-route.js');
 
 const app = express();
 const port = 3000;
@@ -28,6 +29,7 @@ app.use(newEntryRouter);
 app.use(viewEntryRouter);
 app.use(editEntryRouter);
 app.use(viewPdfRouter);
+app.use(reportRouter);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/dashboard.html'));

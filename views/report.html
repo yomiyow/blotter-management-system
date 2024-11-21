@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" 
+    />
+    <link rel="stylesheet" href="/styles/css/report.css">
+  </head>
+
+  <body>
+    <header>
+      <h3>Blotter Management System</h3>
+      <div class="profile">
+        <div class="icon-wrapper"><i class="fa-solid fa-user"></i></div>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">
+              <i class="fa-solid fa-user"></i> 
+              Profile
+            </a>
+            <a href="/logout" class="dropdown-item">
+              <i class="fa-solid fa-sign-out-alt"></i>
+              Logout
+            </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <nav class="side-nav isOpen">
+        <div class="toggle-wrapper"><i class="fa-solid fa-bars toggle-btn"></i></div>
+        <a href="/nav/dashboard" class="menu-link"><i class="fa-solid fa-house"></i>Dashboard</a>
+        <a href="/nav/new-entry" class="menu-link"><i class="fa-solid fa-file-circle-plus"></i>New Entry</a>
+        <a href="/nav/view-entry" class="menu-link"><i class="fa-solid fa-eye"></i>View Entry</a>
+        <a href="/nav/report" class="menu-link isActive"><i class="fa-solid fa-chart-bar"></i>Report</a>
+      </nav>
+
+      <div class="main-content">
+        <div class="chart-container">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </main>
+
+    <script src="/scripts/navigation.js"></script>
+    <script type="module" src="/scripts/report.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+    <script src="/scripts/profile.js"></script>
+  </body>
+</html>

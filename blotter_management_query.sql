@@ -1,5 +1,7 @@
+#-------------------------------------------------
+# Creating Database Queries
+#-------------------------------------------------
 CREATE DATABASE blotter_db;
-
 DROP DATABASE blotter_db;
 
 CREATE TABLE complainant ( 
@@ -25,7 +27,6 @@ CREATE TABLE complainant (
     
     PRIMARY KEY (complainant_id)
 );
-
 CREATE TABLE suspect (
 	suspect_id INT AUTO_INCREMENT,
     firstname VARCHAR(255),
@@ -75,7 +76,6 @@ CREATE TABLE blotter_suspect (
     FOREIGN KEY (blotter_id) REFERENCES blotter(blotter_id) ON DELETE CASCADE,
     FOREIGN KEY (suspect_id) REFERENCES suspect(suspect_id)
 );
-
 CREATE TABLE user (
 	user_id INT AUTO_INCREMENT,
     firstname VARCHAR(255),
@@ -95,10 +95,66 @@ SELECT * FROM blotter;
 SELECT * FROM blotter_complainant;
 SELECT * FROM blotter_suspect;
 SELECT * FROM user;
+#-------------------------------------------------
 
-INSERT INTO user (firstname, middlename, lastname, email, password)
-VALUES ('Romeo', 'Mercado', 'Quinones', 'romeoquinones4@gmail.com', '2022100960Romeo');
 
+#-------------------------------------------------
+# Chart Data Queries
+#-------------------------------------------------
+-- Total Blotter Entries per Barangay
+SELECT 
+	barangay,
+	COUNT(blotter_id) AS total_blotter
+FROM blotter
+GROUP by barangay;
+
+--  Monthly Blotter Entries
+SELECT 
+  DATE_FORMAT(date_time_reported, '%Y-%m') AS month,
+  COUNT(blotter_id) AS total_blotter
+FROM blotter
+GROUP BY month
+ORDER BY month;
+
+-- Age Distribution
+SELECT 
+  c.age,
+  COUNT(*) AS total_complainants
+FROM blotter_complainant bc
+INNER JOIN complainant c ON bc.complainant_id = c.complainant_id 
+GROUP BY age
+ORDER BY age;
+
+SELECT 
+  age,
+  COUNT(*) AS total_suspects
+FROM blotter_suspect bs
+INNER JOIN suspect s ON bs.suspect_id = s.suspect_id 
+GROUP BY age
+ORDER BY age;
+
+-- Gender Distribution 
+SELECT 
+  gender,
+  COUNT(*) AS total_complainants
+FROM blotter_complainant bc
+INNER JOIN complainant c ON bc.complainant_id = c.complainant_id 
+GROUP BY gender
+ORDER BY gender;
+
+SELECT 
+  gender,
+  COUNT(*) AS total_suspects
+FROM blotter_suspect bs
+INNER JOIN suspect s ON bs.suspect_id = s.suspect_id 
+GROUP BY gender
+ORDER BY gender;
+#-------------------------------------------------
+
+
+#-------------------------------------------------
+# Reseting database
+#-------------------------------------------------
 DELETE FROM blotter_suspect;
 DELETE FROM blotter_complainant;
 DELETE FROM blotter;
@@ -113,9 +169,12 @@ SET SQL_SAFE_UPDATES = 0;
 ALTER TABLE complainant AUTO_INCREMENT = 1;
 ALTER TABLE suspect AUTO_INCREMENT = 1;
 ALTER TABLE user AUTO_INCREMENT = 1;
+#-------------------------------------------------
 
-# Project Queries
 
+#---------------------------------------------------------------------------------------
+# Dump Queries
+#---------------------------------------------------------------------------------------
 SELECT 
 	b.blotter_id , 
     bc.date_time_reported, 
@@ -216,3 +275,4 @@ WHERE
     
 SELECT DATE_FORMAT(date_time_reported, '%b %e, %Y %l:%i %p') AS date_time_reported
 FROM blotter_complainant;
+#---------------------------------------------------------------------------------------

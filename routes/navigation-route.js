@@ -20,8 +20,7 @@ navRouter.get('/nav/view-entry/edit', (req, res) => {
 //   res.send('PDF view...');
 // });
 navRouter.get('/nav/report', (req, res) => {
-  // res.sendFile(path.join(__dirname, '../views/dashboard.html'));
-  res.send('Report Page');
+  res.sendFile(path.join(__dirname, '../views/report.html'));
 });
 
 module.exports = navRouter;

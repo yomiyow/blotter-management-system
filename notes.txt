@@ -1,0 +1,21 @@
+Potential Insights
+Total Blotter Entries per Barangay:
+
+Description: The number of blotter entries recorded in each barangay.
+Visualization: Bar chart.
+Monthly Blotter Entries:
+
+Description: The number of blotter entries recorded each month.
+Visualization: Line chart or bar chart.
+Complainant and Suspect Demographics:
+
+Description: Age, gender, and civil status distribution of complainants and suspects.
+Visualization: Pie charts or bar charts.
+Top Incident Types:
+
+Description: The most common types of incidents reported.
+Visualization: Bar chart or pie chart.
+User Activity:
+
+Description: Number of users and their activity levels.
+Visualization: Bar chart or line chart.

@@ -1,0 +1,47 @@
+@import 'mixins';
+@import 'variables';
+@import 'reset';
+@import 'header';
+
+main {
+  padding-top: 3.2rem;
+  min-height: 100vh;
+  display: flex;
+
+  @import 'navigation';
+
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-flow: column wrap;
+    @include transition-margin;
+    padding: 3.2rem 0 3rem;
+  }
+}
+
+.chart-container {
+  flex: 1;
+  width: 80%;
+  margin: auto;
+  min-width: 400px;
+}
+
+
+
+// @media print {
+//   body * {
+//     visibility: hidden;
+//   }
+
+//   .chart-container,
+//   .chart-container * {
+//     visibility: visible;
+//   }
+
+//   .chart-container {
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     width: 100%;
+//   }
+// }
