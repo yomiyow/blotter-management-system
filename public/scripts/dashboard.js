@@ -19,8 +19,8 @@
     const response = await fetch('/api/monthly-blotter-entries');
     if (!response.ok) throw new Error('Failed to fetch chart data.');
 
-    const result = await response.json();
-    result.forEach(entry => {
+    const results = await response.json();
+    results.forEach(entry => {
       const monthIndex = entry.month - 1;
       if (entry.year !== 2024) return;
       monthlyTotalEntries[monthIndex] = entry.month_total_entries;

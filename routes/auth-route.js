@@ -8,13 +8,16 @@ const { loginUser, registerUser } = require('../controllers/auth-controller.js')
 authRouter.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/login.html'));
 });
+authRouter.get('/logout', (req, res) => {
+  res.redirect('/login');
+});
 authRouter.post('/login', loginUser);
 
 // Register routes
-
 authRouter.get('/register', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/register.html'));
 });
+
 authRouter.post('/register', registerUser);
 
 module.exports = authRouter;

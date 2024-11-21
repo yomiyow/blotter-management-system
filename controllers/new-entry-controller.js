@@ -158,4 +158,4 @@ async function createBlotterEntryFromJSON() {
 
 // createBlotterEntryFromJSON();
 
-module.exports = { createBlotterEntry };
+module.exports = { createBlotterEntry }; 
