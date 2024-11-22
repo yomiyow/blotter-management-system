@@ -1,0 +1,200 @@
+@import 'mixins';
+@import 'variables';
+@import 'reset';
+@import 'header';
+
+main {
+  padding-top: 3.2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: row nowrap;
+
+  @import 'navigation';
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 2rem;
+    @include transition-margin;
+    row-gap: 1rem;
+  }
+}
+
+// base styles
+
+.base-button {
+  background-color: $primary-color;
+  padding: 6px 12px;
+  border: 1px solid #d9d9d9;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: $input-field-border-radius;
+  transition: all 0.25s;
+
+  &:hover {
+    background-color: $btn-color-hover;
+    color: black;
+  }
+
+  &:active {
+    background-color: $btn-color-active;
+  }
+}
+
+.personal-info-form {
+  flex: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  border: 1px solid #d9d9d9;
+  padding: 12px 18px;
+  column-gap: 1rem;
+  min-width: 780px;
+
+  #col-1 {
+    flex-shrink: 0;
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
+
+  #col-2 {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    row-gap: 1rem;
+
+    .avatar-container {
+      width: 150px;
+      height: 150px;
+      border: 1px solid #d9d9d9;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    label {
+      @extend .base-button;
+    }
+
+  }
+
+  #col-3 {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 0.7rem;
+
+    .col,
+    .input-wrapper {
+      flex: 1;
+    }
+
+    input,
+    select {
+      padding: 0.3rem;
+      font-size: 1rem;
+      border: 1px solid $border-color;
+      border-radius: $input-field-border-radius;
+      outline: none;
+      width: 100%;
+
+      &:focus {
+        @include focus-styles;
+      }
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 3px;
+    }
+
+    .row-1,
+    .row-2,
+    .row-3,
+    .row-4,
+    .row-5 {
+      display: flex;
+      flex-flow: row nowrap;
+      column-gap: 0.8rem;
+    }
+
+    .row-5 {
+      justify-content: end;
+
+      button {
+        @extend .base-button;
+      }
+    }
+  }
+
+
+}
+
+.change-password-form {
+  flex: 1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  border: 1px solid #d9d9d9;
+  padding: 12px 18px;
+  column-gap: 1rem;
+
+  #col-1 {
+    flex: 1;
+    flex-shrink: 0;
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+
+  #col-2 {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 0.7rem;
+
+    input,
+    select {
+      padding: 0.3rem;
+      font-size: 1rem;
+      border: 1px solid $border-color;
+      border-radius: $input-field-border-radius;
+      outline: none;
+      width: 100%;
+
+      &:focus {
+        @include focus-styles;
+      }
+    }
+
+    label {
+      font-size: 0.8rem;
+      margin-bottom: 3px;
+    }
+
+    .row-1,
+    .row-2,
+    .row-3 {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+    .row-4 {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: end;
+      column-gap: 1rem;
+
+      button {
+        @extend .base-button;
+      }
+    }
+  }
+}

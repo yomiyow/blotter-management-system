@@ -1,0 +1,423 @@
+/* Used in new-entry & view-entry */
+/* Used in dashboard */
+/* Used in new-entry */
+/* Used in login & register */
+/* Used main-content */
+/* Layout variables */
+/* Button variables */
+/* Border variables */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #444444;
+  text-decoration: none;
+}
+
+/* Used in new-entry & view-entry */
+/* Used in dashboard */
+/* Used in new-entry */
+/* Used in login & register */
+/* Used main-content */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #444444;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  background-color: #f5f5f5;
+  height: 3.2rem;
+  padding: 0 2rem;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.profile {
+  position: relative;
+}
+.profile .icon-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: #e0e0e0;
+}
+.profile .icon-wrapper:hover {
+  background-color: #d0d0d0;
+  cursor: pointer;
+}
+.profile .icon-wrapper:active {
+  background-color: #c0c0c0;
+  color: #111;
+}
+.profile .icon-wrapper i {
+  font-size: 18px;
+}
+.profile .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #f4f4f4;
+  top: 50px;
+  right: 0;
+  width: 130px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.profile .dropdown-menu i {
+  margin-right: 5px;
+}
+.profile .dropdown-menu .dropdown-item {
+  display: block;
+  padding: 10px 16px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.profile .dropdown-menu .dropdown-item:hover {
+  background-color: #e0e0e0;
+  cursor: pointer;
+  color: #333;
+}
+.profile .dropdown-menu .dropdown-item:active {
+  background-color: #d0d0d0;
+  color: #111;
+}
+.profile .show {
+  display: block;
+}
+
+main {
+  padding-top: 3.2rem;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+main .side-nav {
+  position: fixed;
+  min-height: 100%;
+  background-color: #f5f5f5;
+  width: 15rem;
+  min-width: 15rem;
+  overflow: hidden;
+  -webkit-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+main .side-nav .toggle-wrapper {
+  text-align: end;
+  padding-right: 1rem;
+}
+main .side-nav .toggle-wrapper .toggle-btn {
+  padding: 0.9rem;
+  border-radius: 8px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+main .side-nav .toggle-wrapper .toggle-btn:hover {
+  background-color: #dcdcdc;
+  color: black;
+}
+main .side-nav .toggle-wrapper .toggle-btn:active {
+  background-color: #bfbfbf;
+}
+main .side-nav .menu-link {
+  text-decoration: none;
+  padding: 0.8rem;
+  display: block;
+  white-space: nowrap;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+main .side-nav .menu-link i {
+  margin-right: 1rem;
+}
+main .side-nav .menu-link:hover {
+  background-color: #dcdcdc;
+  color: black;
+}
+main .side-nav .menu-link:active {
+  background-color: #bfbfbf;
+}
+main .side-nav .isActive {
+  background-color: white;
+}
+main .side-nav .isActive:hover {
+  background-color: white;
+}
+main .main-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 2rem;
+  margin-left: 15rem;
+  -webkit-transition: margin-left 0.25s ease-in-out;
+  transition: margin-left 0.25s ease-in-out;
+  row-gap: 1rem;
+}
+
+.base-button, .change-password-form #col-2 .row-4 button, .personal-info-form #col-3 .row-5 button, .personal-info-form #col-2 label {
+  background-color: #f5f5f5;
+  padding: 6px 12px;
+  border: 1px solid #d9d9d9;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border-radius: 5px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+.base-button:hover, .change-password-form #col-2 .row-4 button:hover, .personal-info-form #col-3 .row-5 button:hover, .personal-info-form #col-2 label:hover {
+  background-color: #dcdcdc;
+  color: black;
+}
+.base-button:active, .change-password-form #col-2 .row-4 button:active, .personal-info-form #col-3 .row-5 button:active, .personal-info-form #col-2 label:active {
+  background-color: #bfbfbf;
+}
+
+.personal-info-form {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 1px solid #d9d9d9;
+  padding: 12px 18px;
+  -webkit-column-gap: 1rem;
+     -moz-column-gap: 1rem;
+          column-gap: 1rem;
+  min-width: 780px;
+}
+.personal-info-form #col-1 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.personal-info-form #col-1 p {
+  font-size: 0.8rem;
+}
+.personal-info-form #col-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 1rem;
+}
+.personal-info-form #col-2 .avatar-container {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #d9d9d9;
+}
+.personal-info-form #col-2 input[type=file] {
+  display: none;
+}
+.personal-info-form #col-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  row-gap: 0.7rem;
+}
+.personal-info-form #col-3 .col,
+.personal-info-form #col-3 .input-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.personal-info-form #col-3 input,
+.personal-info-form #col-3 select {
+  padding: 0.3rem;
+  font-size: 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+}
+.personal-info-form #col-3 input:focus,
+.personal-info-form #col-3 select:focus {
+  border-color: #007BFF;
+  -webkit-box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+          box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+.personal-info-form #col-3 label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+.personal-info-form #col-3 .row-1,
+.personal-info-form #col-3 .row-2,
+.personal-info-form #col-3 .row-3,
+.personal-info-form #col-3 .row-4,
+.personal-info-form #col-3 .row-5 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-column-gap: 0.8rem;
+     -moz-column-gap: 0.8rem;
+          column-gap: 0.8rem;
+}
+.personal-info-form #col-3 .row-5 {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+.change-password-form {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 1px solid #d9d9d9;
+  padding: 12px 18px;
+  -webkit-column-gap: 1rem;
+     -moz-column-gap: 1rem;
+          column-gap: 1rem;
+}
+.change-password-form #col-1 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.change-password-form #col-1 p {
+  font-size: 0.8rem;
+}
+.change-password-form #col-2 {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  row-gap: 0.7rem;
+}
+.change-password-form #col-2 input,
+.change-password-form #col-2 select {
+  padding: 0.3rem;
+  font-size: 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+}
+.change-password-form #col-2 input:focus,
+.change-password-form #col-2 select:focus {
+  border-color: #007BFF;
+  -webkit-box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+          box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+.change-password-form #col-2 label {
+  font-size: 0.8rem;
+  margin-bottom: 3px;
+}
+.change-password-form #col-2 .row-1,
+.change-password-form #col-2 .row-2,
+.change-password-form #col-2 .row-3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+.change-password-form #col-2 .row-4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-column-gap: 1rem;
+     -moz-column-gap: 1rem;
+          column-gap: 1rem;
+}/*# sourceMappingURL=profile.css.map */
