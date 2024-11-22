@@ -1,4 +1,3 @@
-// show password event handler
 document.addEventListener('DOMContentLoaded', () => {
   const dropdown = document.querySelector('.dropdown-menu');
   const profile = document.querySelector('.icon-wrapper');
@@ -8,4 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!event.target.closest('.icon-wrapper'))
       dropdown.classList.remove('show');
   });
+
+  document.querySelector('a[href="/logout"]')
+    .addEventListener('click', () => sessionStorage.clear());
 });

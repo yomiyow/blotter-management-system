@@ -18,10 +18,7 @@ document.querySelector('form')
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    const data = {
-      email: email,
-      password: password
-    }
+    const data = { email: email, password: password }
 
     try {
       const response = await fetch('/login', {
@@ -36,6 +33,7 @@ document.querySelector('form')
       if (!response.ok) {
         alert(result.error);
       } else {
+        sessionStorage.setItem('userEmail', email);
         window.location.href = '/nav/dashboard';
       }
 

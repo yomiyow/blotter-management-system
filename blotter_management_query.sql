@@ -77,15 +77,22 @@ CREATE TABLE blotter_suspect (
     FOREIGN KEY (suspect_id) REFERENCES suspect(suspect_id)
 );
 CREATE TABLE user (
-	user_id INT AUTO_INCREMENT,
     firstname VARCHAR(255),
     middlename VARCHAR(255),
     lastname VARCHAR(255),
+    gender VARCHAR(255),
+    birthdate VARCHAR(255),
+    civil_status VARCHAR(255),
+    address VARCHAR(255),
     email VARCHAR(255),
+	contact_no VARCHAR(255),
     password VARCHAR(255),
     
-    PRIMARY KEY (user_id)
+    PRIMARY KEY (email)
 );
+
+INSERT INTO user
+VALUES ('Romeo', 'Mercado', 'Quiñones', 'Male', '2003-02-21', 'Single', '300 Purok 5 Rueda, Plaridel, Bulacan', 'romeoquinones4@gmail.com', '09064316098', '2022100960Romeo');
 
 USE blotter_db;
 
