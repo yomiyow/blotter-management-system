@@ -33,6 +33,7 @@
     display: block;
     white-space: nowrap;
     transition: 0.25s;
+    user-select: none;
 
     i {
       margin-right: 1rem;

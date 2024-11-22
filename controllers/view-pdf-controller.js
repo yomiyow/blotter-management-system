@@ -83,23 +83,18 @@ async function buildPdf(req, res) {
   // Header
   doc
     .fontSize(20)
-    .font('Helvetica-Bold')
-    .text('Blotter Record', { align: 'center' })
-    .moveDown(0.5)
+    .font('Helvetica-Bold').text('Blotter Record', { align: 'center' }).moveDown(0.5)
     .fontSize(12)
-    .font('Helvetica')
-    .text(`Generated on: ${dateAndTimeToday()}`, { align: 'center' })
+    .font('Helvetica').text(`Entry No: ${blotter.blotter_id}`, { align: 'left', continued: true })
+    .font('Helvetica').text(`Generated on: ${dateAndTimeToday()}`, { align: 'right' })
     .moveDown(1);
 
   // Complainant info
   doc
     .fontSize(16)
-    .font('Helvetica-Bold')
-    .text('Complainant Information', { underline: true })
-    .moveDown(0.5)
-    .fontSize(12)
-    .font('Helvetica')
-    .text(`Name: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_fullname}`).moveDown(0.2)
+    .font('Helvetica-Bold').text('Complainant Information', { underline: true }).moveDown(0.5)
+    .fontSize(11)
+    .font('Helvetica').text(`Name: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_fullname}`).moveDown(0.2)
     .font('Helvetica').text(`Nickname: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_nickname}`).moveDown(0.2)
     .font('Helvetica').text(`Age: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_age}`).moveDown(0.2)
     .font('Helvetica').text(`Gender: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.complainant_gender}`).moveDown(0.2)
@@ -117,12 +112,9 @@ async function buildPdf(req, res) {
   // Suspect info
   doc
     .fontSize(16)
-    .font('Helvetica-Bold')
-    .text('Suspect Information', { underline: true })
-    .moveDown(0.5)
-    .fontSize(12)
-    .font('Helvetica')
-    .text(`Name: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_fullname}`).moveDown(0.2)
+    .font('Helvetica-Bold').text('Suspect Information', { underline: true }).moveDown(0.5)
+    .fontSize(11)
+    .font('Helvetica').text(`Name: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_fullname}`).moveDown(0.2)
     .font('Helvetica').text(`Nickname: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_nickname}`).moveDown(0.2)
     .font('Helvetica').text(`Age: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_age}`).moveDown(0.2)
     .font('Helvetica').text(`Gender: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.suspect_gender}`).moveDown(0.2)
@@ -140,12 +132,9 @@ async function buildPdf(req, res) {
   // Blotter info
   doc
     .fontSize(16)
-    .font('Helvetica-Bold')
-    .text('Blotter Information', { underline: true })
-    .moveDown(0.5)
-    .fontSize(12)
-    .font('Helvetica')
-    .text(`Street: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.street}`).moveDown(0.2)
+    .font('Helvetica-Bold').text('Blotter Information', { underline: true }).moveDown(0.5)
+    .fontSize(11)
+    .font('Helvetica').text(`Street: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.street}`).moveDown(0.2)
     .font('Helvetica').text(`Barangay: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.barangay}`).moveDown(0.2)
     .font('Helvetica').text(`Date & Time Reported: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.date_time_reported}`).moveDown(0.2)
     .font('Helvetica').text(`Date & Time Incident: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.date_time_incident}`).moveDown(0.2)

@@ -16,6 +16,24 @@ main {
     flex-flow: column wrap;
     @include transition-margin;
     padding: 3.2rem 0 3rem;
+
+    .chart-selector {
+      position: fixed;
+      top: 80px;
+      right: 32px;
+
+      select {
+        padding: 8px 16px;
+        outline: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+
+        &:focus {
+          box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+        }
+      }
+    }
   }
 }
 
@@ -25,7 +43,6 @@ main {
   margin: auto;
   min-width: 400px;
 }
-
 
 
 // @media print {
