@@ -23,18 +23,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   populateFormFields(accountInfo);
 
-  // Handle form submission
-  document.querySelector('.personal-info-form')
-    .addEventListener('submit', (event) => {
-      event.preventDefault();
-      console.log('Form submitted');
-
-    })
-
   // Handle avatar file upload
   const uploadImage = document.getElementById('avatar');
   const avatarPreview = document.querySelector('.avatar-preview');
-
   uploadImage.addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -47,6 +38,29 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
+  // Handle form submission
+
+  document.querySelector('.personal-info-form')
+    .addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      console.log(formData);
+
+
+      const response = await fetch('/api/account-info/update', {
+        method: 'PUT',
+        body: formData
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        console.log(data.message);
+        return;
+      }
+      const data = await response.json();
+      alert(data.message);
+    })
 });
 
 function populateFormFields(accountInfo) {
@@ -55,8 +69,11 @@ function populateFormFields(accountInfo) {
   document.getElementById('lastname').value = accountInfo.lastname;
   document.getElementById('gender').value = accountInfo.gender;
   document.getElementById('birthdate').value = accountInfo.birthdate;
-  document.getElementById('civil-status').value = accountInfo.civil_status;
+  document.getElementById('civilStatus').value = accountInfo.civil_status;
   document.getElementById('address').value = accountInfo.address;
   document.getElementById('email').value = accountInfo.email;
   document.getElementById('contact').value = accountInfo.contact_no;
+  document.querySelector('.avatar-preview').src = accountInfo.avatar_path
+    ? `/images/avatar/${accountInfo.avatar_path}`
+    : `/images/avatar/default-avatar.png`;
 }

@@ -86,12 +86,14 @@ CREATE TABLE user (
     address VARCHAR(255),
     email VARCHAR(255),
 	contact_no VARCHAR(255),
-    password VARCHAR(255),
-    
+    `password` VARCHAR(255),
+    avatar_path VARCHAR(255),
     PRIMARY KEY (email)
 );
 
-INSERT INTO user
+DROP TABLE user;
+
+INSERT INTO user ()
 VALUES ('Romeo', 'Mercado', 'Quiñones', 'Male', '2003-02-21', 'Single', '300 Purok 5 Rueda, Plaridel, Bulacan', 'romeoquinones4@gmail.com', '09064316098', '2022100960Romeo');
 
 USE blotter_db;
@@ -101,7 +103,7 @@ SELECT * FROM suspect;
 SELECT * FROM blotter;
 SELECT * FROM blotter_complainant;
 SELECT * FROM blotter_suspect;
-SELECT * FROM user;
+SELECT * FROM `user`;
 #-------------------------------------------------
 
 
@@ -160,7 +162,7 @@ ORDER BY gender;
 
 
 #-------------------------------------------------
-# Reseting database
+# Resetting database
 #-------------------------------------------------
 DELETE FROM blotter_suspect;
 DELETE FROM blotter_complainant;
