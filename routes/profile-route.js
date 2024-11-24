@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const { getAccountInfo, updateAccountInfo } = require('../controllers/profile-controller.js');
+const { getAccountInfo, updateAccountInfo, changePassword } = require('../controllers/profile-controller.js');
 
 const profileRouter = express.Router();
 
@@ -22,5 +22,6 @@ profileRouter.get('/profile', (req, res) => {
 });
 profileRouter.post('/api/account-info', getAccountInfo);
 profileRouter.put('/api/account-info/update', upload.single('avatar'), updateAccountInfo);
+profileRouter.post('/api/change-password', changePassword);
 
 module.exports = profileRouter;

@@ -99,6 +99,12 @@ main {
       flex: 1;
     }
 
+    input[readonly] {
+      background-color: #f0f0f0;
+      cursor: not-allowed;
+      outline: none;
+    }
+
     input,
     select {
       padding: 0.3rem;
@@ -137,8 +143,6 @@ main {
       }
     }
   }
-
-
 }
 
 .change-password-form {
@@ -199,6 +203,34 @@ main {
 
       button {
         @extend .base-button;
+      }
+    }
+
+    .password-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      input {
+        padding-right: 2.8rem;
+      }
+
+      .show-password {
+        position: absolute;
+        font-size: 0.8rem;
+        right: 8px;
+        color: $blue;
+        transition: 0.25s;
+        user-select: none;
+
+        &:hover {
+          color: darken($blue, 10%);
+          cursor: pointer;
+        }
+
+        &:active {
+          color: lighten($blue, 10%);
+        }
       }
     }
   }

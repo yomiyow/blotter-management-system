@@ -59,4 +59,38 @@ async function updateAccountInfo(req, res) {
 
 }
 
-module.exports = { getAccountInfo, updateAccountInfo };
+async function changePassword(req, res) {
+  const connection = await connectToDatabase();
+  const { userEmail, currentPassword, newPassword } = req.body;
+
+  try {
+    const selectQuery = `
+      SELECT password FROM user WHERE email = ?
+    `;
+    const [result] = await connection.query(selectQuery, [userEmail]);
+    if (result.length === 0) {
+      return res.status(404).json({ message: 'Account not found' });
+    }
+    const user = result[0];
+
+    // Verify current password
+    const isMatch = (currentPassword === user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Current password is incorrect' });
+    }
+
+    // Update the password in database
+    const updateQuery = `
+      UPDATE user SET password = ? WHERE email = ?
+    `;
+    await connection.query(updateQuery, [newPassword, userEmail]);
+
+    res.status(200).json({ message: 'Password changed successfully' });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+}
+
+module.exports = { getAccountInfo, updateAccountInfo, changePassword };

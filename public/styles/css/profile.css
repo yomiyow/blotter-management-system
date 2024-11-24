@@ -296,6 +296,11 @@ main .main-content {
       -ms-flex: 1;
           flex: 1;
 }
+.personal-info-form #col-3 input[readonly] {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+  outline: none;
+}
 .personal-info-form #col-3 input,
 .personal-info-form #col-3 select {
   padding: 0.3rem;
@@ -424,4 +429,35 @@ main .main-content {
   -webkit-column-gap: 1rem;
      -moz-column-gap: 1rem;
           column-gap: 1rem;
+}
+.change-password-form #col-2 .password-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.change-password-form #col-2 .password-wrapper input {
+  padding-right: 2.8rem;
+}
+.change-password-form #col-2 .password-wrapper .show-password {
+  position: absolute;
+  font-size: 0.8rem;
+  right: 8px;
+  color: #007bff;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.change-password-form #col-2 .password-wrapper .show-password:hover {
+  color: #0062cc;
+  cursor: pointer;
+}
+.change-password-form #col-2 .password-wrapper .show-password:active {
+  color: #3395ff;
 }/*# sourceMappingURL=profile.css.map */

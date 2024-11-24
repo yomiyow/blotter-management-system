@@ -134,15 +134,24 @@
           <div id="col-2">
             <div class="row-1">
               <label for="current-password">Current Password</label>
-              <input type="text" id="current-password" name="current-password" required>
+              <div class="password-wrapper">
+                <input  type="password" name="current-password" id="current-password" required>
+                <span class="show-password js-password-toggle">Show</span>
+              </div>
             </div>
             <div class="row-2">
               <label for="new-password">New Password</label>
-              <input type="text" id="new-password" name="new-password" required>
+              <div class="password-wrapper">
+                <input type="password" name="new-password" id="new-password" required>
+                <span class="show-password js-password-toggle">Show</span>
+              </div>
             </div>
             <div class="row-3">
               <label for="confirm-password">Confirm Password</label>
-              <input type="text" id="confirm-password" name="confirm-password" required>
+              <div class="password-wrapper">
+                <input type="password" name="confirm-password" id="confirm-password" required>
+                <span class="show-password js-password-toggle">Show</span>
+              </div>
             </div>
             <div class="row-4">
               <button type="submit">Change Password</button>
@@ -155,6 +164,7 @@
 
     <script src="/scripts/navigation.js"></script>
     <script src="/scripts/profile.js"></script>
+    <script src="/scripts/change-password.js"></script>
     <script src="/scripts/header.js"></script>
   </body>
 </html>
