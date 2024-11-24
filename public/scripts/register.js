@@ -1,49 +1,58 @@
-const passwordField = document.getElementById('password');
-const passwordToggle = document.querySelector('.js-password-toggle');
+import isValidPassword from '../utils/password.js'
 
-passwordToggle.addEventListener('click', () => {
-  const isPassword = (passwordField.type === 'password');
-  passwordField.type = isPassword ? 'text' : 'password';
-  passwordToggle.textContent = isPassword ? 'Hide' : 'Show';
-});
+document.addEventListener('DOMContentLoaded', () => {
+  const passwordField = document.getElementById('password');
+  const passwordToggle = document.querySelector('.js-password-toggle');
 
-document.querySelector('form')
-  .addEventListener('submit', async (event) => {
-    event.preventDefault();
+  passwordToggle.addEventListener('click', () => {
+    const isPassword = (passwordField.type === 'password');
+    passwordField.type = isPassword ? 'text' : 'password';
+    passwordToggle.textContent = isPassword ? 'Hide' : 'Show';
+  });
 
-    const firstname = document.getElementById('firstname').value;
-    const lastname = document.getElementById('lastname').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+  document.querySelector('form')
+    .addEventListener('submit', async (event) => {
+      event.preventDefault();
 
-    const data = {
-      firstname: firstname,
-      lastname: lastname,
-      email: email,
-      password: password
-    }
+      const firstname = document.getElementById('firstname').value;
+      const lastname = document.getElementById('lastname').value;
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
 
-    try {
-      const response = await fetch('/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        alert(result.error);
-      } else {
-        alert(result.message);
-        window.location.href = '/login';
+      if (!isValidPassword(password)) {
+        alert('Password must be at least 8 characters long and contain both letters and numbers.');
+        return;
       }
 
-    } catch (err) {
-      console.error(err);
-    }
+      const data = {
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        password: password
+      }
 
-    console.log(data);
-  });
+      try {
+        const response = await fetch('/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          alert(result.error);
+        } else {
+          alert(result.message);
+          window.location.href = '/login';
+        }
+
+      } catch (err) {
+        console.error(err);
+      }
+
+      console.log(data);
+    });
+});
