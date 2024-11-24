@@ -13,6 +13,7 @@ const blotterId = urlParams.get('blotterId');
     blotter = await response.json();
   } catch (err) {
     console.error('Error populating blotter form: ', err);
+    return;
   }
 
   // Populate complainant fields
@@ -84,7 +85,6 @@ function getFormValues() {
     comTelNo: document.getElementById('complainant-tel-no').value,
     comEmail: document.getElementById('complainant-email').value,
 
-    // // Populate suspect fields
     susFirstname: document.getElementById('suspect-firstname').value,
     susMiddlename: document.getElementById('suspect-middlename').value,
     susLastname: document.getElementById('suspect-lastname').value,
@@ -104,7 +104,6 @@ function getFormValues() {
     susTelNo: document.getElementById('suspect-tel-no').value,
     susEmail: document.getElementById('suspect-email').value,
 
-    // Populate case detail fields
     street: document.getElementById('street').value,
     barangay: document.getElementById('barangay').value,
     dateTimeReported: document.getElementById('date-time-reported').value,
@@ -114,8 +113,10 @@ function getFormValues() {
 }
 
 // Event listener
-document.querySelector('.js-update-btn')
-  .addEventListener('click', async () => {
+document.querySelector('form')
+  .addEventListener('submit', async (event) => {
+    event.preventDefault();
+
     const updatedBlotter = getFormValues();
 
     try {

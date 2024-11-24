@@ -91,7 +91,6 @@ CREATE TABLE user (
     PRIMARY KEY (email)
 );
 
-DROP TABLE user;
 
 INSERT INTO user ()
 VALUES ('Romeo', 'Mercado', 'Quiñones', 'Male', '2003-02-21', 'Single', '300 Purok 5 Rueda, Plaridel, Bulacan', 'romeoquinones4@gmail.com', '09064316098', '2022100960Romeo');

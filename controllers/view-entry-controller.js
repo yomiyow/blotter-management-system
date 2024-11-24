@@ -29,6 +29,37 @@ async function getBlotterRecords(req, res) {
   }
 }
 
+async function getSortedBlotterRecords(req, res) {
+  const connection = await connectToDatabase();
+  const { column, order } = req.query;
+  try {
+    const selectQuery = `
+      SELECT
+      b.blotter_id ,
+      DATE_FORMAT(b.date_time_reported, '%b %e, %Y at %l:%i %p') AS date_time_reported,
+      CONCAT(c.firstname, ' ', c.middlename, ' ', c.lastname) AS complainant_fullname,
+      CONCAT(s.firstname, ' ',s.middlename, ' ', s.lastname) AS suspect_fullname
+      FROM blotter b
+      INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
+      INNER JOIN blotter_suspect bs ON b.blotter_id = bs.blotter_id
+      INNER JOIN complainant c ON bc.complainant_id = c.complainant_id
+      INNER JOIN suspect s ON bs.suspect_id = s.suspect_id
+      ORDER BY ${column} ${order};
+
+    `;
+
+    const [blotterResult] = await connection.query(selectQuery);
+    res.status(200).json(blotterResult);
+
+  } catch (err) {
+    console.error(err.stack);
+    return;
+
+  } finally {
+    connection.end();
+  }
+}
+
 async function searchBlotterRecord(req, res) {
   const connection = await connectToDatabase();
   const searchTerm = req.query.term;
@@ -61,4 +92,4 @@ async function searchBlotterRecord(req, res) {
   }
 }
 
-module.exports = { getBlotterRecords, searchBlotterRecord };
+module.exports = { getBlotterRecords, getSortedBlotterRecords, searchBlotterRecord };

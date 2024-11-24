@@ -222,12 +222,20 @@ main .main-content table {
   border-collapse: collapse;
   font-size: 0.8rem;
 }
-main .main-content table tr {
+main .main-content table thead tr th {
+  cursor: pointer;
   border-bottom: 1px solid #C7C7C7;
+}
+main .main-content table thead tr th:hover {
+  background-color: #f5f5f5;
+}
+main .main-content table thead tr th i {
+  margin-left: 10px;
 }
 main .main-content table tbody tr {
   -webkit-transition: 0.25s;
   transition: 0.25s;
+  border-bottom: 1px solid #C7C7C7;
 }
 main .main-content table tbody tr:hover {
   background-color: #f5f5f5;

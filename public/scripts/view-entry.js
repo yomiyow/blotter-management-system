@@ -104,6 +104,7 @@ async function fetchBlotters(url) {
   }
 })();
 
+// Searching at table
 document.querySelector('input[type="search"]')
   .addEventListener('input', async (event) => {
     const searchTerm = event.target.value;
@@ -116,3 +117,32 @@ document.querySelector('input[type="search"]')
       console.error(err,);
     }
   });
+
+// Sorting of table
+document.querySelectorAll('thead tr th').forEach((theader) => {
+  theader.addEventListener('click', async () => {
+    const column = theader.dataset.column;
+    const sortOrder = theader.dataset.order === 'ASC' ? 'DESC' : 'ASC';
+    theader.dataset.order = sortOrder;
+    const theaderIcon = theader.querySelector('i');
+
+    // Remove the icon from unselected table headers
+    document.querySelectorAll('thead tr th i').forEach((icon) => {
+      if (icon !== theaderIcon) {
+        icon.classList.remove('fa-arrow-up', 'fa-arrow-down');
+      }
+    });
+
+    theaderIcon.classList.toggle('fa-arrow-up', sortOrder === 'ASC');
+    theaderIcon.classList.toggle('fa-arrow-down', sortOrder === 'DESC');
+
+    try {
+      const url = `/api/sort?column=${column}&order=${sortOrder}`;
+      const blotters = await fetchBlotters(url);
+      generateBlotterHTML(blotters);
+      makeDrowDownInteractive();
+    } catch (err) {
+      console.error(err);
+    }
+  });
+});
