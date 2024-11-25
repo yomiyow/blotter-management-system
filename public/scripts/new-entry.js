@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return formData;
   }
 
-  function validateCurrentForm() {
+  function isCurrentFormValid() {
     const currentForm = forms[currentFormIndex];
     const inputs = currentForm.querySelectorAll('input[required], select[required], textarea[required]');
     let isValid = true;
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   nextButton.addEventListener('click', (event) => {
     event.preventDefault();
 
-    if (!validateCurrentForm()) {
+    if (!isCurrentFormValid()) {
       showAlert(document.querySelector('.alert-warning'));
       return;
     }
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   submitButton.addEventListener('click', async (event) => {
     event.preventDefault();
 
-    if (!validateCurrentForm()) {
+    if (!isCurrentFormValid()) {
       showAlert(document.querySelector('.alert-warning'));
       return;
     }

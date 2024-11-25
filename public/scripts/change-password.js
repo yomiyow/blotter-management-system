@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Get the email of the current login user
   const userEmail = sessionStorage.getItem('userEmail');
 
   document.querySelector('.change-password-form')

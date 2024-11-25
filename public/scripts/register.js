@@ -19,11 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value.trim();
 
-      if (!isValidPassword(password)) {
-        alert('Password must be at least 8 characters long and contain both letters and numbers.');
-        return;
-      }
-
       const data = {
         firstname: firstname,
         lastname: lastname,

@@ -13,5 +13,8 @@ function dateAndTimeToday() {
   return dayjs().format('YYYY-MM-DD | h:mm A');
 }
 
+function isValidPassword(password) {
+  return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*]{8,}$/.test(password);
+}
 
-module.exports = { generateCustomBlotterId, dateAndTimeToday };
+module.exports = { generateCustomBlotterId, dateAndTimeToday, isValidPassword };

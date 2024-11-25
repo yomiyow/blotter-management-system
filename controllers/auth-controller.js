@@ -1,4 +1,5 @@
 const { connectToDatabase } = require('../models/db-connection.js');
+const { isValidPassword } = require('../public/utils/utils.js');
 
 async function loginUser(req, res) {
   const connection = await connectToDatabase();
@@ -27,12 +28,17 @@ async function registerUser(req, res) {
   const { firstname, lastname, email, password } = req.body;
 
   try {
-    // Check first if the user already registered
     const selectQuery = `SELECT * FROM user WHERE email = ?`;
     const [result] = await connection.query(selectQuery, [email]);
 
+    // Check first if the user already registered
     if (result.length > 0) {
-      return res.status(409).json({ error: 'Email already registered' });
+      return res.status(409).json({ error: 'This email address is already registered. Please use a different email or log in.' });
+    }
+
+    // validate the password
+    if (!isValidPassword(password)) {
+      return res.status(400).json({ error: 'Password must be at least 8 characters long and contain both letters and numbers.' });
     }
 
     const insertQuery = `
@@ -43,7 +49,7 @@ async function registerUser(req, res) {
       firstname, lastname, email, password
     ])
 
-    res.status(200).json({ message: 'Register successful' });
+    res.status(201).json({ message: 'Registration successful.' });
 
   } catch (err) {
     console.error(err);

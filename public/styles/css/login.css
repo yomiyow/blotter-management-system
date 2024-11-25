@@ -154,7 +154,14 @@ form {
   border-radius: 5px;
 }
 form .login-header {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
+}
+form .login-header h2 {
+  margin-bottom: 2rem;
+}
+form .login-header p {
+  text-align: center;
+  font-size: 0.9rem;
 }
 form .input-group {
   display: -webkit-box;
