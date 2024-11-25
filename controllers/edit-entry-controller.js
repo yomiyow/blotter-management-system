@@ -127,7 +127,7 @@ async function updateBlotterById(req, res) {
     await connection.commit();
 
     res.status(200).json({
-      message: 'Blotter updated successfully!'
+      message: 'Blotter updated successfully.'
     });
 
   } catch (err) {
