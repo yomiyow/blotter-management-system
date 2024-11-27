@@ -3,6 +3,44 @@
 @import 'reset';
 @import 'header';
 
+/* Remove placeholder text for date inputs */
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  color: transparent;
+}
+
+/* Show text color when date is selected */
+input[type="date"]:valid::-webkit-datetime-edit-text,
+input[type="date"]:valid::-webkit-datetime-edit-month-field,
+input[type="date"]:valid::-webkit-datetime-edit-day-field,
+input[type="date"]:valid::-webkit-datetime-edit-year-field {
+  color: #333;
+}
+
+/* Remove placeholder text for datetime inputs */
+input[type="datetime-local"]::-webkit-datetime-edit-text,
+input[type="datetime-local"]::-webkit-datetime-edit-month-field,
+input[type="datetime-local"]::-webkit-datetime-edit-day-field,
+input[type="datetime-local"]::-webkit-datetime-edit-year-field,
+input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
+input[type="datetime-local"]::-webkit-datetime-edit-minute-field,
+input[type="datetime-local"]::-webkit-datetime-edit-second-field {
+  color: transparent;
+}
+
+/* Show text color when datetime is selected */
+input[type="datetime-local"]:valid::-webkit-datetime-edit-text,
+input[type="datetime-local"]:valid::-webkit-datetime-edit-month-field,
+input[type="datetime-local"]:valid::-webkit-datetime-edit-day-field,
+input[type="datetime-local"]:valid::-webkit-datetime-edit-year-field,
+input[type="datetime-local"]:valid::-webkit-datetime-edit-hour-field,
+input[type="datetime-local"]:valid::-webkit-datetime-edit-minute-field,
+input[type="datetime-local"]:valid::-webkit-datetime-edit-second-field {
+  color: #333;
+}
+
 // form base class 
 
 .base-fieldset {

@@ -15,10 +15,6 @@ const port = 3000;
 
 /* Middlewares */
 
-app.use((req, res, next) => {
-  console.log('Client request: ' + req.method, req.url, req.body);
-  next();
-});
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
