@@ -3,7 +3,6 @@
 @import 'reset';
 @import 'header';
 
-
 main {
   padding-top: 3.2rem;
   min-height: 100vh;
@@ -43,24 +42,45 @@ main {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.8rem;
+      display: block;
+      height: 560px;
+      overflow-y: auto;
+      position: relative;
 
       thead {
-        tr th {
-          cursor: pointer;
-          border-bottom: 1px solid $table-border-color;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: white;
 
-          &:hover {
-            background-color: $primary-color;
-          }
+        display: table;
+        width: 100%;
+        table-layout: fixed;
 
-          i {
-            margin-left: 10px;
+        tr {
+
+          th {
+            cursor: pointer;
+            border-bottom: 1px solid $table-border-color;
+
+            &:hover {
+              background-color: $primary-color;
+            }
+
+            i {
+              margin-left: 10px;
+            }
           }
         }
       }
 
       tbody {
+
         tr {
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+
           transition: 0.25s;
           border-bottom: 1px solid $table-border-color;
 
@@ -89,6 +109,7 @@ main {
 
         &:last-child {
           padding-right: 1rem;
+          width: 50px;
         }
       }
 

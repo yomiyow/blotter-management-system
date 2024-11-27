@@ -221,6 +221,19 @@ main .main-content table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.8rem;
+  display: block;
+  height: 560px;
+  overflow-y: auto;
+  position: relative;
+}
+main .main-content table thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 main .main-content table thead tr th {
   cursor: pointer;
@@ -233,6 +246,9 @@ main .main-content table thead tr th i {
   margin-left: 10px;
 }
 main .main-content table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
   -webkit-transition: 0.25s;
   transition: 0.25s;
   border-bottom: 1px solid #C7C7C7;
@@ -258,6 +274,7 @@ main .main-content table th:first-child {
 main .main-content table td:last-child,
 main .main-content table th:last-child {
   padding-right: 1rem;
+  width: 50px;
 }
 main .main-content table .ellipsis-menu {
   display: -webkit-box;
