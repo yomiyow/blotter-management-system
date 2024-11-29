@@ -4,6 +4,6 @@ const express = require('express');
 const path = require('path');
 const addBlotterRouter = express.Router();
 
-addBlotterRouter.post('/api/new-entry', createBlotterEntry);
+addBlotterRouter.post('/api/add-blotter', createBlotterEntry);
 
 module.exports = addBlotterRouter;

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   async function populateBlotterForm() {
     let blotter;
     try {
-      const response = await fetch(`/api/view-entry/edit?blotterId=${blotterId}`);
+      const response = await fetch(`/api/view-blotter/edit?blotterId=${blotterId}`);
       if (!response.ok) {
         const error = await response.json();
         alert(error.message);
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const updatedBlotter = getFormValues();
 
       try {
-        const response = await fetch(`/api/view-entry/edit/${blotterId}`, {
+        const response = await fetch(`/api/view-blotter/edit/${blotterId}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'

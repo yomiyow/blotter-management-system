@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      const response = await fetch('/api/new-entry', {
+      const response = await fetch('/api/add-blotter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

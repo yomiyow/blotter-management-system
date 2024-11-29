@@ -92,7 +92,7 @@ async function fetchBlotters(url) {
 
 (async function renderBlotter() {
   try {
-    const blotters = await fetchBlotters('/api/view-entry');
+    const blotters = await fetchBlotters('/api/view-blotter');
     generateBlotterHTML(blotters);
     makeDrowDownInteractive();
   } catch (err) {
