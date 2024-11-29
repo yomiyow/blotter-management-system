@@ -39,7 +39,9 @@ async function getBlotterById(req, res) {
         b.barangay,
         DATE_FORMAT(b.date_time_reported, '%b %e, %Y %l:%i %p') AS date_time_reported,
         DATE_FORMAT(b.date_time_incident, '%b %e, %Y %l:%i %p') AS date_time_incident,
-        b.narrative
+        b.narrative,
+        b.category,
+        b.status
       FROM blotter b
       INNER JOIN blotter_complainant bc ON b.blotter_id = bc.blotter_id
       INNER JOIN complainant c ON bc.complainant_id = c.complainant_id
@@ -132,13 +134,15 @@ async function buildPdf(req, res) {
   // Blotter info
   doc
     .fontSize(16)
-    .font('Helvetica-Bold').text('Blotter Information', { underline: true }).moveDown(0.5)
+    .font('Helvetica-Bold').text('Blotter Details', { underline: true }).moveDown(0.5)
     .fontSize(11)
     .font('Helvetica').text(`Street: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.street}`).moveDown(0.2)
     .font('Helvetica').text(`Barangay: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.barangay}`).moveDown(0.2)
     .font('Helvetica').text(`Date & Time Reported: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.date_time_reported}`).moveDown(0.2)
     .font('Helvetica').text(`Date & Time Incident: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.date_time_incident}`).moveDown(0.2)
-    .font('Helvetica').text(`Narrative: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.narrative}`)
+    .font('Helvetica').text(`Category: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.category}`).moveDown(0.2)
+    .font('Helvetica').text(`Status: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.status}`).moveDown(0.2)
+    .font('Helvetica').text(`Narrative: `, { continued: true }).font('Helvetica-Bold').text(`${blotter.narrative}`).moveDown(0.2)
     .moveDown(1);
 
   // Finalize the pdf
