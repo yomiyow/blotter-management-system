@@ -57,6 +57,8 @@ CREATE TABLE blotter (
     date_time_reported VARCHAR(255),
     date_time_incident VARCHAR(255),
 	narrative TEXT,
+    category VARCHAR(255),
+    `status` VARCHAR(255),
     
     PRIMARY KEY (blotter_id)
 );
