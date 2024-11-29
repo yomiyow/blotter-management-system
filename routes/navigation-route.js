@@ -6,8 +6,8 @@ const navRouter = express.Router();
 navRouter.get('/nav/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/dashboard.html'));
 });
-navRouter.get('/nav/new-entry', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/new-entry.html'));
+navRouter.get('/nav/add-blotter', (req, res) => {
+  res.sendFile(path.join(__dirname, '../views/add-blotter.html'));
 });
 navRouter.get('/nav/view-entry', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/view-entry.html'));
