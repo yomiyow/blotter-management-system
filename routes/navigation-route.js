@@ -9,8 +9,8 @@ navRouter.get('/nav/dashboard', (req, res) => {
 navRouter.get('/nav/add-blotter', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/add-blotter.html'));
 });
-navRouter.get('/nav/view-entry', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/view-entry.html'));
+navRouter.get('/nav/view-blotter', (req, res) => {
+  res.sendFile(path.join(__dirname, '../views/view-blotter.html'));
 });
 navRouter.get('/nav/view-entry/edit', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/edit-entry.html'));
