@@ -36,8 +36,8 @@
       <nav class="side-nav isOpen">
         <div class="toggle-wrapper"><i class="fa-solid fa-bars toggle-btn"></i></div>
         <a href="/nav/dashboard" class="menu-link"><i class="fa-solid fa-house"></i>Dashboard</a>
-        <a href="/nav/new-entry" class="menu-link isActive"><i class="fa-solid fa-file-circle-plus"></i>New Entry</a>
-        <a href="/nav/view-entry" class="menu-link"><i class="fa-solid fa-eye"></i>View Entry</a>
+        <a href="/nav/new-entry" class="menu-link isActive"><i class="fa-solid fa-file-circle-plus"></i>Add Blotter</a>
+        <a href="/nav/view-entry" class="menu-link"><i class="fa-solid fa-eye"></i>View Blotter</a>
         <a href="/nav/report" class="menu-link"><i class="fa-solid fa-chart-bar"></i>Report</a>
       </nav>
       
@@ -56,6 +56,11 @@
           </div>
         </div>
 
+        <!-- 
+          TODO Make this form scrollable
+          TODO Add Blotter Category 
+          TODO Add Blotter Status  
+        -->
         <form>
           <!-- Complainant form -->
           <fieldset id="complainant-form" class="js-form-step">
@@ -73,7 +78,7 @@
                 <input type="text" name="comLastname" id="complainant-lastname" required>
               </div>
               <div class="col col-4">
-                <label for="complainant-nickname">Nickname</label>
+                <label for="complainant-nickname">Alias</label>
                 <input type="text" name="comNickname" id="complainant-nickname">
               </div>
               <div class="col col-5">
@@ -185,7 +190,7 @@
                 <input type="text" name="susLastname" id="suspect-lastname" required>
               </div>
               <div class="col col-4">
-                <label for="suspect-nickname">Nickname</label>
+                <label for="suspect-nickname">Alias</label>
                 <input type="text" name="susNickname" id="suspect-nickname">
               </div>
               <div class="col col-5">
