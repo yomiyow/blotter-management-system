@@ -138,12 +138,24 @@ main {
           border: 1px solid $border-color;
           border-radius: $input-field-border-radius;
           height: 200px;
-          width: 500px;
-          resize: none;
+          width: 100%;
+          resize: horizontal;
           outline: none;
 
           &:focus {
             @include focus-styles;
+          }
+        }
+
+        .col-2 {
+          display: flex;
+          flex-direction: column;
+          row-gap: 15px;
+
+          .row-1,
+          .row-2 {
+            display: block;
+            width: 100%;
           }
         }
       }

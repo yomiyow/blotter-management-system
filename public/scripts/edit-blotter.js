@@ -64,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('date-time-reported').value = blotter.date_time_reported;
     document.getElementById('date-time-incident').value = blotter.date_time_incident;
     document.getElementById('narrative').value = blotter.narrative;
+    document.getElementById('category').value = blotter.category;
+    document.getElementById('status').value = blotter.status;
   }
 
   function getFormValues() {
@@ -110,7 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
       barangay: document.getElementById('barangay').value,
       dateTimeReported: document.getElementById('date-time-reported').value,
       dateTimeIncident: document.getElementById('date-time-incident').value,
-      narrative: document.getElementById('narrative').value
+      narrative: document.getElementById('narrative').value,
+      category: document.getElementById('category').value,
+      status: document.getElementById('status').value
     }
   }
 
