@@ -22,7 +22,7 @@ class Blotter {
 
     const caseDetailsFields = [
       'street', 'barangay', 'dateTimeReported', 'dateTimeIncident',
-      'narrative'
+      'narrative', 'category', 'status'
     ];
 
     complainantFields.forEach((field) => this[field] = data[field]);
@@ -65,7 +65,8 @@ class Blotter {
   getBlotterValues() {
     const blotterFields = [
       'street', 'barangay', 'dateTimeReported',
-      'dateTimeIncident', 'narrative', 'blotterId',
+      'dateTimeIncident', 'narrative',
+      'category', 'status', 'blotterId'
     ];
 
     return this.#getValues(blotterFields);

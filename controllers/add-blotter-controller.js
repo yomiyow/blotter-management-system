@@ -42,8 +42,9 @@ async function createBlotterEntry(req, res) {
     const blotterQuery = `
       INSERT INTO blotter (
         street, barangay, date_time_reported, 
-        date_time_incident, narrative, blotter_id
-      ) VALUES (?, ?, ?, ?, ?, ?)
+        date_time_incident, narrative, category,
+        status, blotter_id
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `;
     const blotterValues = blotter.getBlotterValues();
     await connection.query(blotterQuery, blotterValues);
