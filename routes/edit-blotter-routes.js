@@ -1,6 +1,6 @@
 const express = require('express');
 const editBlotterRouter = express.Router();
-const { getBlotterById, updateBlotterById } = require('../controllers/edit-entry-controller.js');
+const { getBlotterById, updateBlotterById } = require('../controllers/edit-blotter-controller.js');
 
 editBlotterRouter.get('/api/view-entry/edit', getBlotterById);
 editBlotterRouter.put('/api/view-entry/edit/:blotterId', updateBlotterById);

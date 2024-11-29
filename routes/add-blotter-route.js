@@ -1,4 +1,4 @@
-const { createBlotterEntry } = require('../controllers/new-entry-controller.js');
+const { createBlotterEntry } = require('../controllers/add-blotter-controller.js');
 
 const express = require('express');
 const path = require('path');

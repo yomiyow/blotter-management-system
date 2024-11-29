@@ -1,6 +1,6 @@
 const express = require('express');
 const viewBlotterRouter = express.Router();
-const { getBlotterRecords, getSortedBlotterRecords, searchBlotterRecord } = require('../controllers/view-entry-controller.js');
+const { getBlotterRecords, getSortedBlotterRecords, searchBlotterRecord } = require('../controllers/view-blotter-controller.js');
 
 viewBlotterRouter.get('/api/view-entry', getBlotterRecords);
 viewBlotterRouter.get('/api/search', searchBlotterRecord);
