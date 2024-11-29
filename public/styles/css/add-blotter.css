@@ -160,6 +160,9 @@ input[type=datetime-local]:valid::-webkit-datetime-edit-second-field {
 }
 
 .base-fieldset, main .main-content #case-detail-form, main .main-content #complainant-form, main .main-content #suspect-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
@@ -168,9 +171,6 @@ input[type=datetime-local]:valid::-webkit-datetime-edit-second-field {
   border: 1px solid #d9d9d9;
   padding: 1rem;
   width: 100%;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
 }
 .base-fieldset .hr-with-title, main .main-content #case-detail-form .hr-with-title, main .main-content #complainant-form .hr-with-title, main .main-content #suspect-form .hr-with-title {
   display: -webkit-box;
@@ -198,6 +198,9 @@ input[type=datetime-local]:valid::-webkit-datetime-edit-second-field {
           flex: 1;
   border: none;
   border-top: 1px solid #d9d9d9;
+}
+.base-fieldset legend, main .main-content #case-detail-form legend, main .main-content #complainant-form legend, main .main-content #suspect-form legend {
+  padding: 0 5px 0;
 }
 
 .base-row, main .main-content #case-detail-form .row-1,
@@ -387,48 +390,17 @@ main .main-content {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   margin-left: 15rem;
   -webkit-transition: margin-left 0.25s ease-in-out;
   transition: margin-left 0.25s ease-in-out;
 }
-main .main-content .tab-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-width: 920px;
-}
-main .main-content .tab-container .tab {
-  width: 10rem;
-  padding: 0.8rem 0 0.8rem;
-  text-align: center;
-  border-radius: 0.8rem 0.8rem 0 0;
-  border: 1px solid #d9d9d9;
-  border-bottom: none;
-}
-main .main-content .tab-container .alert-warning {
-  display: none;
-  margin-left: 1rem;
-  background-color: #fff3cd;
-  padding: 0.6rem 1rem 0.6rem;
-  border: 1px solid #ffeeba;
-  border-radius: 5px;
-  color: #856404;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-main .main-content .tab-container .alert-warning i {
-  color: inherit;
-}
-main .main-content .tab-container .alert-success {
+main .main-content .alert-success {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   display: none;
   margin-left: 1rem;
   background-color: #cfe2ff;
@@ -440,7 +412,7 @@ main .main-content .tab-container .alert-success {
       -ms-flex: 1;
           flex: 1;
 }
-main .main-content .tab-container .alert-success i {
+main .main-content .alert-success i {
   color: inherit;
 }
 main .main-content form {
@@ -451,9 +423,8 @@ main .main-content form {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
-  row-gap: 1rem;
-  min-width: 800px;
-  height: 92%;
+  row-gap: 2rem;
+  min-width: 900px;
 }
 main .main-content #complainant-form .row-3, main .main-content #suspect-form .row-3 {
   width: 80%;
@@ -490,17 +461,8 @@ main .main-content .form-button-container {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-}
-main .main-content .form-button-container .disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-main .main-content .form-button-container .disabled:hover {
-  background-color: #f5f5f5;
-  color: inherit;
-}
-main .main-content .form-button-container .disabled:active {
-  background-color: #f5f5f5;
+  margin-top: 1rem;
+  margin-top: auto;
 }
 main .main-content .form-button-container button {
   width: 3.5rem;
@@ -518,7 +480,4 @@ main .main-content .form-button-container button:hover {
 }
 main .main-content .form-button-container button:active {
   background-color: #bfbfbf;
-}
-main .main-content .form-button-container .submit-btn {
-  display: none;
 }/*# sourceMappingURL=add-blotter.css.map */

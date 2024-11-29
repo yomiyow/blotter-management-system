@@ -44,12 +44,12 @@ input[type="datetime-local"]:valid::-webkit-datetime-edit-second-field {
 // form base class 
 
 .base-fieldset {
+  display: flex;
   flex-flow: column nowrap;
   row-gap: 1rem;
   border: 1px solid $border-color;
   padding: 1rem;
   width: 100%;
-  flex: 1;
 
   .hr-with-title {
     @include flex-center;
@@ -65,6 +65,10 @@ input[type="datetime-local"]:valid::-webkit-datetime-edit-second-field {
       border: none;
       border-top: 1px solid $border-color;
     }
+  }
+
+  legend {
+    padding: 0 5px 0;
   }
 }
 
@@ -112,61 +116,34 @@ main {
 
   .main-content {
     flex: 1;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     @include transition-margin;
 
-    .tab-container {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      min-width: 920px;
+    .alert-success {
+      position: fixed;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
 
-      .tab {
-        width: 10rem;
-        padding: 0.8rem 0 0.8rem;
-        text-align: center;
-        border-radius: 0.8rem 0.8rem 0 0;
-        border: 1px solid $border-color;
-        border-bottom: none;
-      }
+      display: none;
+      margin-left: 1rem;
+      background-color: #cfe2ff;
+      padding: 0.6rem 1rem 0.6rem;
+      border: 1px solid #9ec5fe;
+      border-radius: $input-field-border-radius;
+      color: #052c65;
+      flex: 1;
 
-      .alert-warning {
-        display: none;
-        margin-left: 1rem;
-        background-color: #fff3cd;
-        padding: 0.6rem 1rem 0.6rem;
-        border: 1px solid #ffeeba;
-        border-radius: $input-field-border-radius;
-        color: #856404;
-        flex: 1;
-
-        i {
-          color: inherit;
-        }
-      }
-
-      .alert-success {
-        display: none;
-        margin-left: 1rem;
-        background-color: #cfe2ff;
-        padding: 0.6rem 1rem 0.6rem;
-        border: 1px solid #9ec5fe;
-        border-radius: $input-field-border-radius;
-        color: #052c65;
-        flex: 1;
-
-        i {
-          color: inherit;
-        }
+      i {
+        color: inherit;
       }
     }
 
     form {
       display: flex;
       flex-flow: column nowrap;
-      row-gap: 1rem;
-      min-width: 800px;
-      height: 92%;
+      row-gap: 2rem;
+      min-width: 900px;
     }
 
     #complainant-form {
@@ -235,20 +212,8 @@ main {
       display: flex;
       column-gap: 15px;
       justify-content: flex-end;
-
-      .disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-
-        &:hover {
-          background-color: $primary-color;
-          color: inherit;
-        }
-
-        &:active {
-          background-color: $primary-color;
-        }
-      }
+      margin-top: 1rem;
+      margin-top: auto;
 
       button {
         width: 3.5rem;
@@ -269,9 +234,6 @@ main {
         }
       }
 
-      .submit-btn {
-        display: none;
-      }
     }
   }
 }

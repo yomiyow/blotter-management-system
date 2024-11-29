@@ -42,28 +42,17 @@
       </nav>
       
       <div class="main-content">
-        <div class="tab-container">
-          <div class="complainant-tab tab js-tab">Complainant</div>
-          <div class="suspect-tab tab js-tab">Suspect</div>
-          <div class="case-detail-tab tab js-tab">Blotter Details</div>
-          <div class="alert-success">
-            <i class="fa-solid fa-circle-check"></i>
-            Blotter successfully saved.
-          </div>
-          <div class="alert-warning">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            Please complete all required (*) fields.
-          </div>
+        <div class="alert-success">
+          <i class="fa-solid fa-circle-check"></i>
+          Blotter successfully saved.
         </div>
 
-        <!-- 
-          TODO Make this form scrollable
-          TODO Add Blotter Category 
-          TODO Add Blotter Status  
-        -->
+        <!-- TODO Add Blotter Category -->
+        <!-- TODO Add Blotter Status   -->
         <form>
           <!-- Complainant form -->
           <fieldset id="complainant-form" class="js-form-step">
+            <legend><h3>Complainant</h3></legend>
             <div class="row-1">
               <div class="col col-1">
                 <label for="complainant-firstname">First name *</label>
@@ -176,6 +165,7 @@
 
           <!-- Suspect form -->
           <fieldset id="suspect-form" class="js-form-step">
+            <legend><h3>Suspect</h3></legend>
             <div class="row-1">
               <div class="col col-1">
                 <label for="suspect-firstname">First name *</label>
@@ -288,6 +278,7 @@
 
           <!-- Case detail form -->
           <fieldset id="case-detail-form" class="js-form-step">
+            <legend><h3>Blotter Details</h3></legend>
             <div class="hr-with-title">
               <hr>
               <span class="title">Place of Incident</span>
@@ -336,9 +327,8 @@
           </fieldset>
 
           <div class="form-button-container">
-            <button type="button" class="js-prev-btn">prev</button>
-            <button type="button" class="js-next-btn">next</button>
-            <button type="submit" class="js-submit-btn submit-btn">submit</button>
+            <button type="reset">Discard</button>
+            <button type="submit">Save</button>
           </div>
         </form>
       </div>
