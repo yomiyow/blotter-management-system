@@ -12,13 +12,9 @@ navRouter.get('/nav/add-blotter', (req, res) => {
 navRouter.get('/nav/view-blotter', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/view-blotter.html'));
 });
-navRouter.get('/nav/view-entry/edit', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/edit-entry.html'));
+navRouter.get('/nav/view-blotter/edit', (req, res) => {
+  res.sendFile(path.join(__dirname, '../views/edit-blotter.html'));
 });
-// navRouter.get('/nav/view-entry/pdf', (req, res) => {
-//   // res.sendFile(path.join(__dirname, '../views/edit-entry.html'));
-//   res.send('PDF view...');
-// });
 navRouter.get('/nav/report', (req, res) => {
   res.sendFile(path.join(__dirname, '../views/report.html'));
 });

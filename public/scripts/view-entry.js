@@ -13,21 +13,17 @@ function generateBlotterHTML(blotters) {
         <td class="dropdown">
           <i class="fa-solid fa-ellipsis-vertical ellipsis-menu js-menu"></i>
           <div class="dropdown-menu js-dropdown-menu">
-            <a href="/nav/view-entry/edit?blotterId=${blotter.blotter_id}" 
+            <a href="/nav/view-blotter/edit?blotterId=${blotter.blotter_id}" 
               class="dropdown-item">
               <i class="fa-regular fa-pen-to-square"></i>
               Edit
             </a> 
             <a 
-              href="/nav/view-entry/pdf?blotterId=${blotter.blotter_id}" 
+              href="/nav/view-blotter/pdf?blotterId=${blotter.blotter_id}" 
               class="dropdown-item" target="_blank"
             >
               <i class="fa-regular fa-file-pdf"></i>
               View PDF
-            </a>
-            <a href="#" class="dropdown-item">
-              <i class="fa-regular fa-folder"></i>
-              View Record
             </a>
           </div>
         </td>
