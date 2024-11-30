@@ -94,12 +94,12 @@ async function createBlotterEntryFromJSON() {
 
       // complainant Table
       const complainantQuery = `
-        INSERT INTO complainant (
-          firstname, middlename, lastname, nickname, age, gender, civil_status,
-          citizenship, birthplace, birthdate, occupation, province, city, barangay,
-          house_no_street, mobile_no, tel_no, email
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      `;
+      INSERT INTO complainant (
+        firstname, middlename, lastname, nickname, age, gender, civil_status,
+        citizenship, birthplace, birthdate, occupation, province, city, barangay,
+        house_no_street, mobile_no, tel_no, email
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
       const complainantValues = blotter.getComplainantValues();
       const [complainantResult] = await connection.query(complainantQuery, complainantValues);
       const complainantId = complainantResult.insertId;
@@ -107,12 +107,12 @@ async function createBlotterEntryFromJSON() {
 
       // suspect Table
       const suspectQuery = `
-        INSERT INTO suspect (
-          firstname, middlename, lastname, nickname, age, gender, civil_status,
-          citizenship, birthplace, birthdate, occupation, province, city, barangay,
-          house_no_street, mobile_no, tel_no, email
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-      `;
+      INSERT INTO suspect (
+        firstname, middlename, lastname, nickname, age, gender, civil_status,
+        citizenship, birthplace, birthdate, occupation, province, city, barangay,
+        house_no_street, mobile_no, tel_no, email
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
       const suspectValues = blotter.getSuspectValues();
       const [suspectResult] = await connection.query(suspectQuery, suspectValues);
       const suspectId = suspectResult.insertId;
@@ -120,29 +120,30 @@ async function createBlotterEntryFromJSON() {
 
       // blotter Table
       const blotterQuery = `
-        INSERT INTO blotter (
-          street, barangay, date_time_reported, 
-          date_time_incident, narrative, blotter_id
-        ) VALUES (?, ?, ?, ?, ?, ?)
-      `;
+      INSERT INTO blotter (
+        street, barangay, date_time_reported, 
+        date_time_incident, narrative, category,
+        status, blotter_id
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    `;
       const blotterValues = blotter.getBlotterValues();
       await connection.query(blotterQuery, blotterValues);
 
       // blotter_complainant Table
       const blotterComplainantQuery = `
-        INSERT INTO blotter_complainant (
-          blotter_id, complainant_id
-        ) VALUES (?, ?)
-      `;
+      INSERT INTO blotter_complainant (
+        blotter_id, complainant_id
+      ) VALUES (?, ?)
+    `;
       const blotterComplainantValues = blotter.getBlotterComplainantValues();
       await connection.query(blotterComplainantQuery, blotterComplainantValues);
 
       // blotter_suspect Table
       const blotterSuspectQuery = `
-        INSERT INTO blotter_suspect (
-          blotter_id, suspect_id
-        ) VALUES (?, ?)
-      `;
+      INSERT INTO blotter_suspect (
+        blotter_id, suspect_id
+      ) VALUES (?, ?)
+    `;
       const blotterSuspectValues = blotter.getBlotterSuspectValues();
       await connection.query(blotterSuspectQuery, blotterSuspectValues);
 

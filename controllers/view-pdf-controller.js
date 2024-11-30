@@ -87,7 +87,7 @@ async function buildPdf(req, res) {
     .fontSize(20)
     .font('Helvetica-Bold').text('Blotter Record', { align: 'center' }).moveDown(0.5)
     .fontSize(12)
-    .font('Helvetica').text(`Entry No: ${blotter.blotter_id}`, { align: 'left', continued: true })
+    .font('Helvetica').text(`Blotter No: ${blotter.blotter_id}`, { align: 'left', continued: true })
     .font('Helvetica').text(`Generated on: ${dateAndTimeToday()}`, { align: 'right' })
     .moveDown(1);
 

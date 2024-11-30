@@ -40,7 +40,9 @@
     "barangay": "Maunlad",
     "dateTimeReported": "2024-11-12T21:05",
     "dateTimeIncident": "2024-11-11T20:00",
-    "narrative": "At approximately 2: 45 PM on November 11, 2024, officers were dispatched to the Maunlad Venus street following a reported act of vandalism. Upon arrival, officers observed significant damage to the storefront of Green Leaf Café, located at Venus street."
+    "narrative": "At approximately 2: 45 PM on November 11, 2024, officers were dispatched to the Maunlad Venus street following a reported act of vandalism. Upon arrival, officers observed significant damage to the storefront of Green Leaf Café, located at Venus street.",
+    "category": "Theft",
+    "status": "Resolved"
   },
   {
     "comFirstname": "Juan",
@@ -83,7 +85,9 @@
     "barangay": "Lugam",
     "dateTimeReported": "2024-10-10T14:30",
     "dateTimeIncident": "2024-10-09T13:00",
-    "narrative": "On October 9, 2024, at around 1:00 PM, a physical altercation occurred between Juan Dela Cruz and Pedro Garcia at Rizal Avenue, Sampaloc. The incident was reported to the authorities the following day."
+    "narrative": "On October 9, 2024, at around 1:00 PM, a physical altercation occurred between Juan Dela Cruz and Pedro Garcia at Rizal Avenue, Sampaloc. The incident was reported to the authorities the following day.",
+    "category": "Physical Injury",
+    "status": "New"
   },
   {
     "comFirstname": "Maria",
@@ -126,7 +130,9 @@
     "barangay": "Sumapang Matanda",
     "dateTimeReported": "2024-09-15T10:00",
     "dateTimeIncident": "2024-09-14T09:00",
-    "narrative": "On September 14, 2024, at around 9:00 AM, a theft incident occurred at Osmeña Blvd, Lahug. Maria Santos reported the incident to the authorities the following day."
+    "narrative": "On September 14, 2024, at around 9:00 AM, a theft incident occurred at Osmeña Blvd, Lahug. Maria Santos reported the incident to the authorities the following day.",
+    "category": "Threats",
+    "status": "Under Investigation"
   },
   {
     "comFirstname": "Ana",
@@ -169,7 +175,9 @@
     "barangay": "Santo Cristo",
     "dateTimeReported": "2024-08-20T16:00",
     "dateTimeIncident": "2024-08-19T15:00",
-    "narrative": "On August 19, 2024, at around 3:00 PM, a robbery incident occurred at Ayala Avenue, Poblacion. Ana Reyes reported the incident to the authorities the following day."
+    "narrative": "On August 19, 2024, at around 3:00 PM, a robbery incident occurred at Ayala Avenue, Poblacion. Ana Reyes reported the incident to the authorities the following day.",
+    "category": "Threats",
+    "status": "Under Investigation"
   },
   {
     "comFirstname": "Carlos",
@@ -212,7 +220,9 @@
     "barangay": "San Vincente",
     "dateTimeReported": "2024-07-10T12:00",
     "dateTimeIncident": "2024-07-09T11:00",
-    "narrative": "On July 9, 2024, at around 11:00 AM, a burglary incident occurred at Ortigas Avenue, San Antonio. Carlos Lopez reported the incident to the authorities the following day."
+    "narrative": "On July 9, 2024, at around 11:00 AM, a burglary incident occurred at Ortigas Avenue, San Antonio. Carlos Lopez reported the incident to the authorities the following day.",
+    "category": "Cyber Crime",
+    "status": "Resolved"
   },
   {
     "comFirstname": "Liza",
@@ -255,7 +265,9 @@
     "barangay": "San Pablo",
     "dateTimeReported": "2024-06-05T14:00",
     "dateTimeIncident": "2024-06-04T13:00",
-    "narrative": "On June 4, 2024, at around 1:00 PM, a fraud incident occurred at Bonifacio High Street, Fort Bonifacio. Liza Gomez reported the incident to the authorities the following day."
+    "narrative": "On June 4, 2024, at around 1:00 PM, a fraud incident occurred at Bonifacio High Street, Fort Bonifacio. Liza Gomez reported the incident to the authorities the following day.",
+    "category": "Public Disturbance",
+    "status": "New"
   },
   {
     "comFirstname": "Roberto",
@@ -298,7 +310,9 @@
     "barangay": "Masile",
     "dateTimeReported": "2024-05-01T10:00",
     "dateTimeIncident": "2024-04-30T09:00",
-    "narrative": "On April 30, 2024, at around 9:00 AM, a hit-and-run incident occurred at EDSA, Bagong Barrio. Roberto Martinez reported the incident to the authorities the following day."
+    "narrative": "On April 30, 2024, at around 9:00 AM, a hit-and-run incident occurred at EDSA, Bagong Barrio. Roberto Martinez reported the incident to the authorities the following day.",
+    "category": "Sexual Harassment",
+    "status": "New"
   },
   {
     "comFirstname": "Isabel",
@@ -341,7 +355,9 @@
     "barangay": "Mabolo",
     "dateTimeReported": "2024-04-15T16:00",
     "dateTimeIncident": "2024-04-14T15:00",
-    "narrative": "On April 14, 2024, at around 3:00 PM, a car theft incident occurred at Ayala Avenue, San Lorenzo. Isabel Cruz reported the incident to the authorities the following day."
+    "narrative": "On April 14, 2024, at around 3:00 PM, a car theft incident occurred at Ayala Avenue, San Lorenzo. Isabel Cruz reported the incident to the authorities the following day.",
+    "category": "Damage to Property",
+    "status": "Under Investigation"
   },
   {
     "comFirstname": "Miguel",
@@ -384,7 +400,9 @@
     "barangay": "Mojon",
     "dateTimeReported": "2024-03-10T14:00",
     "dateTimeIncident": "2024-03-09T13:00",
-    "narrative": "On March 9, 2024, at around 1:00 PM, a physical altercation occurred between Miguel Garcia and Juan Santos at Aurora Boulevard, Cubao. The incident was reported to the authorities the following day."
+    "narrative": "On March 9, 2024, at around 1:00 PM, a physical altercation occurred between Miguel Garcia and Juan Santos at Aurora Boulevard, Cubao. The incident was reported to the authorities the following day.",
+    "category": "Missing Person",
+    "status": "New"
   },
   {
     "comFirstname": "Elena",
@@ -427,7 +445,9 @@
     "barangay": "Namayan",
     "dateTimeReported": "2024-02-20T10:00",
     "dateTimeIncident": "2024-02-19T09:00",
-    "narrative": "On February 19, 2024, at around 9:00 AM, a theft incident occurred at Session Road, Loakan. Elena Diaz reported the incident to the authorities the following day."
+    "narrative": "On February 19, 2024, at around 9:00 AM, a theft incident occurred at Session Road, Loakan. Elena Diaz reported the incident to the authorities the following day.",
+    "category": "Physical Injury",
+    "status": "New"
   },
   {
     "comFirstname": "Luis",
@@ -470,7 +490,9 @@
     "barangay": "Mabolo",
     "dateTimeReported": "2024-01-15T14:00",
     "dateTimeIncident": "2024-01-14T13:00",
-    "narrative": "On January 14, 2024, at around 1:00 PM, a road rage incident occurred at Aguinaldo Highway, Anabu. Luis Fernandez reported the incident to the authorities the following day."
+    "narrative": "On January 14, 2024, at around 1:00 PM, a road rage incident occurred at Aguinaldo Highway, Anabu. Luis Fernandez reported the incident to the authorities the following day.",
+    "category": "Theft",
+    "status": "Resolved"
   },
   {
     "comFirstname": "Grace",
@@ -513,7 +535,9 @@
     "barangay": "Masile",
     "dateTimeReported": "2024-12-01T10:00",
     "dateTimeIncident": "2024-11-30T09:00",
-    "narrative": "On November 30, 2024, at around 9:00 AM, a cybercrime incident occurred at Roxas Avenue, Matina. Grace Villanueva reported the incident to the authorities the following day."
+    "narrative": "On November 30, 2024, at around 9:00 AM, a cybercrime incident occurred at Roxas Avenue, Matina. Grace Villanueva reported the incident to the authorities the following day.",
+    "category": "Physical Injury",
+    "status": "New"
   },
   {
     "comFirstname": "Nina",
@@ -556,7 +580,9 @@
     "barangay": "Niugan",
     "dateTimeReported": "2024-12-15T14:00",
     "dateTimeIncident": "2024-12-14T13:00",
-    "narrative": "On December 14, 2024, at around 1:00 PM, a theft incident occurred at Colon Street, Mabolo. Nina Torres reported the incident to the authorities the following day."
+    "narrative": "On December 14, 2024, at around 1:00 PM, a theft incident occurred at Colon Street, Mabolo. Nina Torres reported the incident to the authorities the following day.",
+    "category": "Threats",
+    "status": "Resolved"
   },
   {
     "comFirstname": "Paulo",
@@ -599,7 +625,9 @@
     "barangay": "San Gabriel",
     "dateTimeReported": "2024-12-20T10:00",
     "dateTimeIncident": "2024-12-19T09:00",
-    "narrative": "On December 19, 2024, at around 9:00 AM, a cybercrime incident occurred at Katipunan Avenue, San Roque. Paulo Dela Cruz reported the incident to the authorities the following day."
+    "narrative": "On December 19, 2024, at around 9:00 AM, a cybercrime incident occurred at Katipunan Avenue, San Roque. Paulo Dela Cruz reported the incident to the authorities the following day.",
+    "category": "Damage to Property",
+    "status": "New"
   },
   {
     "comFirstname": "Sophia",
@@ -642,7 +670,9 @@
     "barangay": "Santor",
     "dateTimeReported": "2024-12-25T14:00",
     "dateTimeIncident": "2024-12-24T13:00",
-    "narrative": "On December 24, 2024, at around 1:00 PM, a theft incident occurred at Mango Avenue, Lahug. Sophia Gonzalez reported the incident to the authorities the following day."
+    "narrative": "On December 24, 2024, at around 1:00 PM, a theft incident occurred at Mango Avenue, Lahug. Sophia Gonzalez reported the incident to the authorities the following day.",
+    "category": "Sexual Harassment",
+    "status": "Resolved"
   },
   {
     "comFirstname": "Victor",
@@ -685,7 +715,9 @@
     "barangay": "Santisima Trinidad",
     "dateTimeReported": "2024-12-30T14:00",
     "dateTimeIncident": "2024-12-29T13:00",
-    "narrative": "On December 29, 2024, at around 1:00 PM, a road rage incident occurred at Aguinaldo Highway, Anabu. Victor Rivera reported the incident to the authorities the following day."
+    "narrative": "On December 29, 2024, at around 1:00 PM, a road rage incident occurred at Aguinaldo Highway, Anabu. Victor Rivera reported the incident to the authorities the following day.",
+    "category": "Domestic Violence",
+    "status": "New"
   },
   {
     "comFirstname": "Angela",
@@ -728,7 +760,9 @@
     "barangay": "Tikay",
     "dateTimeReported": "2024-12-31T14:00",
     "dateTimeIncident": "2024-12-30T13:00",
-    "narrative": "On December 30, 2024, at around 1:00 PM, a theft incident occurred at Taft Avenue, Ermita. Angela Santos reported the incident to the authorities the following day."
+    "narrative": "On December 30, 2024, at around 1:00 PM, a theft incident occurred at Taft Avenue, Ermita. Angela Santos reported the incident to the authorities the following day.",
+    "category": "Cyber Crime",
+    "status": "Resolved"
   },
   {
     "comFirstname": "Daniel",
@@ -771,7 +805,9 @@
     "barangay": "Taal",
     "dateTimeReported": "2024-12-01T10:00",
     "dateTimeIncident": "2024-11-30T09:00",
-    "narrative": "On November 30, 2024, at around 9:00 AM, a cybercrime incident occurred at Roxas Avenue, Matina. Daniel Cruz reported the incident to the authorities the following day."
+    "narrative": "On November 30, 2024, at around 9:00 AM, a cybercrime incident occurred at Roxas Avenue, Matina. Daniel Cruz reported the incident to the authorities the following day.",
+    "category": "Theft",
+    "status": "Under Investigation"
   },
   {
     "comFirstname": "Emily",
@@ -814,7 +850,9 @@
     "barangay": "Caniogan",
     "dateTimeReported": "2024-11-01T14:00",
     "dateTimeIncident": "2024-10-31T13:00",
-    "narrative": "On October 31, 2024, at around 1:00 PM, a harassment incident occurred at Roxas Boulevard, Malate. Emily Johnson reported the incident to the authorities the following day."
+    "narrative": "On October 31, 2024, at around 1:00 PM, a harassment incident occurred at Roxas Boulevard, Malate. Emily Johnson reported the incident to the authorities the following day.",
+    "category": "Public Disturbance",
+    "status": "New"
   },
   {
     "comFirstname": "Henry",
@@ -857,7 +895,9 @@
     "barangay": "Guinhawa",
     "dateTimeReported": "2024-11-15T14:00",
     "dateTimeIncident": "2024-11-14T13:00",
-    "narrative": "On November 14, 2024, at around 1:00 PM, a fraud incident occurred at Escolta Street, Binondo. Henry Wong reported the incident to the authorities the following day."
+    "narrative": "On November 14, 2024, at around 1:00 PM, a fraud incident occurred at Escolta Street, Binondo. Henry Wong reported the incident to the authorities the following day.",
+    "category": "Domestic Violence",
+    "status": "Under Investigation"
   },
   {
     "comFirstname": "Julia",
@@ -900,7 +940,9 @@
     "barangay": "Liang",
     "dateTimeReported": "2024-12-15T14:00",
     "dateTimeIncident": "2024-12-14T13:00",
-    "narrative": "On December 14, 2024, at around 1:00 PM, a theft incident occurred at Colon Street, Mabolo. Julia Santos reported the incident to the authorities the following day."
+    "narrative": "On December 14, 2024, at around 1:00 PM, a theft incident occurred at Colon Street, Mabolo. Julia Santos reported the incident to the authorities the following day.",
+    "category": "Damage to Property",
+    "status": "Resolved"
   },
   {
     "comFirstname": "Carlos",
@@ -943,7 +985,9 @@
     "barangay": "Santisima Trinidad",
     "dateTimeReported": "2024-12-30T14:00",
     "dateTimeIncident": "2024-12-29T13:00",
-    "narrative": "On December 29, 2024, at around 1:00 PM, a road rage incident occurred at Aguinaldo Highway, Anabu. Victor Rivera reported the incident to the authorities the following day."
+    "narrative": "On December 29, 2024, at around 1:00 PM, a road rage incident occurred at Aguinaldo Highway, Anabu. Victor Rivera reported the incident to the authorities the following day.",
+    "category": "Theft",
+    "status": "Resolved"
   },
   {
     "comFirstname": "Angela",
@@ -986,7 +1030,9 @@
     "barangay": "Tikay",
     "dateTimeReported": "2024-12-31T14:00",
     "dateTimeIncident": "2024-12-30T13:00",
-    "narrative": "On December 30, 2024, at around 1:00 PM, a theft incident occurred at Taft Avenue, Ermita. Angela Santos reported the incident to the authorities the following day."
+    "narrative": "On December 30, 2024, at around 1:00 PM, a theft incident occurred at Taft Avenue, Ermita. Angela Santos reported the incident to the authorities the following day.",
+    "category": "Public Disturbance",
+    "status": "Resolved"
   },
   {
     "comFirstname": "Daniel",
@@ -1029,7 +1075,9 @@
     "barangay": "Taal",
     "dateTimeReported": "2024-12-01T10:00",
     "dateTimeIncident": "2024-11-30T09:00",
-    "narrative": "On November 30, 2024, at around 9:00 AM, a cybercrime incident occurred at Roxas Avenue, Matina. Daniel Cruz reported the incident to the authorities the following day."
+    "narrative": "On November 30, 2024, at around 9:00 AM, a cybercrime incident occurred at Roxas Avenue, Matina. Daniel Cruz reported the incident to the authorities the following day.",
+    "category": "Cyber Crime",
+    "status": "Under Investigation"
   },
   {
     "comFirstname": "Emily",
@@ -1072,7 +1120,9 @@
     "barangay": "Caniogan",
     "dateTimeReported": "2024-11-01T14:00",
     "dateTimeIncident": "2024-10-31T13:00",
-    "narrative": "On October 31, 2024, at around 1:00 PM, a harassment incident occurred at Roxas Boulevard, Malate. Emily Johnson reported the incident to the authorities the following day."
+    "narrative": "On October 31, 2024, at around 1:00 PM, a harassment incident occurred at Roxas Boulevard, Malate. Emily Johnson reported the incident to the authorities the following day.",
+    "category": "Sexual Harassment",
+    "status": "New"
   },
   {
     "comFirstname": "Henry",
@@ -1115,6 +1165,8 @@
     "barangay": "Guinhawa",
     "dateTimeReported": "2024-11-15T14:00",
     "dateTimeIncident": "2024-11-14T13:00",
-    "narrative": "On November 14, 2024, at around 1:00 PM, a fraud incident occurred at Escolta Street, Binondo. Henry Wong reported the incident to the authorities the following day."
+    "narrative": "On November 14, 2024, at around 1:00 PM, a fraud incident occurred at Escolta Street, Binondo. Henry Wong reported the incident to the authorities the following day.",
+    "category": "Domestic Violence",
+    "status": "Resolved"
   }
 ]

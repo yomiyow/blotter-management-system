@@ -1,30 +1,44 @@
 (async function fetchDashboardCardValue() {
   try {
-    const response = await fetch('/api/dashboard-card-value');
+    const response = await fetch('/api/card-values');
     if (!response.ok) throw new Error('Failed to fetch dashboard card data.');
 
     const result = await response.json();
-    const { todayTotalEntries, totalBlotterRecords } = result
-    document.querySelector('.js-today-total-entry').textContent = todayTotalEntries;
-    document.querySelector('.js-total-blotter-records').textContent = totalBlotterRecords;
+    document.querySelector('.js-new-cases').textContent = result[0].new_cases;
+    document.querySelector('.js-under-investigation').textContent = result[1].under_investigation;
+    document.querySelector('.js-resolved').textContent = result[2].resolved;
+    document.querySelector('.js-total-records').textContent = result[3].total_records;
   } catch (err) {
     console.error(err);
     return;
   }
 })();
 
-(async function renderBarGraphDataset() {
-  let monthlyTotalEntries = [];
+(async function renderChart() {
+  let monthlyCasesData = [];
+  let underInvestigationData = [];
+  let resolvedData = [];
 
   try {
-    const response = await fetch('/api/monthly-blotter-entries');
+    const response = await fetch('/api/chart-datasets');
     if (!response.ok) throw new Error('Failed to fetch chart data.');
 
-    const results = await response.json();
-    results.forEach(entry => {
-      const monthIndex = entry.month - 1;
-      if (entry.year !== 2024) return;
-      monthlyTotalEntries[monthIndex] = entry.month_total_entries;
+    const result = await response.json();
+    const { monthlyCases, underInvestigation, resolved } = result;
+
+    monthlyCases.forEach((item) => {
+      const monthIndex = item.month - 1;
+      monthlyCasesData[monthIndex] = item.monthly_cases;
+    });
+
+    underInvestigation.forEach((item) => {
+      const monthIndex = item.month - 1;
+      underInvestigationData[monthIndex] = item.under_investigation;
+    });
+
+    resolved.forEach((item) => {
+      const monthIndex = item.month - 1;
+      resolvedData[monthIndex] = item.resolved;
     });
 
   } catch (err) {
@@ -39,23 +53,35 @@
     'Oct', 'Nov', 'Dec'
   ];
 
+  // datasets
+  const monthlyDataset = {
+    label: 'Cases',
+    data: monthlyCasesData,
+    backgroundColor: 'rgba(255, 99, 132)'
+  };
+  const underInvestigationDataSet = {
+    label: 'Under Inverstigation',
+    data: underInvestigationData,
+    backgroundColor: 'rgb(54, 162, 235)'
+  };
+  const resolvedDataset = {
+    label: 'Resolved',
+    data: resolvedData,
+    backgroundColor: 'rgba(75, 192, 192)'
+  };
+
   new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
       labels: months,
-      datasets: [{
-        label: '2024',
-        data: monthlyTotalEntries,
-        borderColor: 'rgba(255, 99, 132, 1)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)'
-      }]
+      datasets: [monthlyDataset, underInvestigationDataSet, resolvedDataset]
     },
     options: {
       responsive: true,
       plugins: {
         legend: { display: true },
         title: {
-          display: true,
+          display: false,
           text: 'Monthly Blotter Entries'
         }
       }

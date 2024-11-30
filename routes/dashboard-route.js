@@ -1,8 +1,8 @@
 const express = require('express');
 const dashboardRouter = express.Router();
-const { getTodayTotalEntries, getMonthlyBlotterEntries } = require('../controllers/dashboard-controller.js');
+const { getChartDataset, getCardValues } = require('../controllers/dashboard-controller.js');
 
-dashboardRouter.get('/api/dashboard-card-value', getTodayTotalEntries);
-dashboardRouter.get('/api/monthly-blotter-entries', getMonthlyBlotterEntries);
+dashboardRouter.get('/api/chart-datasets', getChartDataset);
+dashboardRouter.get('/api/card-values', getCardValues);
 
 module.exports = dashboardRouter;
