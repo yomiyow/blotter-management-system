@@ -102,3 +102,13 @@ async function updateFilter() {
 
 categoryFilter.addEventListener('change', updateFilter);
 statusFilter.addEventListener('change', updateFilter);
+
+// Export table content to excel
+
+document.querySelector('.export-btn').addEventListener('click', () => {
+  console.log('exported');
+  const table = document.querySelector('table');
+  const wb = XLSX.utils.table_to_book(table, { sheets: "Sheet1" });
+  XLSX.writeFile(wb, 'blotter-report.xlsx')
+});
+
