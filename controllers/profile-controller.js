@@ -23,28 +23,31 @@ async function getAccountInfo(req, res) {
 
 async function updateAccountInfo(req, res) {
   const connection = await connectToDatabase();
-  const avatarPath = req.file ? req.file.filename : null;
-
+  const { email } = req.query;
   const {
     firstname, middlename, lastname,
     gender, birthdate, civilStatus,
-    address, contact, email
+    address, contact
   } = req.body;
 
   try {
+    // Retrieve current avatar path if no new file is uploaded
+    const getAvatarQuery = `SELECT avatar_path FROM user WHERE email = ?`;
+    const [currentAvatar] = await connection.query(getAvatarQuery, [email]);
+    const avatarPath = req.file ? req.file.filename : currentAvatar[0].avatar_path;
 
     const updateQuery = `
-    UPDATE user
-    SET
-    firstname = ?, middlename = ?, lastname = ?, gender = ?, birthdate = ?,
-    civil_status = ?, address = ?, contact_no = ?, avatar_path = ?
-    WHERE email = ?
+      UPDATE user
+      SET
+        firstname = ?, middlename = ?, lastname = ?, gender = ?, birthdate = ?,
+        civil_status = ?, address = ?, contact_no = ?, avatar_path = ?
+      WHERE email = ?
     `;
     const updateValues = [
       firstname, middlename, lastname, gender, birthdate,
       civilStatus, address, contact, avatarPath, email
     ];
-    const result = await connection.query(updateQuery, updateValues);
+    const [result] = await connection.query(updateQuery, updateValues);
 
     if (result.affectedRows === 0) {
       return res.status(404).json({ message: 'Account not found or no changes made' });

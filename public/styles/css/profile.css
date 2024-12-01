@@ -203,7 +203,7 @@ main .main-content {
   row-gap: 1rem;
 }
 
-.base-button, .change-password-form #col-2 .row-4 button, .personal-info-form #col-3 .row-5 button, .personal-info-form #col-2 label {
+.base-button, .change-password-form #col-2 .row-4 button, .personal-info-form #col-3 .row-6 button, .personal-info-form #col-2 label {
   background-color: #f5f5f5;
   padding: 6px 12px;
   border: 1px solid #d9d9d9;
@@ -217,11 +217,11 @@ main .main-content {
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
 }
-.base-button:hover, .change-password-form #col-2 .row-4 button:hover, .personal-info-form #col-3 .row-5 button:hover, .personal-info-form #col-2 label:hover {
+.base-button:hover, .change-password-form #col-2 .row-4 button:hover, .personal-info-form #col-3 .row-6 button:hover, .personal-info-form #col-2 label:hover {
   background-color: #dcdcdc;
   color: black;
 }
-.base-button:active, .change-password-form #col-2 .row-4 button:active, .personal-info-form #col-3 .row-5 button:active, .personal-info-form #col-2 label:active {
+.base-button:active, .change-password-form #col-2 .row-4 button:active, .personal-info-form #col-3 .row-6 button:active, .personal-info-form #col-2 label:active {
   background-color: #bfbfbf;
 }
 
@@ -245,6 +245,11 @@ main .main-content {
      -moz-column-gap: 1rem;
           column-gap: 1rem;
   min-width: 780px;
+}
+.personal-info-form input[disabled] {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+  outline: none;
 }
 .personal-info-form #col-1 {
   -ms-flex-negative: 0;
@@ -294,11 +299,6 @@ main .main-content {
       -ms-flex: 1;
           flex: 1;
 }
-.personal-info-form #col-3 input[readonly] {
-  background-color: #f0f0f0;
-  cursor: not-allowed;
-  outline: none;
-}
 .personal-info-form #col-3 input,
 .personal-info-form #col-3 select {
   padding: 0.3rem;
@@ -323,7 +323,8 @@ main .main-content {
 .personal-info-form #col-3 .row-2,
 .personal-info-form #col-3 .row-3,
 .personal-info-form #col-3 .row-4,
-.personal-info-form #col-3 .row-5 {
+.personal-info-form #col-3 .row-5,
+.personal-info-form #col-3 .row-6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -335,7 +336,7 @@ main .main-content {
      -moz-column-gap: 0.8rem;
           column-gap: 0.8rem;
 }
-.personal-info-form #col-3 .row-5 {
+.personal-info-form #col-3 .row-6 {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;

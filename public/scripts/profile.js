@@ -23,28 +23,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   populateFormFields(accountInfo);
 
-  // Show avatar preview
-  const uploadImage = document.getElementById('avatar');
-  const avatarPreview = document.querySelector('.avatar-preview');
-  uploadImage.addEventListener('change', (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => avatarPreview.src = e.target.result;
-      reader.readAsDataURL(file);
-    }
-  });
-
-  // Handle form submission
+  // Update Account Info
   document.querySelector('.personal-info-form')
     .addEventListener('submit', async (event) => {
       event.preventDefault();
 
       const formData = new FormData(event.target);
-      console.log(formData);
 
-
-      const response = await fetch('/api/account-info/update', {
+      const url = `/api/account-info/update?email=${encodeURIComponent(email)}`;
+      const response = await fetch(url, {
         method: 'PUT',
         body: formData
       });
@@ -68,10 +55,23 @@ function populateFormFields(accountInfo) {
   document.getElementById('birthdate').value = accountInfo.birthdate;
   document.getElementById('civilStatus').value = accountInfo.civil_status ||
     document.getElementById('civilStatus').options[0].value;
+  document.getElementById('rank').value = accountInfo.rank;
   document.getElementById('address').value = accountInfo.address;
   document.getElementById('email').value = accountInfo.email;
   document.getElementById('contact').value = accountInfo.contact_no;
   document.querySelector('.avatar-preview').src = accountInfo.avatar_path
     ? `/images/avatar/${accountInfo.avatar_path}`
     : `/images/avatar/default-avatar.png`;
+
+  // Show avatar preview
+  const uploadImage = document.getElementById('avatar');
+  const avatarPreview = document.querySelector('.avatar-preview');
+  uploadImage.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => avatarPreview.src = e.target.result;
+      reader.readAsDataURL(file);
+    }
+  });
 }
