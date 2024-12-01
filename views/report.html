@@ -38,27 +38,68 @@
         <a href="/nav/dashboard" class="menu-link"><i class="fa-solid fa-house"></i>Dashboard</a>
         <a href="/nav/add-blotter" class="menu-link"><i class="fa-solid fa-file-circle-plus"></i>Add Blotter</a>
         <a href="/nav/view-blotter" class="menu-link"><i class="fa-solid fa-eye"></i>View Blotter</a>
-        <a href="/nav/report" class="menu-link isActive"><i class="fa-solid fa-chart-bar"></i>Report</a>
+        <a href="/nav/report" class="menu-link  isActive"><i class="fa-solid fa-chart-bar"></i>Report</a>
       </nav>
 
-      <div class="main-content">
-        <div class="chart-container">
-          <canvas id="myChart"></canvas>
-        </div>
-        <div class="chart-selector">
-          <select>
-            <option value="" selected>Chart 1</option>
-            <option value="">Chart 2</option>
-            <option value="">Chart 3</option>
-            <option value="">Chart 4</option>
+      <div class="main-content" >
+        <div class="search-bar-wrapper">
+          <input type="search" placeholder="Search Record">
+          <select name="category" id="categoryFilter" required>
+            <option value="" selected>Category</option>
+            <option value="Theft">Theft</option>
+            <option value="Threats">Threats</option>
+            <option value="Damage to Property">Damage to Property</option>
+            <option value="Public Disturbance">Public Disturbance</option>
+            <option value="Domestic Violence">Domestic Violence</option>
+            <option value="Sexual Harassment">Sexual Harassment</option>
+            <option value="Cyber Crime">Cyber Crime</option>
+            <option value="Missing Person">Missing Person</option>
           </select>
+          <select name="status" id="statusFilter" required>
+            <option value="" selected>Status</option>
+            <option value="New">New</option>
+            <option value="Under Investigation">Under Investigation</option>
+            <option value="Resolved">Resolved</option>
+          </select>
+          <button class="export-btn">
+            <i class="fa-solid fa-file-excel"></i> 
+            Export
+          </button>
         </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th data-order="" data-column="b.blotter_id">
+                Blotter Number
+                <i class="fa-solid fa-arrow-down"></i>
+              </th>
+              <th data-order="" data-column="b.date_time_reported">
+                Date & Time Reported
+                <i class="fa-solid"></i>
+              </th>
+              <th data-order="" data-column="b.category">
+                Category
+                <i class="fa-solid"></i>
+              </th>
+              <th data-order="" data-column="b.narrative">
+                Narrative
+                <i class="fa-solid"></i>
+              </th>
+              <th data-order="" data-column="b.status">
+                Status
+                <i class="fa-solid"></i>
+              </th>
+            </tr>
+          </thead>
+
+          <tbody></tbody>
+        </table>
       </div>
     </main>
 
     <script src="/scripts/navigation.js"></script>
     <script type="module" src="/scripts/report.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
     <script src="/scripts/header.js"></script>
   </body>
 </html>
