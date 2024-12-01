@@ -1,5 +1,5 @@
-@import 'mixins';
 @import 'variables';
+@import 'mixins';
 @import 'reset';
 @import 'header';
 
@@ -12,54 +12,121 @@ main {
 
   .main-content {
     flex: 1;
-    display: flex;
-    flex-flow: column wrap;
+    padding: 20px;
     @include transition-margin;
-    padding: 3.2rem 0 3rem;
 
-    .chart-selector {
-      display: none;
-      position: fixed;
-      top: 80px;
-      right: 32px;
+    .search-bar-wrapper {
+      display: flex;
+      align-items: center;
+      padding-bottom: 20px;
 
-      select {
-        padding: 8px 16px;
+      input {
+        padding: 0.8rem 1.7rem;
+        font-size: 1rem;
+        width: 50%;
+        min-width: 400px;
+        background-color: $primary-color;
+        border: none;
+        border-radius: 50px;
         outline: none;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        transition: all 0.3s ease;
 
         &:focus {
-          box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+          background-color: white;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      display: block;
+      height: 560px;
+      overflow: auto;
+      position: relative;
+      min-width: 900px;
+
+      thead {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: white;
+
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+
+        tr {
+
+          th {
+            cursor: pointer;
+            border-bottom: 1px solid $table-border-color;
+
+            &:hover {
+              background-color: $primary-color;
+            }
+
+            i {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+
+      tbody {
+
+        tr {
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+
+          transition: 0.25s;
+          border-bottom: 1px solid $table-border-color;
+
+          &:hover {
+            background-color: $primary-color;
+          }
+        }
+
+        .highlighted {
+          background-color: #c2e7ff;
+
+          &:hover {
+            background-color: #c2e7ff;
+          }
+        }
+      }
+
+      td,
+      th {
+        text-align: left;
+        height: 2.3rem;
+
+        &:first-child {
+          width: 150px;
+          white-space: nowrap;
+        }
+
+        &:nth-child(2) {
+          width: 165px;
+          white-space: nowrap;
+        }
+
+        &:nth-child(3) {
+          width: 150px;
+          white-space: nowrap;
+        }
+
+        &:nth-child(4) {
+          padding-right: 40px;
+        }
+
+        &:last-child {
+          padding-right: 1rem;
+          width: 140px;
         }
       }
     }
   }
 }
-
-.chart-container {
-  flex: 1;
-  width: 80%;
-  margin: auto;
-  min-width: 400px;
-}
-
-
-// @media print {
-//   body * {
-//     visibility: hidden;
-//   }
-
-//   .chart-container,
-//   .chart-container * {
-//     visibility: visible;
-//   }
-
-//   .chart-container {
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//     width: 100%;
-//   }
-// }

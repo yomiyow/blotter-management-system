@@ -1,7 +1,14 @@
 const express = require('express');
 const reportRouter = express.Router();
-const getReports = require('../controllers/report-controller.js');
+const {
+  getReports, searchBlotterRecord,
+  getSortedBlotterRecords,
+  getFilteredBlotterRecords
+} = require('../controllers/report-controller.js');
 
 reportRouter.get('/api/reports', getReports);
+reportRouter.get('/api/search-report', searchBlotterRecord);
+reportRouter.get('/api/sort-reports', getSortedBlotterRecords);
+reportRouter.get('/api/filter-reports', getFilteredBlotterRecords);
 
 module.exports = reportRouter;
