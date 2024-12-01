@@ -148,7 +148,7 @@ form {
           flex-direction: column;
   padding: 1rem 2rem 0;
   width: 300px;
-  height: 400px;
+  height: 420px;
   -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
@@ -157,7 +157,7 @@ form .register-header {
   margin-bottom: 2rem;
 }
 form .register-header h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 form .register-header p {
   text-align: center;
@@ -174,19 +174,21 @@ form .input-group {
   width: 100%;
   row-gap: 0.7rem;
 }
-form .input-group input, form .input-group button {
+form .input-group input, form .input-group button,
+form .input-group select {
   padding: 0.5rem;
   outline: none;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
   width: 100%;
 }
-form .input-group input:focus, form .input-group button:focus {
+form .input-group input:focus, form .input-group button:focus,
+form .input-group select:focus {
   border-color: #007BFF;
   -webkit-box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
           box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
 }
-form .input-group .row-1 {
+form .input-group .row-2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

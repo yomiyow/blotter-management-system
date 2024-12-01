@@ -25,7 +25,7 @@ async function loginUser(req, res) {
 
 async function registerUser(req, res) {
   const connection = await connectToDatabase();
-  const { firstname, lastname, email, password } = req.body;
+  const { firstname, lastname, email, password, rank } = req.body;
 
   try {
     const selectQuery = `SELECT * FROM user WHERE email = ?`;
@@ -42,11 +42,11 @@ async function registerUser(req, res) {
     }
 
     const insertQuery = `
-      INSERT INTO user (firstname, lastname, email, password)
-      VALUES (?, ?, ?, ?);
+      INSERT INTO user (firstname, lastname, email, password, \`rank\`)
+      VALUES (?, ?, ?, ?, ?);
     `;
     await connection.query(insertQuery, [
-      firstname, lastname, email, password
+      firstname, lastname, email, password, rank
     ])
 
     res.status(201).json({ message: 'Registration successful.' });

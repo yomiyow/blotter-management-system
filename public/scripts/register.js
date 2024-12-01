@@ -1,5 +1,3 @@
-import isValidPassword from '../utils/password.js'
-
 document.addEventListener('DOMContentLoaded', () => {
   const passwordField = document.getElementById('password');
   const passwordToggle = document.querySelector('.js-password-toggle');
@@ -18,12 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const lastname = document.getElementById('lastname').value;
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value.trim();
+      const rank = document.getElementById('rank').value;
 
-      const data = {
+      const formData = {
         firstname: firstname,
         lastname: lastname,
         email: email,
-        password: password
+        password: password,
+        rank: rank
       }
 
       try {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(formData)
         })
 
         const result = await response.json();
@@ -48,6 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(err);
       }
 
-      console.log(data);
+      console.log(formData);
     });
 });

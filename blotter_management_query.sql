@@ -90,12 +90,10 @@ CREATE TABLE user (
 	contact_no VARCHAR(255),
     `password` VARCHAR(255),
     avatar_path VARCHAR(255),
+    `rank` VARCHAR(255),
+    
     PRIMARY KEY (email)
 );
-
-
-INSERT INTO user ()
-VALUES ('Romeo', 'Mercado', 'Quiñones', 'Male', '2003-02-21', 'Single', '300 Purok 5 Rueda, Plaridel, Bulacan', 'romeoquinones4@gmail.com', '09064316098', '2022100960Romeo');
 
 USE blotter_db;
 

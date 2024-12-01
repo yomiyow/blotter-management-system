@@ -298,12 +298,13 @@ main .main-content table th {
 }
 main .main-content table td:first-child,
 main .main-content table th:first-child {
-  width: 150px;
+  width: 170px;
   white-space: nowrap;
+  padding-left: 1rem;
 }
 main .main-content table td:nth-child(2),
 main .main-content table th:nth-child(2) {
-  width: 165px;
+  width: 175px;
   white-space: nowrap;
 }
 main .main-content table td:nth-child(3),

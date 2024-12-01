@@ -130,12 +130,13 @@ main {
         height: 2.3rem;
 
         &:first-child {
-          width: 150px;
+          width: 170px;
           white-space: nowrap;
+          padding-left: 1rem;
         }
 
         &:nth-child(2) {
-          width: 165px;
+          width: 175px;
           white-space: nowrap;
         }
 
