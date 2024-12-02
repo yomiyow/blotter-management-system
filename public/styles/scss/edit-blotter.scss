@@ -80,6 +80,26 @@ main {
     padding: 1.5rem 2rem;
     @include transition-margin;
 
+    .alert-success {
+      position: fixed;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      display: none;
+      margin-left: 1rem;
+      background-color: #d4edda;
+      padding: 0.6rem 1rem 0.6rem;
+      border: 1px solid #c3e6cb;
+      border-radius: $input-field-border-radius;
+      color: #155724;
+      flex: 1;
+
+      i {
+        color: inherit;
+      }
+    }
+
     form {
       display: flex;
       flex-flow: column nowrap;

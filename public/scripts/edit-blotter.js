@@ -122,6 +122,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   populateBlotterForm();
 
+  let alertTimeout;
+  function showAlert(alertElement) {
+    alertElement.style.display = 'block';
+    if (alertTimeout) {
+      clearTimeout(alertTimeout);
+    }
+    alertTimeout = setTimeout(() => {
+      alertElement.style.display = 'none';
+    }, 5000);
+  }
+
   // Event listener
   document.querySelector('form')
     .addEventListener('submit', async (event) => {
@@ -142,8 +153,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!response.ok) {
           alert(result.error);
           return;
+        } else {
+          showAlert(document.querySelector('.alert-success'));
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        alert(result.message);
 
       } catch (err) {
         console.error('Error updating blotter: ', err);
