@@ -4,10 +4,7 @@ async function getAccountInfo(req, res) {
   const connection = await connectToDatabase();
   const { email } = req.body;
   try {
-    const selectQuery = `
-      SELECT * FROM user
-      WHERE email = ?
-    `;
+    const selectQuery = `SELECT * FROM user WHERE email = ?`;
     const [result] = await connection.query(selectQuery, [email]);
 
     if (result.length === 0) {

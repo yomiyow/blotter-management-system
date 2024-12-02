@@ -2,7 +2,6 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const { getAccountInfo, updateAccountInfo, changePassword } = require('../controllers/profile-controller.js');
-
 const profileRouter = express.Router();
 
 // Set up storage for multer

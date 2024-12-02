@@ -86,6 +86,10 @@ header {
 .profile .icon-wrapper i {
   font-size: 18px;
 }
+.profile .icon-wrapper .avatar {
+  width: 90%;
+  border-radius: 50%;
+}
 .profile .dropdown-menu {
   display: none;
   position: absolute;
