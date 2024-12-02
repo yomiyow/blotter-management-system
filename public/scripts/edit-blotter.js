@@ -1,15 +1,17 @@
 const urlParams = new URLSearchParams(window.location.search);
 const blotterId = urlParams.get('blotterId');
+const rank = sessionStorage.getItem('userRank');
 
 document.addEventListener('DOMContentLoaded', () => {
 
   async function populateBlotterForm() {
     let blotter;
     try {
-      const response = await fetch(`/api/view-blotter/edit?blotterId=${blotterId}`);
+      const response = await fetch(`/api/view-blotter/edit?blotterId=${blotterId}&rank=${rank}`);
       if (!response.ok) {
         const error = await response.json();
         alert(error.message);
+        window.location.href = '/nav/view-blotter';
         return;
       }
       blotter = await response.json();

@@ -1,3 +1,5 @@
+const userRank = sessionStorage.getItem('userRank');
+
 function generateBlotterHTML(blotters) {
   document.querySelector('tbody').innerHTML = '';
 
@@ -13,7 +15,7 @@ function generateBlotterHTML(blotters) {
         <td class="dropdown">
           <i class="fa-solid fa-ellipsis-vertical ellipsis-menu js-menu"></i>
           <div class="dropdown-menu js-dropdown-menu">
-            <a href="/nav/view-blotter/edit?blotterId=${blotter.blotter_id}" 
+            <a href="/nav/view-blotter/edit?blotterId=${blotter.blotter_id}&rank=${userRank}" 
               class="dropdown-item">
               <i class="fa-regular fa-pen-to-square"></i>
               Edit

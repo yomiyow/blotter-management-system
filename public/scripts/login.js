@@ -33,6 +33,7 @@ document.querySelector('form')
         alert(result.error);
       } else {
         sessionStorage.setItem('userEmail', email);
+        sessionStorage.setItem('userRank', result.rank);
         window.location.href = '/nav/dashboard';
       }
 

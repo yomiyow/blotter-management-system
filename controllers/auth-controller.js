@@ -13,7 +13,10 @@ async function loginUser(req, res) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
 
-    res.status(200).json({ message: 'Login successful' });
+    res.status(200).json({
+      message: 'Login successful',
+      rank: result[0].rank
+    });
 
   } catch (err) {
     console.error(err.stack);
