@@ -2,6 +2,7 @@
 @import 'mixins';
 @import 'reset';
 @import 'header';
+@include modify-scrollbar;
 
 main {
   padding-top: 3.2rem;

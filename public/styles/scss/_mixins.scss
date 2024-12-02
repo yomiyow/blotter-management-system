@@ -81,3 +81,29 @@
     color: #333;
   }
 }
+
+@mixin modify-scrollbar {
+
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+    /* Width of the scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Background of the scrollbar track */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ccc;
+    /* Color of the scrollbar thumb */
+    border-radius: 6px;
+    /* Rounded corners for the scrollbar thumb */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #808080;
+    /* Color of the scrollbar thumb on hover */
+  }
+}
