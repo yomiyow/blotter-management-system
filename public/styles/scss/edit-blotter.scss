@@ -85,6 +85,8 @@ main {
       flex-flow: column nowrap;
       row-gap: 2rem;
       min-width: 900px;
+
+      @include remove-placeholder-text;
     }
 
     #complainant-form {

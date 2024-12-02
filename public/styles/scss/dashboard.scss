@@ -39,10 +39,12 @@ main {
 
     .card-number {
       font-size: 2rem;
+      user-select: none;
     }
 
     .card-label {
       color: $grey;
+      user-select: none;
     }
   }
 }

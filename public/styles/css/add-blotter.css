@@ -121,44 +121,6 @@ header {
   display: block;
 }
 
-/* Remove placeholder text for date inputs */
-input[type=date]::-webkit-datetime-edit-text,
-input[type=date]::-webkit-datetime-edit-month-field,
-input[type=date]::-webkit-datetime-edit-day-field,
-input[type=date]::-webkit-datetime-edit-year-field {
-  color: transparent;
-}
-
-/* Show text color when date is selected */
-input[type=date]:valid::-webkit-datetime-edit-text,
-input[type=date]:valid::-webkit-datetime-edit-month-field,
-input[type=date]:valid::-webkit-datetime-edit-day-field,
-input[type=date]:valid::-webkit-datetime-edit-year-field {
-  color: #333;
-}
-
-/* Remove placeholder text for datetime inputs */
-input[type=datetime-local]::-webkit-datetime-edit-text,
-input[type=datetime-local]::-webkit-datetime-edit-month-field,
-input[type=datetime-local]::-webkit-datetime-edit-day-field,
-input[type=datetime-local]::-webkit-datetime-edit-year-field,
-input[type=datetime-local]::-webkit-datetime-edit-hour-field,
-input[type=datetime-local]::-webkit-datetime-edit-minute-field,
-input[type=datetime-local]::-webkit-datetime-edit-second-field {
-  color: transparent;
-}
-
-/* Show text color when datetime is selected */
-input[type=datetime-local]:valid::-webkit-datetime-edit-text,
-input[type=datetime-local]:valid::-webkit-datetime-edit-month-field,
-input[type=datetime-local]:valid::-webkit-datetime-edit-day-field,
-input[type=datetime-local]:valid::-webkit-datetime-edit-year-field,
-input[type=datetime-local]:valid::-webkit-datetime-edit-hour-field,
-input[type=datetime-local]:valid::-webkit-datetime-edit-minute-field,
-input[type=datetime-local]:valid::-webkit-datetime-edit-second-field {
-  color: #333;
-}
-
 .base-fieldset, main .main-content #case-detail-form, main .main-content #complainant-form, main .main-content #suspect-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -423,6 +385,40 @@ main .main-content form {
           flex-flow: column nowrap;
   row-gap: 2rem;
   min-width: 900px;
+  /* Remove placeholder text for date inputs */
+  /* Show text color when date is selected */
+  /* Remove placeholder text for datetime inputs */
+  /* Show text color when datetime is selected */
+}
+main .main-content form input[type=date]::-webkit-datetime-edit-text,
+main .main-content form input[type=date]::-webkit-datetime-edit-month-field,
+main .main-content form input[type=date]::-webkit-datetime-edit-day-field,
+main .main-content form input[type=date]::-webkit-datetime-edit-year-field {
+  color: transparent;
+}
+main .main-content form input[type=date]:valid::-webkit-datetime-edit-text,
+main .main-content form input[type=date]:valid::-webkit-datetime-edit-month-field,
+main .main-content form input[type=date]:valid::-webkit-datetime-edit-day-field,
+main .main-content form input[type=date]:valid::-webkit-datetime-edit-year-field {
+  color: #333;
+}
+main .main-content form input[type=datetime-local]::-webkit-datetime-edit-text,
+main .main-content form input[type=datetime-local]::-webkit-datetime-edit-month-field,
+main .main-content form input[type=datetime-local]::-webkit-datetime-edit-day-field,
+main .main-content form input[type=datetime-local]::-webkit-datetime-edit-year-field,
+main .main-content form input[type=datetime-local]::-webkit-datetime-edit-hour-field,
+main .main-content form input[type=datetime-local]::-webkit-datetime-edit-minute-field,
+main .main-content form input[type=datetime-local]::-webkit-datetime-edit-second-field {
+  color: transparent;
+}
+main .main-content form input[type=datetime-local]:valid::-webkit-datetime-edit-text,
+main .main-content form input[type=datetime-local]:valid::-webkit-datetime-edit-month-field,
+main .main-content form input[type=datetime-local]:valid::-webkit-datetime-edit-day-field,
+main .main-content form input[type=datetime-local]:valid::-webkit-datetime-edit-year-field,
+main .main-content form input[type=datetime-local]:valid::-webkit-datetime-edit-hour-field,
+main .main-content form input[type=datetime-local]:valid::-webkit-datetime-edit-minute-field,
+main .main-content form input[type=datetime-local]:valid::-webkit-datetime-edit-second-field {
+  color: #333;
 }
 main .main-content #complainant-form .row-3, main .main-content #suspect-form .row-3 {
   width: 80%;

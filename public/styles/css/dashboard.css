@@ -244,9 +244,17 @@ main .main-content {
 }
 .card-container .card .card-number {
   font-size: 2rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .card-container .card .card-label {
   color: #808080;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .chart-container {
