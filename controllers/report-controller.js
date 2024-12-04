@@ -278,9 +278,23 @@ async function getFilteredBlotterRecords(req, res) {
   }
 }
 
+async function getBarangays(req, res) {
+  const connection = await connectToDatabase();
+  try {
+    const selectQuery = `SELECT DISTINCT (barangay) FROM blotter ORDER BY barangay ASC`;
+    const [rows] = await connection.query(selectQuery);
+    res.status(200).json(rows);
+
+  } catch (err) {
+    console.error(err);
+    return;
+  }
+}
+
 module.exports = {
   getReports,
   searchBlotterRecord,
   getSortedBlotterRecords,
-  getFilteredBlotterRecords
+  getFilteredBlotterRecords,
+  getBarangays
 };

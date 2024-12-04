@@ -234,6 +234,9 @@ main .main-content .header {
   padding-bottom: 20px;
 }
 main .main-content .header input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   padding: 0.8rem 1.7rem;
   font-size: 1rem;
   width: 50%;
@@ -249,12 +252,18 @@ main .main-content .header input:focus {
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 main .main-content .header .right {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-column-gap: 1rem;
      -moz-column-gap: 1rem;
           column-gap: 1rem;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
 }
 main .main-content .header .right select,
 main .main-content .header .right button {

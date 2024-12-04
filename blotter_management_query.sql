@@ -107,6 +107,7 @@ SELECT * FROM blotter_suspect;
 SELECT * FROM `user`;
 #-------------------------------------------------
 
+SELECT DISTINCT (barangay) FROM blotter;
 
 #-------------------------------------------------
 # Chart Data Queries

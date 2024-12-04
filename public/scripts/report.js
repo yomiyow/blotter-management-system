@@ -112,3 +112,22 @@ document.querySelector('.export-btn').addEventListener('click', () => {
   XLSX.writeFile(wb, 'blotter-report.xlsx')
 });
 
+// Populate barangay dropdown
+
+(async function populateBarangayDropDown() {
+  try {
+    const response = await fetch('/api/barangay');
+    const results = await response.json();
+    const selectElem = document.getElementById('barangayFilter');
+    results.forEach((item) => {
+      const option = document.createElement('option');
+      option.value = item.barangay;
+      option.textContent = item.barangay;
+      selectElem.appendChild(option);
+    });
+
+  } catch (err) {
+    console.error(err);
+    return;
+  }
+})();
