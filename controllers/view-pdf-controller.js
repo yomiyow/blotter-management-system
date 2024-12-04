@@ -1,4 +1,5 @@
 const PDFDocument = require('pdfkit');
+const QRCode = require('qrcode');
 const { connectToDatabase } = require('../models/db-connection.js');
 const { dateAndTimeToday } = require('../public/utils/utils.js');
 
@@ -64,6 +65,11 @@ async function getBlotterById(req, res) {
 }
 
 async function buildPdf(req, res) {
+  // Generate QR Code for selected blotter
+  const blotterId = req.query.blotterId;
+  const pdfUrl = `${req.protocol}://${req.get('host')}/nav/view-blotter/pdf?blotterId=${blotterId}`
+  const qrCode = await QRCode.toDataURL(pdfUrl);
+
   const blotter = await getBlotterById(req, res);
 
   const doc = new PDFDocument({
@@ -87,9 +93,16 @@ async function buildPdf(req, res) {
     .fontSize(20)
     .font('Helvetica-Bold').text('Blotter Record', { align: 'center' }).moveDown(0.5)
     .fontSize(12)
-    .font('Helvetica').text(`Blotter No: ${blotter.blotter_id}`, { align: 'left', continued: true })
-    .font('Helvetica').text(`Generated on: ${dateAndTimeToday()}`, { align: 'right' })
+    .font('Helvetica').text(`Blotter No: ${blotter.blotter_id}`, { align: 'left', continued: false })
+    .font('Helvetica').text(`Generated on: ${dateAndTimeToday()}`, { align: 'left', continued: false })
     .moveDown(1);
+
+  // Add QR code to the upper right of the page
+  doc.image(qrCode, doc.page.width - 150, 40, {
+    fit: [100, 100],
+    align: 'right',
+    valign: 'top'
+  });
 
   // Complainant info
   doc

@@ -97,6 +97,8 @@ CREATE TABLE user (
 
 USE blotter_db;
 
+SHOW PROCESSLIST;
+
 SELECT * FROM complainant;
 SELECT * FROM suspect;
 SELECT * FROM blotter;

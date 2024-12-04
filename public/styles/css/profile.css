@@ -229,6 +229,27 @@ main .main-content {
   background-color: #bfbfbf;
 }
 
+.alert-success {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: none;
+  margin-left: 1rem;
+  background-color: #d4edda;
+  padding: 0.6rem 1rem 0.6rem;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  color: #155724;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.alert-success i {
+  color: inherit;
+}
+
 .personal-info-form {
   -webkit-box-flex: 1;
       -ms-flex: 1;

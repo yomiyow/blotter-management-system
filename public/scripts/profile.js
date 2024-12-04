@@ -38,13 +38,25 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       if (!response.ok) {
         const data = await response.json();
-        console.log(data.message);
+        console.error(data.message);
         return;
+      } else {
+        showAlert(document.querySelector('.alert-success'));
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-      const data = await response.json();
-      alert(data.message);
     })
 });
+
+let alertTimeout;
+function showAlert(alertElement) {
+  alertElement.style.display = 'block';
+  if (alertTimeout) {
+    clearTimeout(alertTimeout);
+  }
+  alertTimeout = setTimeout(() => {
+    alertElement.style.display = 'none';
+  }, 5000);
+}
 
 function populateFormFields(accountInfo) {
   document.getElementById('firstname').value = accountInfo.firstname;
