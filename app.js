@@ -30,7 +30,7 @@ app.use(reportRouter);
 app.use(profileRouter);
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views/dashboard.html'));
+  res.sendFile(path.join(__dirname, 'views/login.html'));
 });
 
 app.listen(port, () => {

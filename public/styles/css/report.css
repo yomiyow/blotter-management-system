@@ -162,6 +162,7 @@ main .side-nav {
   overflow: hidden;
   -webkit-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
+  z-index: 5;
 }
 main .side-nav .toggle-wrapper {
   text-align: end;
@@ -232,6 +233,11 @@ main .main-content .header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-bottom: 20px;
+}
+main .main-content .header .clear-filters-btn,
+main .main-content .header .export-btn {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 main .main-content .header .clear-filters-btn:hover,
 main .main-content .header .export-btn:hover {
