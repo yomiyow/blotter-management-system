@@ -208,7 +208,8 @@ async function getSortedBlotterRecords(req, res) {
 
 async function getFilteredBlotterRecords(req, res) {
   const connection = await connectToDatabase();
-  const { category, status } = req.query;
+  const { barangay, category, status } = req.query;
+
   try {
     const selectQuery = `
       SELECT
@@ -262,11 +263,13 @@ async function getFilteredBlotterRecords(req, res) {
       INNER JOIN blotter_suspect bs ON b.blotter_id = bs.blotter_id
       INNER JOIN suspect s ON bs.suspect_id = s.suspect_id
       WHERE
+        (COALESCE(?, '') = '' OR b.barangay = ?) AND
         (COALESCE(?, '') = '' OR b.category = ?) AND
         (COALESCE(?, '') = '' OR b.status = ?);
     `;
 
-    const [rows] = await connection.query(selectQuery, [category, category, status, status]);
+    const values = [barangay, barangay, category, category, status, status];
+    const [rows] = await connection.query(selectQuery, values);
     res.status(200).json(rows);
 
   } catch (err) {

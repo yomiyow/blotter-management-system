@@ -45,6 +45,9 @@
         <div class="header">
           <input type="search" placeholder="Search Record">
           <div class="right">
+            <button class="clear-filters-btn">
+              <i class="fa-solid fa-filter-circle-xmark"></i>
+            </button>
             <select name="barangay" id="barangayFilter" required>
               <option value="" selected>All Barangay</option>
             </select>
@@ -81,6 +84,10 @@
               </th>
               <th data-order="" data-column="b.date_time_reported">
                 Date & Time Reported
+                <i class="fa-solid"></i>
+              </th>
+              <th data-order="" data-column="b.barangay">
+                Barangay
                 <i class="fa-solid"></i>
               </th>
               <th data-order="" data-column="b.category">

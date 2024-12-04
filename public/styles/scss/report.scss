@@ -23,6 +23,18 @@ main {
       justify-content: space-between;
       padding-bottom: 20px;
 
+      .clear-filters-btn,
+      .export-btn {
+        &:hover {
+          background-color: $btn-color-hover;
+          color: black;
+        }
+
+        &:active {
+          background-color: $btn-color-active
+        }
+      }
+
       input {
         flex: 1;
         padding: 0.8rem 1.7rem;
@@ -150,6 +162,11 @@ main {
         }
 
         &:nth-child(4) {
+          width: 150px;
+          white-space: nowrap;
+        }
+
+        &:nth-child(5) {
           padding-right: 40px;
         }
 

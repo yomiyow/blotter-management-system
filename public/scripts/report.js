@@ -8,6 +8,7 @@ function generateBlotterHTML(blotters) {
       <tr>
         <td>${blotter.blotter_id}</td>
         <td>${blotter.date_time_reported}</td>
+        <td>${blotter.barangay}</td>
         <td>${blotter.category}</td>
         <td>${blotter.narrative}</td>
         <td>${blotter.status}</td>
@@ -24,6 +25,26 @@ async function fetchBlotters(url) {
 
   return await response.json();
 }
+
+// Populate barangay dropdown
+
+(async function populateBarangayDropDown() {
+  try {
+    const response = await fetch('/api/barangay');
+    const results = await response.json();
+    const selectElem = document.getElementById('barangayFilter');
+    results.forEach((item) => {
+      const option = document.createElement('option');
+      option.value = item.barangay;
+      option.textContent = item.barangay;
+      selectElem.appendChild(option);
+    });
+
+  } catch (err) {
+    console.error(err);
+    return;
+  }
+})();
 
 // Show all blotters
 
@@ -84,14 +105,16 @@ document.querySelectorAll('thead tr th').forEach((theader) => {
 
 // Filter table
 
+const barangayFilter = document.getElementById('barangayFilter');
 const categoryFilter = document.getElementById('categoryFilter');
 const statusFilter = document.getElementById('statusFilter');
 
 async function updateFilter() {
+  const barangay = barangayFilter.value;
   const category = categoryFilter.value;
   const status = statusFilter.value;
   try {
-    const url = `/api/filter-reports?category=${category}&status=${status}`;
+    const url = `/api/filter-reports?barangay=${barangay}&category=${category}&status=${status}`;
     const fliteredBlotters = await fetchBlotters(url);
     generateBlotterHTML(fliteredBlotters);
   } catch (err) {
@@ -100,8 +123,18 @@ async function updateFilter() {
   }
 }
 
+barangayFilter.addEventListener('change', updateFilter);
 categoryFilter.addEventListener('change', updateFilter);
 statusFilter.addEventListener('change', updateFilter);
+
+// Clear all filter
+
+document.querySelector('.clear-filters-btn').addEventListener('click', () => {
+  barangayFilter.value = '';
+  categoryFilter.value = '';
+  statusFilter.value = '';
+  updateFilter();
+});
 
 // Export table content to excel
 
@@ -111,23 +144,3 @@ document.querySelector('.export-btn').addEventListener('click', () => {
   const wb = XLSX.utils.table_to_book(table, { sheets: "Sheet1" });
   XLSX.writeFile(wb, 'blotter-report.xlsx')
 });
-
-// Populate barangay dropdown
-
-(async function populateBarangayDropDown() {
-  try {
-    const response = await fetch('/api/barangay');
-    const results = await response.json();
-    const selectElem = document.getElementById('barangayFilter');
-    results.forEach((item) => {
-      const option = document.createElement('option');
-      option.value = item.barangay;
-      option.textContent = item.barangay;
-      selectElem.appendChild(option);
-    });
-
-  } catch (err) {
-    console.error(err);
-    return;
-  }
-})();

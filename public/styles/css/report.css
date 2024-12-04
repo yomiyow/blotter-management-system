@@ -233,6 +233,15 @@ main .main-content .header {
           justify-content: space-between;
   padding-bottom: 20px;
 }
+main .main-content .header .clear-filters-btn:hover,
+main .main-content .header .export-btn:hover {
+  background-color: #dcdcdc;
+  color: black;
+}
+main .main-content .header .clear-filters-btn:active,
+main .main-content .header .export-btn:active {
+  background-color: #bfbfbf;
+}
 main .main-content .header input {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -350,6 +359,11 @@ main .main-content table th:nth-child(3) {
 }
 main .main-content table td:nth-child(4),
 main .main-content table th:nth-child(4) {
+  width: 150px;
+  white-space: nowrap;
+}
+main .main-content table td:nth-child(5),
+main .main-content table th:nth-child(5) {
   padding-right: 40px;
 }
 main .main-content table td:last-child,
