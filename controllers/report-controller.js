@@ -122,10 +122,11 @@ async function searchBlotterRecord(req, res) {
       WHERE 
         b.blotter_id LIKE ? OR
         b.date_time_reported LIKE ? OR
+        b.barangay LIKE ? OR
         b.category LIKE ? OR
         b.status LIKE ?;
     `;
-    const [searchResult] = await connection.query(searchQuery, Array(4).fill(`%${searchTerm}%`));
+    const [searchResult] = await connection.query(searchQuery, Array(5).fill(`%${searchTerm}%`));
     res.status(200).json(searchResult);
 
   } catch (err) {

@@ -12,6 +12,7 @@
   border: 1px solid $border-color;
   padding: 1rem;
   width: 100%;
+  background-color: $primary-color;
 
   .hr-with-title {
     @include flex-center;

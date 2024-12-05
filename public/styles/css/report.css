@@ -233,6 +233,9 @@ main .main-content .header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-bottom: 20px;
+  -webkit-column-gap: 40px;
+     -moz-column-gap: 40px;
+          column-gap: 40px;
 }
 main .main-content .header .clear-filters-btn,
 main .main-content .header .export-btn {
