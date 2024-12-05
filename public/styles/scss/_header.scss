@@ -11,12 +11,28 @@ header {
 
   background-color: $primary-color;
   height: 3.2rem;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
   box-shadow: 0 0 1px rgba(black, 0.25);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 8px;
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
+  h3 {
+    font-weight: 600;
+  }
 }
 
 .profile {
