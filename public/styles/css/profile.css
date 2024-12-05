@@ -31,13 +31,16 @@
   text-decoration: none;
 }
 
+/* Layout variables */
+/* Button variables */
+/* Border variables */
 header {
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   z-index: 1;
-  background-color: #f5f5f5;
+  background-color: #f1f3fa;
   height: 3.2rem;
   padding: 0 2rem;
   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
@@ -113,12 +116,12 @@ header {
           user-select: none;
 }
 .profile .dropdown-menu .dropdown-item:hover {
-  background-color: #e0e0e0;
+  background-color: #cbd3ed;
   cursor: pointer;
   color: #333;
 }
 .profile .dropdown-menu .dropdown-item:active {
-  background-color: #d0d0d0;
+  background-color: #a6b3df;
   color: #111;
 }
 .profile .show {
@@ -139,7 +142,7 @@ main {
 main .side-nav {
   position: fixed;
   min-height: 100%;
-  background-color: #f5f5f5;
+  background-color: #f1f3fa;
   overflow: hidden;
   -webkit-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
@@ -156,11 +159,11 @@ main .side-nav .toggle-wrapper .toggle-btn {
   transition: 0.25s;
 }
 main .side-nav .toggle-wrapper .toggle-btn:hover {
-  background-color: #dcdcdc;
+  background-color: #cbd3ed;
   color: black;
 }
 main .side-nav .toggle-wrapper .toggle-btn:active {
-  background-color: #bfbfbf;
+  background-color: #a6b3df;
 }
 main .side-nav .menu-link {
   text-decoration: none;
@@ -178,11 +181,11 @@ main .side-nav .menu-link i {
   margin-right: 1rem;
 }
 main .side-nav .menu-link:hover {
-  background-color: #dcdcdc;
+  background-color: #cbd3ed;
   color: black;
 }
 main .side-nav .menu-link:active {
-  background-color: #bfbfbf;
+  background-color: #a6b3df;
 }
 main .side-nav .isActive {
   background-color: white;
@@ -209,7 +212,7 @@ main .main-content {
 }
 
 .base-button, .change-password-form #col-2 .row-4 button, .personal-info-form #col-3 .row-6 button, .personal-info-form #col-2 label {
-  background-color: #f5f5f5;
+  background-color: #f1f3fa;
   padding: 6px 12px;
   border: 1px solid #d9d9d9;
   font-size: 14px;
@@ -223,11 +226,11 @@ main .main-content {
   transition: all 0.25s;
 }
 .base-button:hover, .change-password-form #col-2 .row-4 button:hover, .personal-info-form #col-3 .row-6 button:hover, .personal-info-form #col-2 label:hover {
-  background-color: #dcdcdc;
+  background-color: #cbd3ed;
   color: black;
 }
 .base-button:active, .change-password-form #col-2 .row-4 button:active, .personal-info-form #col-3 .row-6 button:active, .personal-info-form #col-2 label:active {
-  background-color: #bfbfbf;
+  background-color: #a6b3df;
 }
 
 .alert-success {

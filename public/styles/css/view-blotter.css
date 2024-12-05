@@ -31,13 +31,16 @@
   text-decoration: none;
 }
 
+/* Layout variables */
+/* Button variables */
+/* Border variables */
 header {
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   z-index: 1;
-  background-color: #f5f5f5;
+  background-color: #f1f3fa;
   height: 3.2rem;
   padding: 0 2rem;
   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
@@ -113,12 +116,12 @@ header {
           user-select: none;
 }
 .profile .dropdown-menu .dropdown-item:hover {
-  background-color: #e0e0e0;
+  background-color: #cbd3ed;
   cursor: pointer;
   color: #333;
 }
 .profile .dropdown-menu .dropdown-item:active {
-  background-color: #d0d0d0;
+  background-color: #a6b3df;
   color: #111;
 }
 .profile .show {
@@ -158,7 +161,7 @@ main {
 main .side-nav {
   position: fixed;
   min-height: 100%;
-  background-color: #f5f5f5;
+  background-color: #f1f3fa;
   overflow: hidden;
   -webkit-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
@@ -175,11 +178,11 @@ main .side-nav .toggle-wrapper .toggle-btn {
   transition: 0.25s;
 }
 main .side-nav .toggle-wrapper .toggle-btn:hover {
-  background-color: #dcdcdc;
+  background-color: #cbd3ed;
   color: black;
 }
 main .side-nav .toggle-wrapper .toggle-btn:active {
-  background-color: #bfbfbf;
+  background-color: #a6b3df;
 }
 main .side-nav .menu-link {
   text-decoration: none;
@@ -197,11 +200,11 @@ main .side-nav .menu-link i {
   margin-right: 1rem;
 }
 main .side-nav .menu-link:hover {
-  background-color: #dcdcdc;
+  background-color: #cbd3ed;
   color: black;
 }
 main .side-nav .menu-link:active {
-  background-color: #bfbfbf;
+  background-color: #a6b3df;
 }
 main .side-nav .isActive {
   background-color: white;
@@ -233,7 +236,7 @@ main .main-content .search-bar-wrapper input {
   font-size: 1rem;
   width: 50%;
   min-width: 400px;
-  background-color: #f5f5f5;
+  background-color: #f1f3fa;
   border: none;
   border-radius: 50px;
   outline: none;
@@ -266,7 +269,7 @@ main .main-content table thead tr th {
   border-bottom: 1px solid #C7C7C7;
 }
 main .main-content table thead tr th:hover {
-  background-color: #f5f5f5;
+  background-color: #f1f3fa;
 }
 main .main-content table thead tr th i {
   margin-left: 10px;
@@ -280,7 +283,7 @@ main .main-content table tbody tr {
   border-bottom: 1px solid #C7C7C7;
 }
 main .main-content table tbody tr:hover {
-  background-color: #f5f5f5;
+  background-color: #f1f3fa;
 }
 main .main-content table tbody .highlighted {
   background-color: #c2e7ff;
@@ -326,10 +329,10 @@ main .main-content table .ellipsis-menu {
   transition: 0.25s;
 }
 main .main-content table .ellipsis-menu:hover {
-  background-color: #dcdcdc;
+  background-color: #cbd3ed;
 }
 main .main-content table .ellipsis-menu:active {
-  background-color: #c3c3c3;
+  background-color: #a6b3df;
 }
 
 .dropdown {
@@ -377,8 +380,8 @@ main .main-content table .ellipsis-menu:active {
   padding-left: 0.7rem;
 }
 .dropdown .dropdown-menu .dropdown-item:hover {
-  background-color: #f5f5f5;
+  background-color: #f1f3fa;
 }
 .dropdown .dropdown-menu .dropdown-item:active {
-  background-color: #e8e8e8;
+  background-color: #dee3f3;
 }/*# sourceMappingURL=view-blotter.css.map */

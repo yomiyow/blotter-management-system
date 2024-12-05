@@ -1,12 +1,12 @@
 /* Layout variables */
 
-$primary-color: #f5f5f5;
+$primary-color: #f1f3fa;
 $grey: #808080;
 $blue: #007bff;
 
 /* Button variables */
-$btn-color-hover: #dcdcdc;
-$btn-color-active: #bfbfbf;
+$btn-color-hover: darken($primary-color, 10%);
+$btn-color-active: darken($primary-color, 20%);
 
 /* Border variables */
 $border-color: #d9d9d9;

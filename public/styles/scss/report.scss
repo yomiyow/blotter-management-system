@@ -27,6 +27,7 @@ main {
       .clear-filters-btn,
       .export-btn {
         flex-shrink: 0;
+        background-color: $primary-color;
 
         &:hover {
           background-color: $btn-color-hover;

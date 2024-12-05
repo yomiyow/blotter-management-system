@@ -18,13 +18,16 @@
   text-decoration: none;
 }
 
+/* Layout variables */
+/* Button variables */
+/* Border variables */
 header {
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   z-index: 1;
-  background-color: #f5f5f5;
+  background-color: #f1f3fa;
   height: 3.2rem;
   padding: 0 2rem;
   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
@@ -100,12 +103,12 @@ header {
           user-select: none;
 }
 .profile .dropdown-menu .dropdown-item:hover {
-  background-color: #e0e0e0;
+  background-color: #cbd3ed;
   cursor: pointer;
   color: #333;
 }
 .profile .dropdown-menu .dropdown-item:active {
-  background-color: #d0d0d0;
+  background-color: #a6b3df;
   color: #111;
 }
 .profile .show {
