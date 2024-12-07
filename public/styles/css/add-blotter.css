@@ -323,6 +323,9 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
+  /* Layout variables */
+  /* Button variables */
+  /* Border variables */
 }
 main .side-nav {
   position: fixed;

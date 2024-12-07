@@ -321,6 +321,9 @@ main {
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
   padding-top: 3.2rem;
+  /* Layout variables */
+  /* Button variables */
+  /* Border variables */
 }
 main .side-nav {
   position: fixed;

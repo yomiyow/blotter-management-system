@@ -157,6 +157,9 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  /* Layout variables */
+  /* Button variables */
+  /* Border variables */
 }
 main .side-nav {
   position: fixed;
