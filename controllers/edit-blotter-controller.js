@@ -1,5 +1,6 @@
 const Blotter = require('../models/blotter.js');
 const { connectToDatabase } = require('../models/db-connection.js');
+const sendEmail = require('../services/email-service.js');
 
 async function getBlotterById(req, res) {
   const blotterId = req.query.blotterId;
@@ -133,6 +134,13 @@ async function updateBlotterById(req, res) {
       message: 'Blotter updated successfully.'
     });
 
+    // send email only if status has changed
+    const query = 'SELECT status FROM blotter WHERE blotter_id = ?';
+    const [originalBlotter] = await connection.query(query, [blotterId]);
+    if (originalBlotter[0].status !== blotter.status) {
+      await sendEmailToComplainant(blotter);
+    }
+
   } catch (err) {
     await connection.rollback();
     res.status(500).json({ error: 'Failed to update blotter record' });
@@ -142,6 +150,33 @@ async function updateBlotterById(req, res) {
   } finally {
     connection.end();
   }
+}
+
+async function sendEmailToComplainant(blotter) {
+  const complainantEmail = blotter.comEmail;
+  const emailSubject = 'Update on your Blotter Status'
+  const emailText = `
+    <p>Dear <strong>${blotter.comFirstname} ${blotter.comMiddlename} ${blotter.comLastname}</strong>,</p>
+    <p>
+      We are writing to inform you that the status of your complaint with Blotter ID: <strong>${blotter.blotterId}</strong> has been updated. 
+      The current status is: <strong>${blotter.status}</strong>.
+    </p>
+    <p>
+      Please do not hesitate to contact us if you have any questions or require further assistance regarding your complaint.
+    </p>
+    <p>
+      Thank you for your cooperation.
+    </p>
+    <p>
+      Sincerely,<br>
+      <strong>Malolos City Police Station</strong><br>
+      Address: Malolos Bulacan<br>
+      Phone: 0933-610-4327<br>
+      Facebook: Malolos Cps Bulacan Ppo
+      Email: maloloscitypolice@gmail.com
+    </p>
+  `;
+  await sendEmail(complainantEmail, emailSubject, emailText);
 }
 
 module.exports = { getBlotterById, updateBlotterById };
