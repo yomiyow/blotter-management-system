@@ -82,6 +82,16 @@ async function updateBlotterById(req, res) {
 
     await connection.beginTransaction();
 
+    // send email only if status has changed
+    const query = 'SELECT status FROM blotter WHERE blotter_id = ?';
+    const [originalBlotter] = await connection.query(query, [blotterId]);
+    console.log(originalBlotter[0].status);
+    console.log(blotter.status);
+
+    if (originalBlotter[0].status !== blotter.status) {
+      sendEmailToComplainant(blotter);
+    }
+
     // complainant Table
     const updateComplainantQuery = `
       UPDATE complainant
@@ -134,13 +144,6 @@ async function updateBlotterById(req, res) {
       message: 'Blotter updated successfully.'
     });
 
-    // send email only if status has changed
-    const query = 'SELECT status FROM blotter WHERE blotter_id = ?';
-    const [originalBlotter] = await connection.query(query, [blotterId]);
-    if (originalBlotter[0].status !== blotter.status) {
-      await sendEmailToComplainant(blotter);
-    }
-
   } catch (err) {
     await connection.rollback();
     res.status(500).json({ error: 'Failed to update blotter record' });
@@ -158,7 +161,9 @@ async function sendEmailToComplainant(blotter) {
   const emailText = `
     <p>Dear <strong>${blotter.comFirstname} ${blotter.comMiddlename} ${blotter.comLastname}</strong>,</p>
     <p>
-      We are writing to inform you that the status of your complaint with Blotter ID: <strong>${blotter.blotterId}</strong> has been updated. 
+      We are writing to inform you that the status of your complaint with Blotter ID: <strong>${blotter.blotterId}</strong> has been updated.
+    </p>
+    <p>
       The current status is: <strong>${blotter.status}</strong>.
     </p>
     <p>
@@ -172,11 +177,15 @@ async function sendEmailToComplainant(blotter) {
       <strong>Malolos City Police Station</strong><br>
       Address: Malolos Bulacan<br>
       Phone: 0933-610-4327<br>
-      Facebook: Malolos Cps Bulacan Ppo
+      Facebook: Malolos Cps Bulacan Ppo<br>
       Email: maloloscitypolice@gmail.com
     </p>
   `;
-  await sendEmail(complainantEmail, emailSubject, emailText);
+  try {
+    await sendEmail(complainantEmail, emailSubject, emailText);
+  } catch (err) {
+    console.error("Error sending email: ", err);
+  }
 }
 
 module.exports = { getBlotterById, updateBlotterById };

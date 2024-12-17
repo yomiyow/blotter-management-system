@@ -14,15 +14,9 @@ function sendEmail(to, subject, html) {
     to,
     subject,
     html
-  }
+  };
 
   return transporter.sendMail(mailOptions);
 }
-
-const to = 'miyomercadoquinones21@gmail.com';
-const subject = 'Update on Your Complaint Status';
-const text = 'Sample text message';
-
-sendEmail(to, subject, text);
 
 module.exports = sendEmail;
